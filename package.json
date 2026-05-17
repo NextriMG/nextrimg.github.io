@@ -1,0 +1,19 @@
+{
+  "name": "nextri",
+  "scripts": {
+    "minify:js": "npx terser src/assets/js/main.js --compress --mangle -o src/assets/js/main.min.js",
+    "minify:css": "npx @tailwindcss/cli -i src/assets/css/style.css -o src/assets/css/style.min.css --minify",
+    "watch:css":"npx @tailwindcss/cli -i src/assets/css/style.css -o src/assets/css/style.min.css --watch --minify",
+    "build": "node build.js",
+    "dev": "npx serve dist -p 5500"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "tailwindcss": "^4.2.4",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.46.2"
+  }
+}

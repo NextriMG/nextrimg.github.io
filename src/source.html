@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/svg+xml" href="assets/img/trio.svg">
+    <title>Nextri — Fullstack Engineers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+</head>
+<body>
+
+<div id="intro">
+    <div id="boot-screen">
+        <div id="boot-log"></div>
+    </div>
+    <div id="lock-screen" onclick="enterDesktop()">
+        <div id="intro-mesh">
+            <canvas id="mesh-canvas"></canvas>
+        </div>
+        <div class="lock-inner">
+            <div class="lock-clock-row">
+                <div class="lock-time" id="lock-clock">--:--</div>
+                <div class="lock-date" id="lock-date"></div>
+            </div>
+            <div class="lock-hero">
+                <div class="lock-brand">Nextri</div>
+                <div class="lock-claim">Co-construire vos ambitions</div>
+                <div class="lock-sub">Trois ingénieurs fullstack &middot; Antananarivo, Madagascar</div>
+            </div>
+            <div class="lock-members">
+                <div class="lock-member">
+                    <div class="lock-av" style="background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
+                    <div class="lock-member-info">
+                        <div class="lock-member-name">Lionel Ratovo</div>
+                        <div class="lock-member-role">Backend &amp; Data</div>
+                    </div>
+                </div>
+                <div class="lock-member-sep"></div>
+                <div class="lock-member">
+                    <div class="lock-av" style="background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
+                    <div class="lock-member-info">
+                        <div class="lock-member-name">Itokiana Rajohnson</div>
+                        <div class="lock-member-role">Full Stack Sr</div>
+                    </div>
+                </div>
+                <div class="lock-member-sep"></div>
+                <div class="lock-member">
+                    <div class="lock-av" style="background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
+                    <div class="lock-member-info">
+                        <div class="lock-member-name">Sitraka Rasatarivony</div>
+                        <div class="lock-member-role">DevOps &middot; DevSecOps</div>
+                    </div>
+                </div>
+            </div>
+            <div class="lock-hint">Appuyez sur <kbd class="lock-kbd">Entr&eacute;e</kbd> ou cliquez pour continuer</div>
+        </div>
+    </div>
+</div>
+
+<div id="desktop">
+    <canvas id="space-canvas"></canvas>
+    <div class="dsk-gfx"></div>
+    <div id="navbar">
+        <div id="nav-logo">Nextri</div>
+        <div id="nav-apps"></div>
+        <div id="nav-tray">
+            <div id="nav-status"></div>
+            <div id="nav-clock">00:00</div>
+        </div>
+    </div>
+    <div id="dsk-icons">
+        <div class="dsk-icon" ondblclick='WM.open("terminal")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/terminal.svg" alt="terminal.app"></div>
+            <div class="dsk-icon-lbl">Terminal</div>
+        </div>
+        <div class="dsk-icon" ondblclick='WM.open("about")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/about.svg" alt="about.app"></div>
+            <div class="dsk-icon-lbl">Équipe</div>
+        </div>
+        <div class="dsk-icon" ondblclick='WM.open("projects")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/folder.svg" alt="folder.app"></div>
+            <div class="dsk-icon-lbl">Projets</div>
+        </div>
+        <div class="dsk-icon" ondblclick='WM.open("stack")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/stack.svg" alt="stack.app"></div>
+            <div class="dsk-icon-lbl">Stack</div>
+        </div>
+        <div class="dsk-icon" ondblclick='WM.open("contact")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/contact-us.svg" alt="contact-us.app">️</div>
+            <div class="dsk-icon-lbl">Contact</div>
+        </div>
+        <div class="dsk-icon" ondblclick='WM.open("readme")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/readme.svg" alt="readme.app"></div>
+            <div class="dsk-icon-lbl">README</div>
+        </div>
+    </div>
+    <div id="win-container"></div>
+</div>
+
+<div id="dock">
+    <div class="dock-item" data-app="about">
+        <div class="dock-btn" onclick='WM.open("about")' title="Équipe"><img src="assets/img/about-mobile.svg" alt="about.app"></div>
+        <span class="dock-dot"></span></div>
+    <div class="dock-item" data-app="projects">
+        <div class="dock-btn" onclick='WM.open("projects")' title="Projets"><img src="assets/img/folder-mobile.svg" alt="folder.app"></div>
+        <span class="dock-dot"></span></div>
+    <div class="dock-item" data-app="stack">
+        <div class="dock-btn" onclick='WM.open("stack")' title="Stack"><img src="assets/img/stack-mobile.svg" alt="stack.app"></div>
+        <span class="dock-dot"></span></div>
+    <div class="dock-item" data-app="contact">
+        <div class="dock-btn" onclick='WM.open("contact")' title="Contact"><img src="assets/img/contact-us-mobile.svg" alt="contact-us.app"></div>
+        <span class="dock-dot"></span></div>
+    <!-- <div class="dock-item" data-app="terminal">
+        <div class="dock-btn" onclick='WM.open("terminal")' title="Terminal"><img src="assets/img/terminal-mobile.svg" alt="terminal.app"></div>
+        <span class="dock-dot"></span></div> -->
+</div>
+
+<div id="notif">
+    <div id="notif-dot"></div>
+    <div>
+        <div id="notif-title">Nextri</div>
+        <div id="notif-body"></div>
+    </div>
+</div>
+
+<div id="ctx">
+    <div class="ctx-i" onclick='WM.open("about"),hideCtx()'><img src="assets/img/about.svg" alt="about.app"> Équipe</div>
+    <div class="ctx-i" onclick='WM.open("projects"),hideCtx()'><img src="assets/img/folder.svg" alt="folder.app"> Projets</div>
+    <div class="ctx-i" onclick='WM.open("contact"),hideCtx()'><img src="assets/img/contact-us.svg" alt="contact-us.app"> Contact</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-i" onclick="WM.openAll(),hideCtx()"><img src="assets/img/open-folder.svg" alt="open-folder.app"> Tout ouvrir</div>
+    <div class="ctx-i" onclick="WM.closeAll(),hideCtx()">✕ Tout fermer</div>
+    <div class="ctx-sep"></div>
+    <div class="ctx-i" onclick="hideCtx()">↩ Annuler <span class="ctx-k">Esc</span></div>
+</div>
+<template id="tpl-about">
+    <div class="win-scroll">
+        <div class="ap">
+            <div class="ap-eyebrow">L'équipe</div>
+            <div class="ap-h1">Trois ingénieurs. Une vision.</div>
+            <p class="ap-p">Diplômés du <strong style="color:var(--text-bright)">Master II MBDS</strong> — Université Côte d'Azur &amp; ITUniversity Madagascar, nous formons une équipe fullstack complémentaire capable d'intervenir sur l'intégralité du cycle de développement. De l'architecture backend aux interfaces utilisateur, en passant par l'infrastructure et l'automatisation.</p>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Membres · clic pour ouvrir le profil</div>
+            <div class="mbr" onclick="WM.open('member-lionel')">
+                <div class="mbr-hd">
+                    <div class="mbr-av" style="background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
+                    <div style="flex:1;min-width:0">
+                        <div class="mbr-name">Lionel Ratovo</div>
+                        <div class="mbr-role">Technical Project Lead · Backend & Data Engineer</div>
+                        <div class="mbr-formation">Java · Node.js · PostgreSQL · Oracle · Docker</div>
+                    </div>
+                    <div class="mbr-arr" style="font-size:13px">↗</div>
+                </div>
+            </div>
+            <div class="mbr" onclick="WM.open('member-itokiana')">
+                <div class="mbr-hd">
+                    <div class="mbr-av" style="background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
+                    <div style="flex:1;min-width:0">
+                        <div class="mbr-name">Itokiana Rajohnson</div>
+                        <div class="mbr-role">Full Stack Senior · Assistant Chef de Projet</div>
+                        <div class="mbr-formation">Java · Spring Boot · Angular · Ionic · Scrum</div>
+                    </div>
+                    <div class="mbr-arr" style="font-size:13px">↗</div>
+                </div>
+            </div>
+            <div class="mbr" onclick="WM.open('member-sitraka')">
+                <div class="mbr-hd">
+                    <div class="mbr-av" style="background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
+                    <div style="flex:1;min-width:0">
+                        <div class="mbr-name">Sitraka Rasatarivony</div>
+                        <div class="mbr-role">Full Stack · DevOps · DevSecOps</div>
+                        <div class="mbr-formation">Spring Boot · NestJS · FastAPI · React · Docker · CI/CD</div>
+                    </div>
+                    <div class="mbr-arr" style="font-size:13px">↗</div>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Valeurs</div>
+            <div class="val-item">
+                <div class="val-title">Accompagnement</div>
+                <p class="val-desc">Implication sur la durée, disponibilité et réactivité. Nous visons une réponse sous 24h et un suivi actif tout au long du cycle projet — du cadrage initial jusqu'à la mise en production.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-title">Polyvalence</div>
+                <p class="val-desc">Capacité à intervenir sur l'ensemble du cycle projet sans changer d'interlocuteur : architecture, développement backend et frontend, infrastructure, automatisation, pilotage de tests.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-title">Efficacité</div>
+                <p class="val-desc">Priorité à la livraison de solutions fonctionnelles, maintenables et sans dette technique cachée. Chaque choix technique est justifié, documenté et validé avec le client.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-title">Transparence</div>
+                <p class="val-desc">Communication directe sur l'avancement, les choix techniques et les contraintes rencontrées. Pas de surprises en fin de sprint — les problèmes sont signalés dès qu'ils apparaissent.</p>
+            </div>
+        </div>
+        <div class="ap" style="padding-top:14px;padding-bottom:14px">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <span class="tag">ITUniversity Madagascar</span>
+                <span class="tag">Université Côte d'Azur</span>
+                <span class="tag">Antananarivo · MG</span>
+                <span class="tag">Master II MBDS</span>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-member-lionel">
+    <div class="win-scroll">
+        <div class="ap">
+            <div style="display:flex;align-items:center;gap:16px">
+                <div class="mbr-av" style="width:56px;height:56px;font-size:22px;flex-shrink:0;background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
+                <div>
+                    <div class="ap-h1" style="margin-bottom:3px">Lionel Ratovo</div>
+                    <div class="mbr-role">Technical Project Lead · Backend & Data Engineer</div>
+                    <div class="mbr-formation">Master II MBDS · Université Côte d'Azur & ITUniversity Madagascar (2022–2023)</div>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Profil</div>
+            <p class="ap-p">Architecte backend et data engineer avec une expérience avérée sur des projets à dimension internationale. Lionel intervient sur la conception de solutions applicatives complexes — APIs REST, pipelines de données, modélisation SQL avancée — et assure la coordination technique entre équipes et parties prenantes. Sa double compétence en développement et en data engineering lui permet d'aborder des systèmes à forts volumes avec rigueur.</p>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Compétences</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">API REST</span><span class="tag">Angular</span><span class="tag">Ionic</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">MongoDB</span><span class="tag">SQL Server</span><span class="tag">Docker</span><span class="tag">Jira</span><span class="tag">Git</span></div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Expériences</div>
+            <div class="exp-list">
+                <div class="exp-item">
+                    <div class="exp-title">Consultant IGNFI — Côte d'Ivoire</div>
+                    <div class="exp-period">jan. 2024 – présent</div>
+                    <p class="exp-desc">Développement et évolution du Système Intégré de Gestion du Foncier Urbain (SIF & Portail SIGFU) pour le Ministère de l'Urbanisme de Côte d'Ivoire. Coordination technique, conception backend, optimisation SQL avancée.</p>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-title">Consultant RAPP IO Mauritius — Data Engineer</div>
+                    <div class="exp-period">2022–2024</div>
+                    <p class="exp-desc">Traitement et transformation de données marketing pour GlaxoSmithKline (GSK) et Cartier. Optimisation de requêtes SQL sur de grands volumes, scripting d'automatisation de pipelines de données.</p>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-title">Consultant BICI Madagascar — Développeur</div>
+                    <div class="exp-period">2021</div>
+                    <p class="exp-desc">Développement de fonctionnalités applicatives backend et frontend et maintenance de systèmes en production.</p>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="mbr-links">
+                <a class="mbr-link" href="mailto:lionel@nextri.dev">✉ lionel@nextri.dev</a>
+                <a class="mbr-link" href="mailto:contact@nextri.dev">✉ contact@nextri.dev</a>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-member-itokiana">
+    <div class="win-scroll">
+        <div class="ap">
+            <div style="display:flex;align-items:center;gap:16px">
+                <div class="mbr-av" style="width:56px;height:56px;font-size:22px;flex-shrink:0;background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
+                <div>
+                    <div class="ap-h1" style="margin-bottom:3px">Itokiana Rajohnson</div>
+                    <div class="mbr-role">Full Stack Senior · Assistant Chef de Projet</div>
+                    <div class="mbr-formation">Master II MBDS · IT University / Université de Nice Sophia Antipolis (2022)</div>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Profil</div>
+            <p class="ap-p">Développeur fullstack avec 5 ans d'expérience, spécialisé dans l'intégration et l'optimisation de systèmes critiques. Profil hybride assurant la traduction des besoins clients vers les équipes techniques, la gestion de la qualité et le pilotage de cycles de tests en environnements agiles. À l'aise aussi bien sur le backend Java Spring Boot que sur Angular, Ionic ou les CMS d'entreprise (AEM, Sitecore).</p>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Compétences</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">PHP</span><span class="tag">API REST</span><span class="tag">Angular</span><span class="tag">Ionic</span><span class="tag">JavaScript</span><span class="tag">ExtJS</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">AEM</span><span class="tag">Sitecore</span><span class="tag">Git</span><span class="tag">Jira</span><span class="tag">Agile/Scrum</span></div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Expériences</div>
+            <div class="exp-list">
+                <div class="exp-item">
+                    <div class="exp-title">Consultant IGNFI — Abidjan, Côte d'Ivoire</div>
+                    <div class="exp-period">jan. 2024 – présent</div>
+                    <p class="exp-desc">Développement fullstack sur le projet SIF & Portail SIGFU (Ministère de l'Urbanisme). Recueil des besoins clients, rédaction de spécifications techniques, pilotage de la passerelle test↔développement.</p>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-title">BICI Madagascar — Développeur Java / Assistant Chef de Projet</div>
+                    <div class="exp-period">2021, 2023–2024</div>
+                    <p class="exp-desc">Gestion de la facturation et des opérations portuaires (SPAT Capitainerie, ~100 utilisateurs). Coordination entre clients, développeurs locaux et distants.</p>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-title">RAPP IO Mauritius / BICI — Lead Webmaster</div>
+                    <div class="exp-period">2021–2023</div>
+                    <p class="exp-desc">Management technique d'une équipe locale pour des clients internationaux : Mercedes-Benz, Smart, Pampers.</p>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Projets significatifs</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">Akaiky</span><span class="tag">Ketrika.com</span><span class="tag">Kotikota</span><span class="tag">Magilux ERP</span><span class="tag">CEMEDI</span></div>
+        </div>
+        <div class="ap">
+            <div class="mbr-links">
+                <a class="mbr-link" href="mailto:itokiana@nextri.dev">✉ itokiana@nextri.dev</a>
+                <a class="mbr-link" href="mailto:contact@nextri.dev">✉ contact@nextri.dev</a>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-member-sitraka">
+    <div class="win-scroll">
+        <div class="ap">
+            <div style="display:flex;align-items:center;gap:16px">
+                <div class="mbr-av" style="width:56px;height:56px;font-size:22px;flex-shrink:0;background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
+                <div>
+                    <div class="ap-h1" style="margin-bottom:3px">Sitraka Rasatarivony</div>
+                    <div class="mbr-role">Full Stack · DevOps · DevSecOps</div>
+                    <div class="mbr-formation">Master II MIAGE · Université Côte d'Azur & ITUniversity Madagascar (2023–2025)</div>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Profil</div>
+            <p class="ap-p">Développeur fullstack avec plus de 2 ans d'expérience en environnement de production. Maîtrise complète de la chaîne de développement, de la conception backend à l'interface utilisateur, avec une expertise confirmée en DevOps et pratiques DevSecOps. Accent fort sur la qualité du code, la performance et la fiabilité des systèmes déployés.</p>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Compétences</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">NestJS</span><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">TypeScript</span><span class="tag">Angular</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">ClickHouse</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">System Design</span><span class="tag">Clean Code</span></div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Certification</div>
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(245,200,66,.3);border-radius:8px;background:rgba(245,200,66,.06)">
+                <span style="color:var(--yellow);font-size:13px">✦</span>
+                <div>
+                    <div style="font-size:12.5px;font-weight:600;color:var(--text-bright)">DevSecOps Professional Course</div>
+                    <div style="font-size:11px;color:var(--text-dim)">Practical DevSecOps · jan. 2024</div>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Expériences</div>
+            <div class="exp-list">
+                <div class="exp-item">
+                    <div class="exp-title">Stellar-IX (Axian Group) — Développeur Full Stack</div>
+                    <div class="exp-period">sept. 2022 – jan. 2025</div>
+                    <p class="exp-desc">Développement de modules backend et frontend pour des applications internes en production. Réduction du temps de réponse de 25 % par optimisation du code. Mise en œuvre de pratiques DevOps (CI/CD, Docker) pour garantir la stabilité des déploiements.</p>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-title">Ingenosya Madagascar — Stagiaire Développeur Mobile</div>
+                    <div class="exp-period">août 2021 – fév. 2022</div>
+                    <p class="exp-desc">Développement et déploiement d'applications mobiles en environnement Agile. Optimisations UX/UI centrées utilisateur.</p>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="mbr-links">
+                <a class="mbr-link" href="mailto:sitraka@nextri.dev">✉ sitraka@nextri.dev</a>
+                <a class="mbr-link" href="mailto:contact@nextri.dev">✉ contact@nextri.dev</a>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-projects">
+    <div class="win-scroll">
+        <div class="ap">
+            <div class="ap-eyebrow">Réalisations · clic pour les détails</div>
+            <div class="ap-h1">30+ projets livrés</div>
+        </div>
+        <div class="ap">
+            <div class="proj-card" onclick="toggleProj(this)">
+                <div class="proj-hd">
+                    <div class="proj-ico">🏛️</div>
+                    <div style="flex:1">
+                        <div class="proj-name">SIF & Portail SIGFU</div>
+                        <div class="proj-sub">Système Intégré de Gestion du Foncier Urbain · Ministère de l'Urbanisme CI</div>
+                    </div>
+                    <div class="proj-meta">
+                        <div class="proj-tech">Angular + Spring Boot</div>
+                        <div class="proj-yr">2024 →</div>
+                    </div>
+                    <div class="proj-arr">▾</div>
+                </div>
+                <div class="proj-detail">
+                    <div class="proj-di">
+                        <div class="proj-dtitle">IGNFI — Abidjan, Côte d'Ivoire</div>
+                        <p class="proj-dp">Développement et évolution du Système Intégré de Gestion du Foncier Urbain pour le Ministère de l'Urbanisme de Côte d'Ivoire. Conception backend, optimisation SQL avancée, recueil des besoins clients et rédaction de spécifications techniques. Pilotage de la passerelle test↔développement. Mission en cours depuis janvier 2024 — Lionel (coordination technique) et Itokiana (fullstack).</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px"><span class="tag">Angular</span><span
+                                class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span
+                                class="tag">REST API</span><span class="tag">Jira</span><span class="tag">Agile</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-card" onclick="toggleProj(this)">
+                <div class="proj-hd">
+                    <div class="proj-ico">📊</div>
+                    <div style="flex:1">
+                        <div class="proj-name">Data Engineering GSK & Cartier</div>
+                        <div class="proj-sub">Traitement de données marketing · RAPP IO Mauritius</div>
+                    </div>
+                    <div class="proj-meta">
+                        <div class="proj-tech">Python · SQL</div>
+                        <div class="proj-yr">2022–2024</div>
+                    </div>
+                    <div class="proj-arr">▾</div>
+                </div>
+                <div class="proj-detail">
+                    <div class="proj-di">
+                        <div class="proj-dtitle">RAPP IO Mauritius — Data Engineer</div>
+                        <p class="proj-dp">Traitement et transformation de données marketing à grande échelle pour GlaxoSmithKline (GSK) et Cartier. Optimisation de requêtes SQL sur de grands volumes, scripting d'automatisation de pipelines de données. Mission Lionel en tant que consultant data engineer.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px"><span class="tag">Python</span><span
+                                class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span
+                                class="tag">Automatisation</span><span class="tag">ETL</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-card" onclick="toggleProj(this)">
+                <div class="proj-hd">
+                    <div class="proj-ico">⚓</div>
+                    <div style="flex:1">
+                        <div class="proj-name">BICI — Capitainerie SPAT</div>
+                        <div class="proj-sub">Gestion des opérations portuaires · ~100 utilisateurs</div>
+                    </div>
+                    <div class="proj-meta">
+                        <div class="proj-tech">Java · Angular</div>
+                        <div class="proj-yr">2021–2024</div>
+                    </div>
+                    <div class="proj-arr">▾</div>
+                </div>
+                <div class="proj-detail">
+                    <div class="proj-di">
+                        <div class="proj-dtitle">BICI Madagascar — Développeur Java / Chef de Projet adjoint</div>
+                        <p class="proj-dp">Gestion de la facturation et des opérations portuaires pour la SPAT Capitainerie, environ 100 utilisateurs en production. Coordination entre clients, développeurs locaux et distants. Itokiana a assuré le pilotage technique et la maintenance des fonctionnalités applicatives en continu sur plusieurs années.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px"><span class="tag">Java</span><span
+                                class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span
+                                class="tag">REST API</span><span class="tag">Scrum</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-card" onclick="toggleProj(this)">
+                <div class="proj-hd">
+                    <div class="proj-ico">🚀</div>
+                    <div style="flex:1">
+                        <div class="proj-name">Stellar-IX — Modules Production</div>
+                        <div class="proj-sub">Applications internes · Axian Group · CI/CD & DevOps</div>
+                    </div>
+                    <div class="proj-meta">
+                        <div class="proj-tech">Spring Boot + Angular</div>
+                        <div class="proj-yr">2022–2025</div>
+                    </div>
+                    <div class="proj-arr">▾</div>
+                </div>
+                <div class="proj-detail">
+                    <div class="proj-di">
+                        <div class="proj-dtitle">Stellar-IX (Axian Group) — Full Stack Developer</div>
+                        <p class="proj-dp">Développement de modules backend et frontend pour des applications internes en production. Réduction du temps de réponse de 25 % par optimisation du code. Mise en œuvre de pratiques DevOps (CI/CD, Docker) pour garantir la stabilité des déploiements. Mission Sitraka — sept. 2022 à jan. 2025.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px"><span class="tag">Spring Boot</span><span
+                                class="tag">Angular</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span
+                                class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">DevSecOps</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-stack">
+    <div class="win-scroll">
+        <div class="ap">
+            <div class="ap-eyebrow">Stack technique</div>
+            <div class="ap-h1">Maîtrise fullstack complète</div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Langages & Frameworks</div>
+            <div class="sk-list">
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Java / Spring Boot</span><span class="sk-v">95%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".95"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Node.js / Express</span><span class="sk-v">93%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".93"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">TypeScript / JavaScript</span><span class="sk-v">92%</span>
+                    </div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".92"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Angular</span><span class="sk-v">90%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".90"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Next.js / React</span><span class="sk-v">88%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".88"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Python</span><span class="sk-v">85%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".85"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Bases de données & DevOps</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span
+                    class="tag">MySQL</span><span class="tag">ClickHouse</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">Docker</span><span
+                    class="tag">Git / GitHub</span><span class="tag">CI/CD</span><span class="tag">Nginx</span><span
+                    class="tag">Linux</span><span class="tag">REST API</span><span class="tag">GraphQL</span><span
+                    class="tag">OAuth 2.0</span><span class="tag">JWT</span><span class="tag">Tailwind CSS</span><span
+                    class="tag">Prisma</span></div>
+        </div>
+    </div>
+</template>
+<template id="tpl-contact">
+    <div class="win-scroll">
+        <div class="ap">
+            <div class="ap-eyebrow">Nous contacter</div>
+            <div class="ap-h1">Démarrons un projet</div>
+        </div>
+        <div class="ap">
+            <div class="cf-form" style="display:flex;flex-direction:column;gap:14px">
+                <div><label class="cf-lbl">Nom complet</label><input type="text" class="cf-inp"
+                                                                     placeholder="Jean Dupont"></div>
+                <div><label class="cf-lbl">Email</label><input type="email" class="cf-inp"
+                                                               placeholder="jean@entreprise.com"></div>
+                <div><label class="cf-lbl">Type de projet</label><select class="cf-inp" style="cursor:pointer">
+                    <option value="" style="background:#111">Sélectionner...</option>
+                    <option style="background:#111">Application Web</option>
+                    <option style="background:#111">API / Backend</option>
+                    <option style="background:#111">Projet Fullstack</option>
+                    <option style="background:#111">Automatisation</option>
+                    <option style="background:#111">Conseil / Audit</option>
+                </select></div>
+                <div><label class="cf-lbl">Message</label><textarea class="cf-inp" rows="3"
+                                                                    placeholder="Décrivez votre projet..."
+                                                                    style="resize:none"></textarea></div>
+                <button class="cf-btn" onclick="submitCF(this)">Envoyer le message</button>
+                <div class="cf-ok" style="display:none">✓ Message envoyé — réponse sous 24h.</div>
+            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Coordonnées</div>
+            <div style="display:flex;flex-direction:column;gap:9px">
+                <div class="cf-info-row">✉ contact@nextri.dev</div>
+                <div class="cf-info-row">📍 Antananarivo, Madagascar</div>
+                <div class="cf-info-row" style="color:var(--green)">● Disponible · Réponse sous 24h</div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-readme">
+    <div class="win-scroll">
+        <div class="rdm"><span class="ca" style="font-size:14px;font-weight:600"># Nextri — README</span><span
+                class="cd">═══════════════════════════════════</span><span></span><span class="cw">Nextri</span><span
+                class="cd">Formation : Master II MBDS · ITUniversity MG</span><span class="cd">Localité : Antananarivo, Madagascar</span><span
+                class="cd">Contact : contact@nextri.dev</span><span></span><span
+                class="ca">## Navigation</span><span><span class="cg">→</span> Double-clic icône pour ouvrir une fenêtre</span><span><span
+                class="cg">→</span> Barre de titre pour déplacer</span><span><span class="cg">→</span> Terminal pour explorer</span><span></span><span
+                class="ca">## Stack résumée</span><span>Java · TypeScript · JavaScript · Python</span><span>Spring Boot · Angular · Ionic · NestJS · Node.js · React · FastAPI</span><span>PostgreSQL · Oracle · MySQL · MongoDB · ClickHouse · SQL Server</span><span></span><span
+                class="cd">─────────────────────────────────────</span><span class="cd">© 2025 Nextri · Built with ❤ in Madagascar</span>
+        </div>
+    </div>
+</template>
+<template id="tpl-terminal">
+    <div class="term-wrap">
+        <div class="term-out"></div>
+        <div class="term-in-row"><span class="t-prompt">trio</span><span class="t-sep">@dev:~$</span><input
+                class="t-inp" type="text" placeholder="type 'help'" autocomplete="off" spellcheck="false"></div>
+    </div>
+</template>
+<script defer src="assets/js/main.min.js"></script>
+</body>
+</html>
