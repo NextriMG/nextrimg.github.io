@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+
+# Claude Code
+.agents/
+.claude/
+skills-lock.json
+.temp/
+
+# Playwright (MCP sessions & local test scripts)
+.playwright-mcp/
+pw-temp/
+
+# Graphify (generated knowledge graph)
+graphify-out/
+
+# Claude session artefacts
+docs/
+
+# Build output
+dist/
+
+# OS
+*.stackdump
+.DS_Store
+Thumbs.db
