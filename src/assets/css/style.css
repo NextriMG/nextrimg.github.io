@@ -1071,6 +1071,13 @@ html, body {
     margin-top: 2px
 }
 
+.proj-metric {
+    font-size: 10.5px;
+    color: var(--accent-success);
+    margin-top: 4px;
+    font-family: var(--mono)
+}
+
 .proj-meta {
     margin-left: auto;
     text-align: right;
