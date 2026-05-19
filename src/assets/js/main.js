@@ -519,7 +519,37 @@ function tickLockClock() {
 
 setInterval(tickLockClock, 30000)
 
-;(function runBoot() {
+// Show lock screen immediately — no boot on normal load
+;(function initLockScreen() {
+    const boot = document.getElementById('boot-screen')
+    const lock = document.getElementById('lock-screen')
+    if (boot) boot.style.display = 'none'
+    if (lock) { lock.classList.add('ls-visible'); tickLockClock() }
+})()
+
+// Boot easter egg — Ctrl+B or Konami code (mobile: disabled)
+function triggerBoot() {
+    if (window.innerWidth < 768) return
+    const intro = document.getElementById('intro')
+    if (!intro || intro.style.display === 'none') return
+    const boot = document.getElementById('boot-screen')
+    if (!boot) return
+    boot.style.display = ''
+    boot.style.opacity = '1'
+    boot.style.transition = ''
+    const log = document.getElementById('boot-log')
+    log.innerHTML = ''
+    let done = false
+    function endBoot() {
+        if (done) return
+        done = true
+        boot.style.transition = 'opacity .4s ease'
+        boot.style.opacity = '0'
+        setTimeout(() => { boot.style.display = 'none'; boot.style.transition = '' }, 420)
+    }
+    document.addEventListener('click', endBoot, { once: true })
+    document.addEventListener('keydown', endBoot, { once: true })
+    setTimeout(endBoot, 1500)
     const lines = [
         `<span class="bl-ts">[  0.000000]</span> <span class="bl-hi">${BRAND}</span> portfolio kernel v2.0`,
         `<span class="bl-ts">[  0.038241]</span> Detected 3 Fullstack Developer cores`,
@@ -533,28 +563,24 @@ setInterval(tickLockClock, 30000)
         `<span class="bl-ts">[  0.821905]</span> <span class="bl-ok">[  OK  ]</span> All systems operational`,
     ]
     const delays = [0, 90, 180, 290, 370, 450, 540, 620, 760, 900]
-    const log = document.getElementById('boot-log')
-    if (!log) return
-    lines.forEach((html, i) => {
-        setTimeout(() => {
-            const el = document.createElement('div')
-            el.className = 'boot-line'
-            el.innerHTML = html
-            log.appendChild(el)
-        }, delays[i])
+    lines.forEach((html, i) => setTimeout(() => {
+        if (done) return
+        const el = document.createElement('div')
+        el.className = 'boot-line'
+        el.innerHTML = html
+        log.appendChild(el)
+    }, delays[i]))
+}
+
+// Konami: ↑↑↓↓←→←→BA
+;(function initEasterEgg() {
+    const KONAMI = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
+    let ki = 0
+    document.addEventListener('keydown', e => {
+        if (e.ctrlKey && e.key === 'b') { triggerBoot(); return }
+        if (e.keyCode === KONAMI[ki]) { ki++; if (ki === KONAMI.length) { ki = 0; triggerBoot() } }
+        else ki = 0
     })
-    setTimeout(() => {
-        const boot = document.getElementById('boot-screen')
-        const lock = document.getElementById('lock-screen')
-        if (boot) {
-            boot.style.opacity = '0'
-            setTimeout(() => { boot.style.display = 'none' }, 600)
-        }
-        if (lock) {
-            lock.classList.add('ls-visible')
-            tickLockClock()
-        }
-    }, 900 + 420)
 })()
 
 ;(async function initSpace() {
