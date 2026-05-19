@@ -142,22 +142,50 @@
         <div class="ap">
             <div class="ap-eyebrow">L'équipe</div>
             <div class="ap-h1">Trois ingénieurs. Une vision.</div>
-            <p class="ap-p">Diplômés du <strong style="color:var(--text-bright)">Master II MBDS</strong> — Université Côte d'Azur &amp; ITUniversity Madagascar, nous formons une équipe fullstack complémentaire capable d'intervenir sur l'intégralité du cycle de développement. De l'architecture backend aux interfaces utilisateur, en passant par l'infrastructure et l'automatisation.</p>
+            <p class="ap-p">Un projet fullstack complet ne devrait pas nécessiter trois agences différentes. Lionel architecture les données. Itokiana pilote le développement. Sitraka déploie et sécurise. <strong style="color:var(--text-bright)">Vous n'avez qu'un seul contact.</strong></p>
         </div>
         <div class="ap">
-            <div class="ap-eyebrow">Membres · clic pour ouvrir le profil</div>
-            <div class="mbr" onclick="WM.open('member-lionel')">
+            <div class="ap-eyebrow">Membres · clic pour déployer</div>
+            <div class="mbr" onclick="toggleMbr(this)">
                 <div class="mbr-hd">
                     <div class="mbr-av" style="background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
                     <div style="flex:1;min-width:0">
                         <div class="mbr-name">Lionel Ratovo</div>
-                        <div class="mbr-role">Technical Project Lead · Backend & Data Engineer</div>
+                        <div class="mbr-role">Technical Project Lead · Backend &amp; Data</div>
                         <div class="mbr-formation">Java · Node.js · PostgreSQL · Oracle · Docker</div>
                     </div>
-                    <div class="mbr-arr" style="font-size:13px">↗</div>
+                    <div class="mbr-arr">▾</div>
+                </div>
+                <div class="mbr-detail">
+                    <div class="mbr-detail-inner">
+                        <p class="mbr-bio">Architecte backend et data engineer, expérience avérée sur des projets à dimension internationale. Conception d'APIs REST, pipelines de données, modélisation SQL avancée, coordination technique entre équipes.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+                            <span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">MongoDB</span><span class="tag">Docker</span>
+                        </div>
+                        <div class="exp-list">
+                            <div class="exp-item">
+                                <div class="exp-title">IGNFI — Côte d'Ivoire</div>
+                                <div class="exp-period">jan. 2024 → présent</div>
+                                <div class="exp-desc">SIF &amp; Portail SIGFU · Ministère de l'Urbanisme CI · coordination technique backend</div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-title">RAPP IO Mauritius — Data Engineer</div>
+                                <div class="exp-period">2022–2024</div>
+                                <div class="exp-desc">GSK · Cartier · pipelines SQL grande échelle</div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-title">BICI Madagascar</div>
+                                <div class="exp-period">2021</div>
+                                <div class="exp-desc">Développeur backend &amp; frontend, systèmes en production</div>
+                            </div>
+                        </div>
+                        <div class="mbr-links" style="margin-top:14px">
+                            <a class="mbr-link" href="mailto:lionel@nextri.dev">✉ lionel@nextri.dev</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mbr" onclick="WM.open('member-itokiana')">
+            <div class="mbr" onclick="toggleMbr(this)">
                 <div class="mbr-hd">
                     <div class="mbr-av" style="background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
                     <div style="flex:1;min-width:0">
@@ -165,10 +193,38 @@
                         <div class="mbr-role">Full Stack Senior · Assistant Chef de Projet</div>
                         <div class="mbr-formation">Java · Spring Boot · Angular · Ionic · Scrum</div>
                     </div>
-                    <div class="mbr-arr" style="font-size:13px">↗</div>
+                    <div class="mbr-arr">▾</div>
+                </div>
+                <div class="mbr-detail">
+                    <div class="mbr-detail-inner">
+                        <p class="mbr-bio">Développeur fullstack 5 ans d'expérience, spécialisé dans l'intégration et l'optimisation de systèmes critiques. Profil hybride : traduction des besoins clients, pilotage qualité et tests en environnement agile.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+                            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">Ionic</span><span class="tag">PostgreSQL</span><span class="tag">AEM</span><span class="tag">Scrum</span>
+                        </div>
+                        <div class="exp-list">
+                            <div class="exp-item">
+                                <div class="exp-title">IGNFI — Abidjan, Côte d'Ivoire</div>
+                                <div class="exp-period">jan. 2024 → présent</div>
+                                <div class="exp-desc">SIF &amp; Portail SIGFU · fullstack, specs techniques, passerelle test↔dev</div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-title">BICI Madagascar — Dev / Chef de Projet adjoint</div>
+                                <div class="exp-period">2021, 2023–2024</div>
+                                <div class="exp-desc">SPAT Capitainerie · ~100 utilisateurs · facturation &amp; opérations portuaires</div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-title">RAPP IO Mauritius / BICI — Lead Webmaster</div>
+                                <div class="exp-period">2021–2023</div>
+                                <div class="exp-desc">Mercedes-Benz · Smart · Pampers</div>
+                            </div>
+                        </div>
+                        <div class="mbr-links" style="margin-top:14px">
+                            <a class="mbr-link" href="mailto:itokiana@nextri.dev">✉ itokiana@nextri.dev</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="mbr" onclick="WM.open('member-sitraka')">
+            <div class="mbr" onclick="toggleMbr(this)">
                 <div class="mbr-hd">
                     <div class="mbr-av" style="background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
                     <div style="flex:1;min-width:0">
@@ -176,36 +232,35 @@
                         <div class="mbr-role">Full Stack · DevOps · DevSecOps</div>
                         <div class="mbr-formation">Spring Boot · NestJS · FastAPI · React · Docker · CI/CD</div>
                     </div>
-                    <div class="mbr-arr" style="font-size:13px">↗</div>
+                    <div class="mbr-arr">▾</div>
+                </div>
+                <div class="mbr-detail">
+                    <div class="mbr-detail-inner">
+                        <p class="mbr-bio">Développeur fullstack 2+ ans production. Maîtrise complète de la chaîne de développement — backend à frontend — avec expertise confirmée en DevOps et DevSecOps. Accent fort sur qualité du code, performance et fiabilité.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+                            <span class="tag">Spring Boot</span><span class="tag">NestJS</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">DevSecOps</span>
+                        </div>
+                        <div class="exp-list">
+                            <div class="exp-item">
+                                <div class="exp-title">Stellar-IX (Axian Group) — Full Stack</div>
+                                <div class="exp-period">sept. 2022 – jan. 2025</div>
+                                <div class="exp-desc">Modules backend/frontend en production · −25% temps de réponse · CI/CD &amp; Docker</div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-title">Ingenosya Madagascar — Mobile Dev</div>
+                                <div class="exp-period">août 2021 – fév. 2022</div>
+                                <div class="exp-desc">Applications mobiles · Agile · UX/UI</div>
+                            </div>
+                        </div>
+                        <div class="mbr-links" style="margin-top:14px">
+                            <a class="mbr-link" href="mailto:sitraka@nextri.dev">✉ sitraka@nextri.dev</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="ap">
-            <div class="ap-eyebrow">Valeurs</div>
-            <div class="val-item">
-                <div class="val-title">Accompagnement</div>
-                <p class="val-desc">Implication sur la durée, disponibilité et réactivité. Nous visons une réponse sous 24h et un suivi actif tout au long du cycle projet — du cadrage initial jusqu'à la mise en production.</p>
-            </div>
-            <div class="val-item">
-                <div class="val-title">Polyvalence</div>
-                <p class="val-desc">Capacité à intervenir sur l'ensemble du cycle projet sans changer d'interlocuteur : architecture, développement backend et frontend, infrastructure, automatisation, pilotage de tests.</p>
-            </div>
-            <div class="val-item">
-                <div class="val-title">Efficacité</div>
-                <p class="val-desc">Priorité à la livraison de solutions fonctionnelles, maintenables et sans dette technique cachée. Chaque choix technique est justifié, documenté et validé avec le client.</p>
-            </div>
-            <div class="val-item">
-                <div class="val-title">Transparence</div>
-                <p class="val-desc">Communication directe sur l'avancement, les choix techniques et les contraintes rencontrées. Pas de surprises en fin de sprint — les problèmes sont signalés dès qu'ils apparaissent.</p>
-            </div>
-        </div>
-        <div class="ap" style="padding-top:14px;padding-bottom:14px">
-            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-                <span class="tag">ITUniversity Madagascar</span>
-                <span class="tag">Université Côte d'Azur</span>
-                <span class="tag">Antananarivo · MG</span>
-                <span class="tag">Master II MBDS</span>
-            </div>
+        <div class="ap" style="padding-top:18px;padding-bottom:18px">
+            <button class="cf-btn" style="max-width:240px;margin:0 auto;display:block" onclick="WM.close('about');WM.open('contact')">Nous contacter →</button>
         </div>
     </div>
 </template>
