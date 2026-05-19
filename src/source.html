@@ -58,6 +58,40 @@
 <div id="desktop">
     <canvas id="space-canvas"></canvas>
     <div class="dsk-gfx"></div>
+    <div id="skill-map">
+        <div class="sm-node" onclick="WM.open('stack')">
+            <div class="sm-label">Backend</div>
+            <div class="sm-tags">Spring Boot · Node.js · NestJS · FastAPI</div>
+            <div class="sm-panel">
+                <div class="sm-p-title">Projets backend</div>
+                <div class="sm-p-list">SIF &amp; SIGFU · Stellar-IX · BICI Capitainerie</div>
+            </div>
+        </div>
+        <div class="sm-node" onclick="WM.open('stack')">
+            <div class="sm-label">Frontend</div>
+            <div class="sm-tags">Angular · React · TypeScript · Ionic</div>
+            <div class="sm-panel">
+                <div class="sm-p-title">Projets frontend</div>
+                <div class="sm-p-list">SIF &amp; SIGFU · BICI · Stellar-IX</div>
+            </div>
+        </div>
+        <div class="sm-node" onclick="WM.open('projects')">
+            <div class="sm-label">Data &amp; DB</div>
+            <div class="sm-tags">PostgreSQL · Oracle · MongoDB · ClickHouse</div>
+            <div class="sm-panel">
+                <div class="sm-p-title">Projets data</div>
+                <div class="sm-p-list">GSK &amp; Cartier Data Engineering · SIF &amp; SIGFU</div>
+            </div>
+        </div>
+        <div class="sm-node" onclick="WM.open('stack')">
+            <div class="sm-label">DevOps</div>
+            <div class="sm-tags">Docker · CI/CD · Nginx · Linux · DevSecOps</div>
+            <div class="sm-panel">
+                <div class="sm-p-title">Projets infra</div>
+                <div class="sm-p-list">Stellar-IX CI/CD · DevSecOps Professional</div>
+            </div>
+        </div>
+    </div>
     <div id="navbar">
         <div id="nav-logo">Nextri</div>
         <div id="nav-apps"></div>
@@ -430,7 +464,7 @@
                     <div style="flex:1">
                         <div class="proj-name">SIF & Portail SIGFU</div>
                         <div class="proj-sub">Système Intégré de Gestion du Foncier Urbain · Ministère de l'Urbanisme CI</div>
-                        <div class="proj-metric">● En production · Ministère de l'Urbanisme CI</div>
+                        <div class="proj-metric">En production · Ministère de l'Urbanisme CI</div>
                     </div>
                     <div class="proj-meta">
                         <div class="proj-tech">Angular + Spring Boot</div>
@@ -478,7 +512,7 @@
                     <div style="flex:1">
                         <div class="proj-name">BICI — Capitainerie SPAT</div>
                         <div class="proj-sub">Gestion des opérations portuaires · ~100 utilisateurs</div>
-                        <div class="proj-metric">~100 utilisateurs · Maintenu 3 ans en production</div>
+                        <div class="proj-metric">Maintenu 3 ans en production</div>
                     </div>
                     <div class="proj-meta">
                         <div class="proj-tech">Java · Angular</div>
@@ -530,55 +564,61 @@
             <div class="ap-h1">Maîtrise fullstack complète</div>
         </div>
         <div class="ap">
-            <div class="ap-eyebrow">Langages & Frameworks</div>
-            <div class="sk-list">
-                <div class="sk">
-                    <div class="sk-lbl"><span class="sk-n">Java / Spring Boot</span><span class="sk-v">95%</span></div>
-                    <div class="sk-t">
-                        <div class="sk-f" data-v=".95"></div>
-                    </div>
-                </div>
-                <div class="sk">
-                    <div class="sk-lbl"><span class="sk-n">Node.js / Express</span><span class="sk-v">93%</span></div>
-                    <div class="sk-t">
-                        <div class="sk-f" data-v=".93"></div>
-                    </div>
-                </div>
-                <div class="sk">
-                    <div class="sk-lbl"><span class="sk-n">TypeScript / JavaScript</span><span class="sk-v">92%</span>
-                    </div>
-                    <div class="sk-t">
-                        <div class="sk-f" data-v=".92"></div>
-                    </div>
-                </div>
-                <div class="sk">
-                    <div class="sk-lbl"><span class="sk-n">Angular</span><span class="sk-v">90%</span></div>
-                    <div class="sk-t">
-                        <div class="sk-f" data-v=".90"></div>
-                    </div>
-                </div>
-                <div class="sk">
-                    <div class="sk-lbl"><span class="sk-n">Next.js / React</span><span class="sk-v">88%</span></div>
-                    <div class="sk-t">
-                        <div class="sk-f" data-v=".88"></div>
-                    </div>
-                </div>
-                <div class="sk">
-                    <div class="sk-lbl"><span class="sk-n">Python</span><span class="sk-v">85%</span></div>
-                    <div class="sk-t">
-                        <div class="sk-f" data-v=".85"></div>
-                    </div>
+            <div class="sk-group">
+                <div class="sk-group-label">Core backend</div>
+                <div class="sk-group-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">NestJS</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">Python</span>
                 </div>
             </div>
-        </div>
-        <div class="ap">
-            <div class="ap-eyebrow">Bases de données & DevOps</div>
-            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span
-                    class="tag">MySQL</span><span class="tag">ClickHouse</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">Docker</span><span
-                    class="tag">Git / GitHub</span><span class="tag">CI/CD</span><span class="tag">Nginx</span><span
-                    class="tag">Linux</span><span class="tag">REST API</span><span class="tag">GraphQL</span><span
-                    class="tag">OAuth 2.0</span><span class="tag">JWT</span><span class="tag">Tailwind CSS</span><span
-                    class="tag">Prisma</span></div>
+            <div class="sk-group">
+                <div class="sk-group-label">Frontend</div>
+                <div class="sk-group-tags">
+                    <span class="tag">Angular</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Next.js</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Ionic</span>
+                </div>
+            </div>
+            <div class="sk-group">
+                <div class="sk-group-label">Data &amp; DB</div>
+                <div class="sk-group-tags">
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Oracle</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">ClickHouse</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">SQL Server</span>
+                </div>
+            </div>
+            <div class="sk-group">
+                <div class="sk-group-label">Infrastructure</div>
+                <div class="sk-group-tags">
+                    <span class="tag">Docker</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Nginx</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">DevSecOps</span>
+                    <span class="tag">Git / GitHub</span>
+                </div>
+            </div>
+            <div class="sk-group">
+                <div class="sk-group-label">Autres</div>
+                <div class="sk-group-tags">
+                    <span class="tag">REST API</span>
+                    <span class="tag">GraphQL</span>
+                    <span class="tag">OAuth 2.0</span>
+                    <span class="tag">JWT</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">Prisma</span>
+                </div>
+            </div>
         </div>
     </div>
 </template>
