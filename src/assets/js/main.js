@@ -267,35 +267,44 @@ function showNotif(title, body) {
 function initOnboarding() {
     if (localStorage.getItem('nextri_onboarded')) return
     if (window.innerWidth < 768) return
+    const ob = document.getElementById('onboarding')
+    const text = document.getElementById('ob-text')
+    const dots = document.querySelectorAll('.ob-dot')
+    if (!ob || !text) return
     const steps = [
         'Cliquez sur une icône pour ouvrir un panneau',
         'Déplacez les panneaux par leur barre de titre',
         'Retrouvez notre contact ici → icône Contact'
     ]
     let step = 0
-    const ob = document.getElementById('onboarding')
-    const text = document.getElementById('ob-text')
-    const dots = document.querySelectorAll('.ob-dot')
     function showStep(n) {
         text.textContent = steps[n]
         dots.forEach((d, i) => d.classList.toggle('active', i === n))
     }
-    function advance() {
-        step++
-        if (step >= steps.length) {
-            ob.style.display = 'none'
-            localStorage.setItem('nextri_onboarded', '1')
-            return
-        }
-        showStep(step)
-    }
-    ob.style.display = 'flex'
-    showStep(0)
-    ob.onclick = advance
-    setTimeout(() => {
+    function dismiss() {
+        clearTimeout(dismissTimer)
         ob.style.display = 'none'
         localStorage.setItem('nextri_onboarded', '1')
-    }, 10000)
+        ob.removeEventListener('click', advance)
+        ob.removeEventListener('keydown', handleKey)
+    }
+    function advance() {
+        step++
+        if (step >= steps.length) return dismiss()
+        showStep(step)
+    }
+    function handleKey(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); advance() }
+        if (e.key === 'Escape') dismiss()
+    }
+    showStep(0)
+    ob.style.display = 'flex'
+    ob.tabIndex = 0
+    ob.setAttribute('role', 'dialog')
+    ob.setAttribute('aria-label', 'Guide d\'utilisation')
+    ob.addEventListener('click', advance)
+    ob.addEventListener('keydown', handleKey)
+    const dismissTimer = setTimeout(dismiss, 10000)
 }
 
 

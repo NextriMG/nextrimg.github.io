@@ -1589,7 +1589,7 @@ html, body {
     bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 8500;
+    z-index: 9200;
     pointer-events: all
 }
 
