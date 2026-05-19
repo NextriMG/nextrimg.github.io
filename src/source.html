@@ -67,32 +67,38 @@
         </div>
     </div>
     <div id="dsk-icons">
-        <div class="dsk-icon" ondblclick='WM.open("terminal")' onclick="selIcon(this)">
+        <div class="dsk-icon" onclick='WM.open("terminal");selIcon(this)'>
             <div class="dsk-icon-img"><img src="assets/img/terminal.svg" alt="terminal.app"></div>
             <div class="dsk-icon-lbl">Terminal</div>
         </div>
-        <div class="dsk-icon" ondblclick='WM.open("about")' onclick="selIcon(this)">
+        <div class="dsk-icon" onclick='WM.open("about");selIcon(this)'>
             <div class="dsk-icon-img"><img src="assets/img/about.svg" alt="about.app"></div>
             <div class="dsk-icon-lbl">Équipe</div>
         </div>
-        <div class="dsk-icon" ondblclick='WM.open("projects")' onclick="selIcon(this)">
+        <div class="dsk-icon" onclick='WM.open("projects");selIcon(this)'>
             <div class="dsk-icon-img"><img src="assets/img/folder.svg" alt="folder.app"></div>
             <div class="dsk-icon-lbl">Projets</div>
         </div>
-        <div class="dsk-icon" ondblclick='WM.open("stack")' onclick="selIcon(this)">
+        <div class="dsk-icon" onclick='WM.open("stack");selIcon(this)'>
             <div class="dsk-icon-img"><img src="assets/img/stack.svg" alt="stack.app"></div>
             <div class="dsk-icon-lbl">Stack</div>
         </div>
-        <div class="dsk-icon" ondblclick='WM.open("contact")' onclick="selIcon(this)">
-            <div class="dsk-icon-img"><img src="assets/img/contact-us.svg" alt="contact-us.app">️</div>
+        <div class="dsk-icon" id="icon-contact" onclick='WM.open("contact");selIcon(this)'>
+            <div class="dsk-icon-img"><img src="assets/img/contact-us.svg" alt="contact-us.app"></div>
             <div class="dsk-icon-lbl">Contact</div>
-        </div>
-        <div class="dsk-icon" ondblclick='WM.open("readme")' onclick="selIcon(this)">
-            <div class="dsk-icon-img"><img src="assets/img/readme.svg" alt="readme.app"></div>
-            <div class="dsk-icon-lbl">README</div>
         </div>
     </div>
     <div id="win-container"></div>
+    <div id="onboarding" style="display:none">
+        <div id="ob-tip">
+            <div id="ob-text"></div>
+            <div id="ob-step-dots">
+                <span class="ob-dot active"></span>
+                <span class="ob-dot"></span>
+                <span class="ob-dot"></span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="dock">

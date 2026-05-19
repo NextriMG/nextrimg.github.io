@@ -264,6 +264,41 @@ function showNotif(title, body) {
 }
 
 
+function initOnboarding() {
+    if (localStorage.getItem('nextri_onboarded')) return
+    if (window.innerWidth < 768) return
+    const steps = [
+        'Cliquez sur une icône pour ouvrir un panneau',
+        'Déplacez les panneaux par leur barre de titre',
+        'Retrouvez notre contact ici → icône Contact'
+    ]
+    let step = 0
+    const ob = document.getElementById('onboarding')
+    const text = document.getElementById('ob-text')
+    const dots = document.querySelectorAll('.ob-dot')
+    function showStep(n) {
+        text.textContent = steps[n]
+        dots.forEach((d, i) => d.classList.toggle('active', i === n))
+    }
+    function advance() {
+        step++
+        if (step >= steps.length) {
+            ob.style.display = 'none'
+            localStorage.setItem('nextri_onboarded', '1')
+            return
+        }
+        showStep(step)
+    }
+    ob.style.display = 'flex'
+    showStep(0)
+    ob.onclick = advance
+    setTimeout(() => {
+        ob.style.display = 'none'
+        localStorage.setItem('nextri_onboarded', '1')
+    }, 10000)
+}
+
+
 function hideCtx() {
     document.getElementById('ctx').classList.remove('show')
 }
@@ -499,7 +534,10 @@ function enterDesktop() {
         intro.style.display = 'none'
         document.getElementById('desktop').classList.add('visible')
         document.getElementById('dock').classList.add('visible')
-        setTimeout(() => showNotif(BRAND, 'Double-cliquez sur une icône pour démarrer.'), 650)
+        setTimeout(() => {
+            showNotif(BRAND, 'Cliquez sur une icône pour démarrer.')
+            initOnboarding()
+        }, 650)
     }, 700)
 }
 
