@@ -301,7 +301,7 @@ html, body {
     padding: 5px 14px;
     border-radius: 100px;
     background: var(--accent-dim);
-    border: 1px solid rgba(123, 110, 255, 0.22);
+    border: 1px solid rgba(0, 180, 216, 0.22);
     font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -673,7 +673,8 @@ html, body {
     opacity: 0;
     transform: scale(.94) translateY(10px);
     animation: winPop .22s cubic-bezier(.34, 1.56, .64, 1) forwards;
-    pointer-events: all
+    pointer-events: all;
+    transition: opacity .15s ease
 }
 
 .win.focused {
