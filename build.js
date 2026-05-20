@@ -27,6 +27,14 @@ execSync(
   { stdio: 'inherit' }
 );
 
+// Vendor JS (three.js bundles — copied as-is)
+for (const file of ['three.core.min.js', 'three.module.min.js']) {
+  const src = path.join(SRC, 'assets', 'js', file);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(DIST, 'assets', 'js', file));
+  }
+}
+
 // Images
 console.log('[3/4] Images...');
 for (const file of fs.readdirSync(path.join(SRC, 'assets', 'img'))) {

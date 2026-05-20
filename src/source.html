@@ -27,30 +27,36 @@
                 <div class="lock-date" id="lock-date"></div>
             </div>
             <div class="lock-hero">
-                <div class="lock-brand">NEXTRI</div>
-                <div class="lock-claim">3 ingénieurs fullstack. Un seul interlocuteur<br>pour l'intégralité de votre cycle projet.</div>
-                <div class="lock-labels">Backend · Frontend · DevOps · Madagascar</div>
-                <div class="lock-badge">
-                    ● Disponible · Réponse sous 24h
-                </div>
-                <button class="lock-cta">Démarrer un projet →</button>
+                <div class="lock-brand">Nextri</div>
+                <div class="lock-claim">Co-construire vos ambitions</div>
+                <div class="lock-sub">Trois ingénieurs fullstack &middot; Antananarivo, Madagascar</div>
             </div>
-            <div class="lock-members-strip">
-                <div class="lock-member-sm">
-                    <div class="lock-av" style="width:28px;height:28px;font-size:11px;background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
-                    <span>Lionel — Backend &amp; Data</span>
+            <div class="lock-members">
+                <div class="lock-member">
+                    <div class="lock-av" style="background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
+                    <div class="lock-member-info">
+                        <div class="lock-member-name">Lionel Ratovo</div>
+                        <div class="lock-member-role">Backend &amp; Data</div>
+                    </div>
                 </div>
-                <div class="lock-member-sep-sm"></div>
-                <div class="lock-member-sm">
-                    <div class="lock-av" style="width:28px;height:28px;font-size:11px;background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
-                    <span>Itokiana — Full Stack Sr</span>
+                <div class="lock-member-sep"></div>
+                <div class="lock-member">
+                    <div class="lock-av" style="background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
+                    <div class="lock-member-info">
+                        <div class="lock-member-name">Itokiana Rajohnson</div>
+                        <div class="lock-member-role">Full Stack Sr</div>
+                    </div>
                 </div>
-                <div class="lock-member-sep-sm"></div>
-                <div class="lock-member-sm">
-                    <div class="lock-av" style="width:28px;height:28px;font-size:11px;background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
-                    <span>Sitraka — Fullstack / DevSecOps</span>
+                <div class="lock-member-sep"></div>
+                <div class="lock-member">
+                    <div class="lock-av" style="background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
+                    <div class="lock-member-info">
+                        <div class="lock-member-name">Sitraka Rasatarivony</div>
+                        <div class="lock-member-role">DevOps &middot; DevSecOps</div>
+                    </div>
                 </div>
             </div>
+            <div class="lock-hint">Appuyez sur <kbd class="lock-kbd">Entr&eacute;e</kbd> ou cliquez pour continuer</div>
         </div>
     </div>
 </div>
@@ -58,40 +64,6 @@
 <div id="desktop">
     <canvas id="space-canvas"></canvas>
     <div class="dsk-gfx"></div>
-    <div id="skill-map">
-        <div class="sm-node" onclick="WM.open('stack')">
-            <div class="sm-label">Backend</div>
-            <div class="sm-tags">Spring Boot · Node.js · NestJS · FastAPI</div>
-            <div class="sm-panel">
-                <div class="sm-p-title">Projets backend</div>
-                <div class="sm-p-list">SIF &amp; SIGFU · Stellar-IX · BICI Capitainerie</div>
-            </div>
-        </div>
-        <div class="sm-node" onclick="WM.open('stack')">
-            <div class="sm-label">Frontend</div>
-            <div class="sm-tags">Angular · React · TypeScript · Ionic</div>
-            <div class="sm-panel">
-                <div class="sm-p-title">Projets frontend</div>
-                <div class="sm-p-list">SIF &amp; SIGFU · BICI · Stellar-IX</div>
-            </div>
-        </div>
-        <div class="sm-node" onclick="WM.open('projects')">
-            <div class="sm-label">Data &amp; DB</div>
-            <div class="sm-tags">PostgreSQL · Oracle · MongoDB · ClickHouse</div>
-            <div class="sm-panel">
-                <div class="sm-p-title">Projets data</div>
-                <div class="sm-p-list">GSK &amp; Cartier Data Engineering · SIF &amp; SIGFU</div>
-            </div>
-        </div>
-        <div class="sm-node" onclick="WM.open('stack')">
-            <div class="sm-label">DevOps</div>
-            <div class="sm-tags">Docker · CI/CD · Nginx · Linux · DevSecOps</div>
-            <div class="sm-panel">
-                <div class="sm-p-title">Projets infra</div>
-                <div class="sm-p-list">Stellar-IX CI/CD · DevSecOps Professional</div>
-            </div>
-        </div>
-    </div>
     <div id="navbar">
         <div id="nav-logo">Nextri</div>
         <div id="nav-apps"></div>
@@ -101,38 +73,32 @@
         </div>
     </div>
     <div id="dsk-icons">
-        <div class="dsk-icon" onclick='WM.open("terminal");selIcon(this)'>
+        <div class="dsk-icon" ondblclick='WM.open("terminal")' onclick="selIcon(this)">
             <div class="dsk-icon-img"><img src="assets/img/terminal.svg" alt="terminal.app"></div>
             <div class="dsk-icon-lbl">Terminal</div>
         </div>
-        <div class="dsk-icon" onclick='WM.open("about");selIcon(this)'>
+        <div class="dsk-icon" ondblclick='WM.open("about")' onclick="selIcon(this)">
             <div class="dsk-icon-img"><img src="assets/img/about.svg" alt="about.app"></div>
             <div class="dsk-icon-lbl">Équipe</div>
         </div>
-        <div class="dsk-icon" onclick='WM.open("projects");selIcon(this)'>
+        <div class="dsk-icon" ondblclick='WM.open("projects")' onclick="selIcon(this)">
             <div class="dsk-icon-img"><img src="assets/img/folder.svg" alt="folder.app"></div>
             <div class="dsk-icon-lbl">Projets</div>
         </div>
-        <div class="dsk-icon" onclick='WM.open("stack");selIcon(this)'>
+        <div class="dsk-icon" ondblclick='WM.open("stack")' onclick="selIcon(this)">
             <div class="dsk-icon-img"><img src="assets/img/stack.svg" alt="stack.app"></div>
             <div class="dsk-icon-lbl">Stack</div>
         </div>
-        <div class="dsk-icon" id="icon-contact" onclick='WM.open("contact");selIcon(this)'>
-            <div class="dsk-icon-img"><img src="assets/img/contact-us.svg" alt="contact-us.app"></div>
+        <div class="dsk-icon" ondblclick='WM.open("contact")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/contact-us.svg" alt="contact-us.app">️</div>
             <div class="dsk-icon-lbl">Contact</div>
+        </div>
+        <div class="dsk-icon" ondblclick='WM.open("readme")' onclick="selIcon(this)">
+            <div class="dsk-icon-img"><img src="assets/img/readme.svg" alt="readme.app"></div>
+            <div class="dsk-icon-lbl">README</div>
         </div>
     </div>
     <div id="win-container"></div>
-    <div id="onboarding" style="display:none">
-        <div id="ob-tip">
-            <div id="ob-text" role="status" aria-live="polite"></div>
-            <div id="ob-step-dots">
-                <span class="ob-dot active" aria-hidden="true"></span>
-                <span class="ob-dot" aria-hidden="true"></span>
-                <span class="ob-dot" aria-hidden="true"></span>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div id="dock">
@@ -176,50 +142,22 @@
         <div class="ap">
             <div class="ap-eyebrow">L'équipe</div>
             <div class="ap-h1">Trois ingénieurs. Une vision.</div>
-            <p class="ap-p">Un projet fullstack complet ne devrait pas nécessiter trois agences différentes. Lionel architecture les données. Itokiana pilote le développement. Sitraka déploie et sécurise. <strong style="color:var(--text-bright)">Vous n'avez qu'un seul contact.</strong></p>
+            <p class="ap-p">Diplômés du <strong style="color:var(--text-bright)">Master II MBDS</strong> — Université Côte d'Azur &amp; ITUniversity Madagascar, nous formons une équipe fullstack complémentaire capable d'intervenir sur l'intégralité du cycle de développement. De l'architecture backend aux interfaces utilisateur, en passant par l'infrastructure et l'automatisation.</p>
         </div>
         <div class="ap">
-            <div class="ap-eyebrow">Membres · clic pour déployer</div>
-            <div class="mbr" onclick="toggleMbr(this)">
+            <div class="ap-eyebrow">Membres · clic pour ouvrir le profil</div>
+            <div class="mbr" onclick="WM.open('member-lionel')">
                 <div class="mbr-hd">
                     <div class="mbr-av" style="background:rgba(139,139,255,.14);color:#9090FF;border-color:rgba(139,139,255,.22)">L</div>
                     <div style="flex:1;min-width:0">
                         <div class="mbr-name">Lionel Ratovo</div>
-                        <div class="mbr-role">Technical Project Lead · Backend &amp; Data</div>
+                        <div class="mbr-role">Technical Project Lead · Backend & Data Engineer</div>
                         <div class="mbr-formation">Java · Node.js · PostgreSQL · Oracle · Docker</div>
                     </div>
-                    <div class="mbr-arr">▾</div>
-                </div>
-                <div class="mbr-detail">
-                    <div class="mbr-detail-inner">
-                        <p class="mbr-bio">Architecte backend et data engineer, expérience avérée sur des projets à dimension internationale. Conception d'APIs REST, pipelines de données, modélisation SQL avancée, coordination technique entre équipes.</p>
-                        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
-                            <span class="tag">Java</span><span class="tag">Node.js</span><span class="tag">Angular</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">MongoDB</span><span class="tag">Docker</span>
-                        </div>
-                        <div class="exp-list">
-                            <div class="exp-item">
-                                <div class="exp-title">IGNFI — Côte d'Ivoire</div>
-                                <div class="exp-period">jan. 2024 → présent</div>
-                                <div class="exp-desc">SIF &amp; Portail SIGFU · Ministère de l'Urbanisme CI · coordination technique backend</div>
-                            </div>
-                            <div class="exp-item">
-                                <div class="exp-title">RAPP IO Mauritius — Data Engineer</div>
-                                <div class="exp-period">2022–2024</div>
-                                <div class="exp-desc">GSK · Cartier · pipelines SQL grande échelle</div>
-                            </div>
-                            <div class="exp-item">
-                                <div class="exp-title">BICI Madagascar</div>
-                                <div class="exp-period">2021</div>
-                                <div class="exp-desc">Développeur backend &amp; frontend, systèmes en production</div>
-                            </div>
-                        </div>
-                        <div class="mbr-links" style="margin-top:14px">
-                            <a class="mbr-link" href="mailto:lionel@nextri.dev">✉ lionel@nextri.dev</a>
-                        </div>
-                    </div>
+                    <div class="mbr-arr" style="font-size:13px">↗</div>
                 </div>
             </div>
-            <div class="mbr" onclick="toggleMbr(this)">
+            <div class="mbr" onclick="WM.open('member-itokiana')">
                 <div class="mbr-hd">
                     <div class="mbr-av" style="background:rgba(90,184,245,.13);color:#5AB8F5;border-color:rgba(90,184,245,.22)">I</div>
                     <div style="flex:1;min-width:0">
@@ -227,38 +165,10 @@
                         <div class="mbr-role">Full Stack Senior · Assistant Chef de Projet</div>
                         <div class="mbr-formation">Java · Spring Boot · Angular · Ionic · Scrum</div>
                     </div>
-                    <div class="mbr-arr">▾</div>
-                </div>
-                <div class="mbr-detail">
-                    <div class="mbr-detail-inner">
-                        <p class="mbr-bio">Développeur fullstack 5 ans d'expérience, spécialisé dans l'intégration et l'optimisation de systèmes critiques. Profil hybride : traduction des besoins clients, pilotage qualité et tests en environnement agile.</p>
-                        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
-                            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">Ionic</span><span class="tag">PostgreSQL</span><span class="tag">AEM</span><span class="tag">Scrum</span>
-                        </div>
-                        <div class="exp-list">
-                            <div class="exp-item">
-                                <div class="exp-title">IGNFI — Abidjan, Côte d'Ivoire</div>
-                                <div class="exp-period">jan. 2024 → présent</div>
-                                <div class="exp-desc">SIF &amp; Portail SIGFU · fullstack, specs techniques, passerelle test↔dev</div>
-                            </div>
-                            <div class="exp-item">
-                                <div class="exp-title">BICI Madagascar — Dev / Chef de Projet adjoint</div>
-                                <div class="exp-period">2021, 2023–2024</div>
-                                <div class="exp-desc">SPAT Capitainerie · ~100 utilisateurs · facturation &amp; opérations portuaires</div>
-                            </div>
-                            <div class="exp-item">
-                                <div class="exp-title">RAPP IO Mauritius / BICI — Lead Webmaster</div>
-                                <div class="exp-period">2021–2023</div>
-                                <div class="exp-desc">Mercedes-Benz · Smart · Pampers</div>
-                            </div>
-                        </div>
-                        <div class="mbr-links" style="margin-top:14px">
-                            <a class="mbr-link" href="mailto:itokiana@nextri.dev">✉ itokiana@nextri.dev</a>
-                        </div>
-                    </div>
+                    <div class="mbr-arr" style="font-size:13px">↗</div>
                 </div>
             </div>
-            <div class="mbr" onclick="toggleMbr(this)">
+            <div class="mbr" onclick="WM.open('member-sitraka')">
                 <div class="mbr-hd">
                     <div class="mbr-av" style="background:rgba(245,200,66,.13);color:#F5C842;border-color:rgba(245,200,66,.22)">S</div>
                     <div style="flex:1;min-width:0">
@@ -266,35 +176,36 @@
                         <div class="mbr-role">Full Stack · DevOps · DevSecOps</div>
                         <div class="mbr-formation">Spring Boot · NestJS · FastAPI · React · Docker · CI/CD</div>
                     </div>
-                    <div class="mbr-arr">▾</div>
-                </div>
-                <div class="mbr-detail">
-                    <div class="mbr-detail-inner">
-                        <p class="mbr-bio">Développeur fullstack 2+ ans production. Maîtrise complète de la chaîne de développement — backend à frontend — avec expertise confirmée en DevOps et DevSecOps. Accent fort sur qualité du code, performance et fiabilité.</p>
-                        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
-                            <span class="tag">Spring Boot</span><span class="tag">NestJS</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">DevSecOps</span>
-                        </div>
-                        <div class="exp-list">
-                            <div class="exp-item">
-                                <div class="exp-title">Stellar-IX (Axian Group) — Full Stack</div>
-                                <div class="exp-period">sept. 2022 – jan. 2025</div>
-                                <div class="exp-desc">Modules backend/frontend en production · −25% temps de réponse · CI/CD &amp; Docker</div>
-                            </div>
-                            <div class="exp-item">
-                                <div class="exp-title">Ingenosya Madagascar — Mobile Dev</div>
-                                <div class="exp-period">août 2021 – fév. 2022</div>
-                                <div class="exp-desc">Applications mobiles · Agile · UX/UI</div>
-                            </div>
-                        </div>
-                        <div class="mbr-links" style="margin-top:14px">
-                            <a class="mbr-link" href="mailto:sitraka@nextri.dev">✉ sitraka@nextri.dev</a>
-                        </div>
-                    </div>
+                    <div class="mbr-arr" style="font-size:13px">↗</div>
                 </div>
             </div>
         </div>
-        <div class="ap" style="padding-top:18px;padding-bottom:18px">
-            <button class="cf-btn" style="max-width:240px;margin:0 auto;display:block" onclick="WM.close('about');WM.open('contact')">Nous contacter →</button>
+        <div class="ap">
+            <div class="ap-eyebrow">Valeurs</div>
+            <div class="val-item">
+                <div class="val-title">Accompagnement</div>
+                <p class="val-desc">Implication sur la durée, disponibilité et réactivité. Nous visons une réponse sous 24h et un suivi actif tout au long du cycle projet — du cadrage initial jusqu'à la mise en production.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-title">Polyvalence</div>
+                <p class="val-desc">Capacité à intervenir sur l'ensemble du cycle projet sans changer d'interlocuteur : architecture, développement backend et frontend, infrastructure, automatisation, pilotage de tests.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-title">Efficacité</div>
+                <p class="val-desc">Priorité à la livraison de solutions fonctionnelles, maintenables et sans dette technique cachée. Chaque choix technique est justifié, documenté et validé avec le client.</p>
+            </div>
+            <div class="val-item">
+                <div class="val-title">Transparence</div>
+                <p class="val-desc">Communication directe sur l'avancement, les choix techniques et les contraintes rencontrées. Pas de surprises en fin de sprint — les problèmes sont signalés dès qu'ils apparaissent.</p>
+            </div>
+        </div>
+        <div class="ap" style="padding-top:14px;padding-bottom:14px">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                <span class="tag">ITUniversity Madagascar</span>
+                <span class="tag">Université Côte d'Azur</span>
+                <span class="tag">Antananarivo · MG</span>
+                <span class="tag">Master II MBDS</span>
+            </div>
         </div>
     </div>
 </template>
@@ -464,7 +375,6 @@
                     <div style="flex:1">
                         <div class="proj-name">SIF & Portail SIGFU</div>
                         <div class="proj-sub">Système Intégré de Gestion du Foncier Urbain · Ministère de l'Urbanisme CI</div>
-                        <div class="proj-metric">En production · Ministère de l'Urbanisme CI</div>
                     </div>
                     <div class="proj-meta">
                         <div class="proj-tech">Angular + Spring Boot</div>
@@ -488,7 +398,6 @@
                     <div style="flex:1">
                         <div class="proj-name">Data Engineering GSK & Cartier</div>
                         <div class="proj-sub">Traitement de données marketing · RAPP IO Mauritius</div>
-                        <div class="proj-metric">Pipelines grande échelle · 2 clients Fortune 500</div>
                     </div>
                     <div class="proj-meta">
                         <div class="proj-tech">Python · SQL</div>
@@ -512,7 +421,6 @@
                     <div style="flex:1">
                         <div class="proj-name">BICI — Capitainerie SPAT</div>
                         <div class="proj-sub">Gestion des opérations portuaires · ~100 utilisateurs</div>
-                        <div class="proj-metric">Maintenu 3 ans en production</div>
                     </div>
                     <div class="proj-meta">
                         <div class="proj-tech">Java · Angular</div>
@@ -536,7 +444,6 @@
                     <div style="flex:1">
                         <div class="proj-name">Stellar-IX — Modules Production</div>
                         <div class="proj-sub">Applications internes · Axian Group · CI/CD & DevOps</div>
-                        <div class="proj-metric">−25% temps de réponse après optimisation</div>
                     </div>
                     <div class="proj-meta">
                         <div class="proj-tech">Spring Boot + Angular</div>
@@ -564,61 +471,55 @@
             <div class="ap-h1">Maîtrise fullstack complète</div>
         </div>
         <div class="ap">
-            <div class="sk-group">
-                <div class="sk-group-label">Core backend</div>
-                <div class="sk-group-tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">Spring Boot</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">NestJS</span>
-                    <span class="tag">FastAPI</span>
-                    <span class="tag">Express</span>
-                    <span class="tag">Python</span>
+            <div class="ap-eyebrow">Langages & Frameworks</div>
+            <div class="sk-list">
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Java / Spring Boot</span><span class="sk-v">95%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".95"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Node.js / Express</span><span class="sk-v">93%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".93"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">TypeScript / JavaScript</span><span class="sk-v">92%</span>
+                    </div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".92"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Angular</span><span class="sk-v">90%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".90"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Next.js / React</span><span class="sk-v">88%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".88"></div>
+                    </div>
+                </div>
+                <div class="sk">
+                    <div class="sk-lbl"><span class="sk-n">Python</span><span class="sk-v">85%</span></div>
+                    <div class="sk-t">
+                        <div class="sk-f" data-v=".85"></div>
+                    </div>
                 </div>
             </div>
-            <div class="sk-group">
-                <div class="sk-group-label">Frontend</div>
-                <div class="sk-group-tags">
-                    <span class="tag">Angular</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Next.js</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">Ionic</span>
-                </div>
-            </div>
-            <div class="sk-group">
-                <div class="sk-group-label">Data &amp; DB</div>
-                <div class="sk-group-tags">
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">Oracle</span>
-                    <span class="tag">MongoDB</span>
-                    <span class="tag">ClickHouse</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">SQL Server</span>
-                </div>
-            </div>
-            <div class="sk-group">
-                <div class="sk-group-label">Infrastructure</div>
-                <div class="sk-group-tags">
-                    <span class="tag">Docker</span>
-                    <span class="tag">CI/CD</span>
-                    <span class="tag">Nginx</span>
-                    <span class="tag">Linux</span>
-                    <span class="tag">DevSecOps</span>
-                    <span class="tag">Git / GitHub</span>
-                </div>
-            </div>
-            <div class="sk-group">
-                <div class="sk-group-label">Autres</div>
-                <div class="sk-group-tags">
-                    <span class="tag">REST API</span>
-                    <span class="tag">GraphQL</span>
-                    <span class="tag">OAuth 2.0</span>
-                    <span class="tag">JWT</span>
-                    <span class="tag">Tailwind CSS</span>
-                    <span class="tag">Prisma</span>
-                </div>
-            </div>
+        </div>
+        <div class="ap">
+            <div class="ap-eyebrow">Bases de données & DevOps</div>
+            <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span
+                    class="tag">MySQL</span><span class="tag">ClickHouse</span><span class="tag">Oracle</span><span class="tag">SQL Server</span><span class="tag">Docker</span><span
+                    class="tag">Git / GitHub</span><span class="tag">CI/CD</span><span class="tag">Nginx</span><span
+                    class="tag">Linux</span><span class="tag">REST API</span><span class="tag">GraphQL</span><span
+                    class="tag">OAuth 2.0</span><span class="tag">JWT</span><span class="tag">Tailwind CSS</span><span
+                    class="tag">Prisma</span></div>
         </div>
     </div>
 </template>

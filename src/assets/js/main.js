@@ -115,6 +115,7 @@ const WM = {
         navAdd(id, cfg)
         dockSetActive(id, true)
         if (id === 'terminal') setTimeout(() => initTerm(body), 40)
+        if (id === 'stack') setTimeout(() => animSk(body), 240)
     }, close(id) {
         const w = document.getElementById('w-' + id)
         if (!w) return
@@ -260,50 +261,6 @@ function showNotif(title, body) {
     const n = document.getElementById('notif')
     n.classList.add('show')
     setTimeout(() => n.classList.remove('show'), 4500)
-}
-
-
-function initOnboarding() {
-    if (localStorage.getItem('nextri_onboarded')) return
-    if (window.innerWidth < 768) return
-    const ob = document.getElementById('onboarding')
-    const text = document.getElementById('ob-text')
-    const dots = document.querySelectorAll('.ob-dot')
-    if (!ob || !text) return
-    const steps = [
-        'Cliquez sur une icône pour ouvrir un panneau',
-        'Déplacez les panneaux par leur barre de titre',
-        'Retrouvez notre contact ici → icône Contact'
-    ]
-    let step = 0
-    function showStep(n) {
-        text.textContent = steps[n]
-        dots.forEach((d, i) => d.classList.toggle('active', i === n))
-    }
-    function dismiss() {
-        clearTimeout(dismissTimer)
-        ob.style.display = 'none'
-        localStorage.setItem('nextri_onboarded', '1')
-        ob.removeEventListener('click', advance)
-        ob.removeEventListener('keydown', handleKey)
-    }
-    function advance() {
-        step++
-        if (step >= steps.length) return dismiss()
-        showStep(step)
-    }
-    function handleKey(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); advance() }
-        if (e.key === 'Escape') dismiss()
-    }
-    showStep(0)
-    ob.style.display = 'flex'
-    ob.tabIndex = 0
-    ob.setAttribute('role', 'dialog')
-    ob.setAttribute('aria-label', 'Guide d\'utilisation')
-    ob.addEventListener('click', advance)
-    ob.addEventListener('keydown', handleKey)
-    const dismissTimer = setTimeout(dismiss, 10000)
 }
 
 
@@ -542,10 +499,7 @@ function enterDesktop() {
         intro.style.display = 'none'
         document.getElementById('desktop').classList.add('visible')
         document.getElementById('dock').classList.add('visible')
-        setTimeout(() => {
-            showNotif(BRAND, 'Cliquez sur une icône pour démarrer.')
-            initOnboarding()
-        }, 650)
+        setTimeout(() => showNotif(BRAND, 'Double-cliquez sur une icône pour démarrer.'), 650)
     }, 700)
 }
 
@@ -565,37 +519,7 @@ function tickLockClock() {
 
 setInterval(tickLockClock, 30000)
 
-// Show lock screen immediately — no boot on normal load
-;(function initLockScreen() {
-    const boot = document.getElementById('boot-screen')
-    const lock = document.getElementById('lock-screen')
-    if (boot) boot.style.display = 'none'
-    if (lock) { lock.classList.add('ls-visible'); tickLockClock() }
-})()
-
-// Boot easter egg — Ctrl+B or Konami code (mobile: disabled)
-function triggerBoot() {
-    if (window.innerWidth < 768) return
-    const intro = document.getElementById('intro')
-    if (!intro || intro.style.display === 'none') return
-    const boot = document.getElementById('boot-screen')
-    if (!boot) return
-    boot.style.display = ''
-    boot.style.opacity = '1'
-    boot.style.transition = ''
-    const log = document.getElementById('boot-log')
-    log.innerHTML = ''
-    let done = false
-    function endBoot() {
-        if (done) return
-        done = true
-        boot.style.transition = 'opacity .4s ease'
-        boot.style.opacity = '0'
-        setTimeout(() => { boot.style.display = 'none'; boot.style.transition = '' }, 420)
-    }
-    document.addEventListener('click', endBoot, { once: true })
-    document.addEventListener('keydown', endBoot, { once: true })
-    setTimeout(endBoot, 1500)
+;(function runBoot() {
     const lines = [
         `<span class="bl-ts">[  0.000000]</span> <span class="bl-hi">${BRAND}</span> portfolio kernel v2.0`,
         `<span class="bl-ts">[  0.038241]</span> Detected 3 Fullstack Developer cores`,
@@ -609,33 +533,173 @@ function triggerBoot() {
         `<span class="bl-ts">[  0.821905]</span> <span class="bl-ok">[  OK  ]</span> All systems operational`,
     ]
     const delays = [0, 90, 180, 290, 370, 450, 540, 620, 760, 900]
-    lines.forEach((html, i) => setTimeout(() => {
-        if (done) return
-        const el = document.createElement('div')
-        el.className = 'boot-line'
-        el.innerHTML = html
-        log.appendChild(el)
-    }, delays[i]))
-}
-
-// Konami: ↑↑↓↓←→←→BA
-;(function initEasterEgg() {
-    const KONAMI = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
-    let ki = 0
-    document.addEventListener('keydown', e => {
-        if (e.ctrlKey && e.key === 'b') { triggerBoot(); return }
-        if (e.keyCode === KONAMI[ki]) { ki++; if (ki === KONAMI.length) { ki = 0; triggerBoot() } }
-        else ki = 0
+    const log = document.getElementById('boot-log')
+    if (!log) return
+    lines.forEach((html, i) => {
+        setTimeout(() => {
+            const el = document.createElement('div')
+            el.className = 'boot-line'
+            el.innerHTML = html
+            log.appendChild(el)
+        }, delays[i])
     })
+    setTimeout(() => {
+        const boot = document.getElementById('boot-screen')
+        const lock = document.getElementById('lock-screen')
+        if (boot) {
+            boot.style.opacity = '0'
+            setTimeout(() => { boot.style.display = 'none' }, 600)
+        }
+        if (lock) {
+            lock.classList.add('ls-visible')
+            tickLockClock()
+        }
+    }, 900 + 420)
 })()
 
-;(function initSpace() {
+;(async function initSpace() {
     const canvas = document.getElementById('space-canvas')
     if (!canvas) return
+
     if (window.innerWidth < 768) {
-        initNeonMobile(canvas)
+        initNeonMobile(canvas); return
     }
-    // Desktop: Three.js orbital replaced by #skill-map (DOM/CSS)
+
+    let T
+    try { T = await import('./three.module.min.js') } catch { return }
+
+    const renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true })
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5))
+    const cW = canvas.offsetWidth || innerWidth, cH = canvas.offsetHeight || innerHeight
+    renderer.setSize(cW, cH, false)
+    renderer.setClearColor(0x000000, 0)
+
+    const scene = new T.Scene()
+    const camera = new T.PerspectiveCamera(52, cW / cH, 0.1, 100)
+    camera.position.set(0, 5, 11)
+    camera.lookAt(0, 0, 0)
+
+    // Ecliptic grid plane
+    const grid = new T.GridHelper(20, 20, 0x1A3A28, 0x0F1E18)
+    grid.position.y = -0.4;
+    (Array.isArray(grid.material) ? grid.material : [grid.material]).forEach(m => {
+        m.transparent = true; m.opacity = 0.14
+    })
+    scene.add(grid)
+
+    // Sprite label using canvas texture
+    function makeLabel(text, hex) {
+        const cv = document.createElement('canvas')
+        cv.width = 128; cv.height = 64
+        const cx2 = cv.getContext('2d')
+        cx2.font = 'bold 38px monospace'
+        cx2.textAlign = 'center'
+        cx2.textBaseline = 'middle'
+        cx2.fillStyle = hex
+        cx2.shadowColor = hex
+        cx2.shadowBlur = 20
+        cx2.fillText(text, 64, 32)
+        const sp = new T.Sprite(new T.SpriteMaterial({ map: new T.CanvasTexture(cv), transparent: true, depthWrite: false }))
+        sp.scale.set(0.75, 0.375, 1)
+        return sp
+    }
+
+    // Circular orbit ring
+    function makeOrbit(r, color) {
+        const pts = []
+        for (let i = 0; i <= 128; i++) {
+            const a = (i / 128) * Math.PI * 2
+            pts.push(new T.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r))
+        }
+        return new T.Line(
+            new T.BufferGeometry().setFromPoints(pts),
+            new T.LineBasicMaterial({ color, transparent: true, opacity: 0.35 })
+        )
+    }
+
+    // Sun — team entity at center
+    const sunGeo = new T.IcosahedronGeometry(0.95, 1)
+    const sunGrp = new T.Group()
+    const sunHit = new T.Mesh(sunGeo, new T.MeshBasicMaterial({ visible: false }))
+    sunHit.userData.appId = 'about'
+    sunGrp.add(sunHit)
+    sunGrp.add(new T.LineSegments(
+        new T.EdgesGeometry(sunGeo),
+        new T.LineBasicMaterial({ color: 0xCC44FF, transparent: true, opacity: 0.92, blending: T.AdditiveBlending })
+    ))
+    const sunLbl = makeLabel('NEXTRI', '#CC44FF')
+    sunLbl.position.y = 1.45
+    sunGrp.add(sunLbl)
+    scene.add(sunGrp)
+
+    // Planet definitions — each member orbits the sun
+    const planetDefs = [
+        { geo: new T.TetrahedronGeometry(0.54, 0), color: 0x3DD68C, hex: '#3DD68C', label: 'L', r: 2.9, speed: 0.30, phase: 0,             id: 'member-lionel',   labelY: 0.95 },
+        { geo: new T.OctahedronGeometry(0.44, 0),  color: 0x5AB8F5, hex: '#5AB8F5', label: 'I', r: 4.1, speed: 0.19, phase: Math.PI * 0.7,  id: 'member-itokiana', labelY: 0.78 },
+        { geo: new T.OctahedronGeometry(0.60, 0),  color: 0x7B6EFF, hex: '#7B6EFF', label: 'S', r: 5.6, speed: 0.12, phase: Math.PI * 1.4,  id: 'member-sitraka',  labelY: 0.98 },
+    ]
+
+    const hitMeshes = [sunHit]
+    const planetGrps = planetDefs.map(p => {
+        scene.add(makeOrbit(p.r, p.color))
+        const grp = new T.Group()
+        const hit = new T.Mesh(p.geo, new T.MeshBasicMaterial({ visible: false }))
+        hit.userData.appId = p.id
+        grp.add(hit)
+        hitMeshes.push(hit)
+        grp.add(new T.LineSegments(
+            new T.EdgesGeometry(p.geo),
+            new T.LineBasicMaterial({ color: p.color, transparent: true, opacity: 0.85, blending: T.AdditiveBlending })
+        ))
+        const lbl = makeLabel(p.label, p.hex)
+        lbl.position.y = p.labelY
+        grp.add(lbl)
+        scene.add(grp)
+        return { grp, ...p }
+    })
+
+    const ray = new T.Raycaster()
+    const mouse = new T.Vector2(-9, -9)
+    function updateMouse(e) {
+        const r = canvas.getBoundingClientRect()
+        mouse.x = ((e.clientX - r.left) / r.width) * 2 - 1
+        mouse.y = -((e.clientY - r.top) / r.height) * 2 + 1
+    }
+    canvas.addEventListener('mousemove', e => {
+        updateMouse(e)
+        ray.setFromCamera(mouse, camera)
+        canvas.style.cursor = ray.intersectObjects(hitMeshes).length ? 'pointer' : 'default'
+    })
+    canvas.addEventListener('click', e => {
+        updateMouse(e)
+        ray.setFromCamera(mouse, camera)
+        const hits = ray.intersectObjects(hitMeshes)
+        if (hits.length) WM.open(hits[0].object.userData.appId)
+    })
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 768) return
+        renderer.setSize(canvas.offsetWidth || innerWidth, canvas.offsetHeight || innerHeight, false)
+        camera.aspect = (canvas.offsetWidth || innerWidth) / (canvas.offsetHeight || innerHeight)
+        camera.updateProjectionMatrix()
+    })
+
+    let t = 0
+    ;(function tick() {
+        requestAnimationFrame(tick)
+        t += 0.005
+        sunGrp.rotation.y += 0.004
+        sunGrp.rotation.x = Math.sin(t * 0.25) * 0.06
+        planetGrps.forEach(p => {
+            const a = t * p.speed + p.phase
+            p.grp.position.x = Math.cos(a) * p.r
+            p.grp.position.z = Math.sin(a) * p.r
+            p.grp.position.y = Math.sin(a * 1.8) * 0.15
+            p.grp.rotation.y += 0.012
+            p.grp.rotation.x = Math.sin(t * 0.4 + p.phase) * 0.08
+        })
+        camera.position.y = 5 + Math.sin(t * 0.18) * 0.25
+        renderer.render(scene, camera)
+    })()
 })()
 
 function initNeonMobile(canvas) {
