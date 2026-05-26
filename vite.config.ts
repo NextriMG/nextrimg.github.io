@@ -7,7 +7,7 @@ export default defineConfig({
     tailwindcss(),
     react(),
   ],
-  base: './',
+  base: '/nextri_portfolio/',
   test: {
     environment: 'jsdom',
     globals: true,

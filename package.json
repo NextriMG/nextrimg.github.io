@@ -1,6 +1,7 @@
 {
   "name": "nextri-portfolio",
   "private": true,
+  "homepage": "https://nextrimng.github.io/nextri_portfolio",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
