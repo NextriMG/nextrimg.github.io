@@ -1,47 +1,50 @@
-# HANDOFF — 2026-05-26 17:15
+# HANDOFF — 2026-05-26 19:45
 
 ## Active goal
-Boot animation polish complete — cascade overlay fade, progress bar sequencing, avatar theme colors, OS detection, and boot bar tokens all implemented, screenshot-verified in both themes, and graph updated.
+GitHub Pages deployment wired up end-to-end: workflow renamed, Vite base configured, and all public asset paths fixed.
 
 ## State
-All changes implemented and verified via Playwright (dark + light, desktop + mobile). Knowledge graph updated (`/graphify . --update` — no structural changes, as expected). Dev server was running on port 5173 at session end. No git repo — all changes on disk only.
+Working tree is clean. `main` and `v2.0` are both at `938413c`. The static.yml workflow triggers on push to `main` — the force-push earlier in this session may have already queued a run. GitHub Pages source must be set to **GitHub Actions** in repo settings for the deploy to land.
 
 ## Decisions made
-- **Fade `#boot-overlay` not `bootEl`** — overlay is the solid bg inside `#boot`; fading it reveals the desktop while `#boot-split` (z-index 4) remains visible on top. This is the root fix for "whole desktop appears at once."
-- **Remove hero/dock opacity animation** — with overlay handling the reveal, animating `heroEl.opacity` 0→1 created a double-fade muddle. Only `y` slide remains; opacity stays at CSS default (1) and is revealed by the overlay.
-- **Progress bar sequence in Phase E**: `tweenTo(100, 0.5s)` + fly launch simultaneously → `sleep(500)` → `gsap.to(barEl, { opacity:0, 0.25s })` → cascade → `sleep(350)` → squash-bounce. Bar is fully gone before desktop is revealed.
-- **`bg: 'var(--tx)'` for avatar frames** — CSS custom properties work in inline `style` attrs. Dark theme `--tx = #F4EEE0` (cream), light theme `--tx = #1C2318` (dark green) — exactly the "opposite" in both cases.
-- **`defaultTheme="system"` + `enableSystem`** — `next-themes` now reads `prefers-color-scheme` on first load; localStorage choice overrides.
-- **Boot bar tokens: `var(--tx2)` / `var(--bd)`** — replaced `rgba(255,255,255,.32)` text and `rgba(255,255,255,.1)` track that were invisible on the light cream background.
+- **`base: '/nextri_portfolio/'`** in `vite.config.ts` — required for project-repo GitHub Pages; `'./'` (relative) was the previous value and causes broken asset paths under a subpath
+- **`import.meta.env.BASE_URL` prefix for all public assets** — `BootStrip.tsx` and the three avatar components used hardcoded `/` absolute paths which resolve to the domain root, not the subpath; `BASE_URL` is injected correctly at build time
+- **`homepage` field in `package.json`** — documents the live URL; not functionally required by Vite but useful convention
+- **Hard-reset `main` to `v2.0` + force-push** — branches had diverged (main had `26a556a Create .graphifyignore`); `.graphifyignore` content was already present in `v2.0` so no file content was lost
 
 ## Files touched
-- `src/components/boot/BootScreen.tsx` — Phase E rewritten: `#boot-overlay` fade added; hero/dock opacity animations removed; progress bar await sequence (`sleep(500)` + bar fade) added before cascade; `sleep(560)` → `sleep(350)`
-- `src/components/boot/BootStrip.tsx` — avatar `bg` changed from `'#1C2318'` → `'var(--tx)'`
-- `src/main.tsx` — `defaultTheme="dark"` → `defaultTheme="system"` + `enableSystem`
-- `src/index.css` — `#boot-bar color` → `var(--tx2)`; `.bp-track background` → `var(--bd)`
+- `.github/workflows/static.yml` — renamed from `deploy.yml` (content unchanged — already correct)
+- `vite.config.ts` — `base: './'` → `base: '/nextri_portfolio/'`
+- `package.json` — added `"homepage": "https://nextrimng.github.io/nextri_portfolio"`
+- `src/components/boot/BootStrip.tsx` — all 12 `src` paths prefixed with `${import.meta.env.BASE_URL}`
+- `src/components/avatars/ItoAvatar.tsx` — `/avatars/itokiana.png` → `${import.meta.env.BASE_URL}avatars/itokiana.png`
+- `src/components/avatars/LionelAvatar.tsx` — same fix for lionel.png
+- `src/components/avatars/SitrakaAvatar.tsx` — same fix for sitraka.png
 
 ## Open questions
-- **Cascade timing needs real-browser review** — Playwright headless can't catch mid-animation frames (`#boot` always "gone" at evaluate time due to CDP IPC blocking the main thread). The code is logically correct but the actual visual rhythm (overlay fade + hero rise + dock rise relative to NEXTRI fly) needs eyes-on in a real browser.
-- **Squash-bounce overlap with cascade** — Phase G fires 350ms after cascade start (overlay ~54% done). If it feels too busy, raise `sleep(350)` to `500–600` in `BootScreen.tsx` Phase E.
-- **Light theme desktop deeper pass** — wallpaper blob animation and hero text legibility on light bg only briefly captured; worth a dedicated check.
+- **GitHub Pages source** — must be set to "GitHub Actions" in repo Settings → Pages; if still on "Deploy from branch" the workflow will silently fail
+- **Force-push workflow trigger** — GitHub Actions does fire on force-push to main; check the Actions tab to confirm the run started and passed
+- **`npm run dev` asset paths** — `BASE_URL` is `/` in dev mode, so local dev still works correctly; worth a quick sanity check after any further public-folder changes
 
 ## Next actions
-1. Open `http://localhost:5173` (`npm run dev`) in a **real browser** — watch full boot in dark then light theme. Confirm overlay fades while NEXTRI flies, hero and dock slide up naturally, bar is gone before desktop appears.
-2. Toggle theme and reload — verify avatar bg flips (cream in dark, dark green in light).
-3. If cascade timing feels off: in `BootScreen.tsx` find `await sleep(350)` near end of Phase E and increase to `500` or `600`.
-4. Light-mode desktop pass: check wallpaper, hero, window chrome, dock contrast.
+1. In GitHub repo Settings → Pages → Source: set to **GitHub Actions** (if not already)
+2. Check Actions tab — confirm the `static.yml` workflow run triggered and passed
+3. Visit `https://nextrimng.github.io/nextri_portfolio/` and verify the boot animation, SVG logos, and avatar images all load
+4. If the force-push didn't trigger a run: make a trivial commit on `main` or trigger via `workflow_dispatch` in the Actions UI
 
 ## Suggested skills / patterns
-- `/verify` — real-browser confirmation before touching any timing values
-- `superpowers:systematic-debugging` — if squash-bounce fires before overlay is fully gone, or if cascade feels wrong
-- `graphify query` — graph at `graphify-out/`; use before exploring unfamiliar files
+- `/verify` — real-browser check of the live Pages URL once deployed
+- `superpowers:systematic-debugging` — if assets 404 on Pages, check Network tab for the resolved URLs vs expected `/nextri_portfolio/...` paths
 
 ## Discarded as noise
-- **Animating `heroEl.opacity` 0→1** — tried first; invisible because overlay covered the hero entirely. Overlay fade makes hero opacity animation redundant and creates a double-fade. Removed.
-- **Catching mid-animation frames via Playwright `page.evaluate` RAF loop** — every attempt returned `#boot: "gone"` from t=1ms. CDP IPC blocks the browser main thread while Playwright processes `page.goto`, so the animation completes before evaluate can sample it. Not a code bug — headless limitation. Use real browser for visual verification.
-- **Adding `hide()` to `BootProgressHandle`** — unnecessary; querying `#boot-bar` directly inside the Phase E block is simpler since it's already in GSAP scope.
-- **`clearProps: 'all'` breaking dock centering** — cleared in a previous session (using `clearProps: 'transform'` in `onComplete` instead). Already solved; do not revert.
+- **`base: './'` (relative paths)** — works for local `vite preview` but breaks on GitHub Pages subpaths because relative resolution from `index.html` doesn't propagate into JS-generated `<img src>` values
+- **`homepage` field driving Vite behavior** — that's a Create React App convention; in Vite only `vite.config.ts base` matters
 
 ## Git state
-No git repository — project files are unversioned on disk only.
-Per user preference: do not create a git repo.
+938413c Prefix asset paths with BASE_URL
+8d2d29a Configure homepage and Vite base for GitHub Pages
+4de0183 chore: rename deploy.yml to static.yml
+5904845 Migrate static site to Vite + React + TS
+1345864 Update .gitignore
+
+ (working tree clean)
