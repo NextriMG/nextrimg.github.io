@@ -1,84 +1,61 @@
-# Nextri
+# NEXTRI — Portfolio
 
-Portfolio interactif de l'équipe **Nextri** — trois ingénieurs fullstack diplômés du Master II MBDS à ITUniversity Madagascar / Université Côte d'Azur. L'interface simule un environnement de bureau OS avec boot log, lock screen, fenêtres déplaçables et terminal émulateur — en HTML/CSS/JS vanilla.
+Portfolio site for NEXTRI, a software collective of three engineers based in Antananarivo, Madagascar. The interface is designed as an OS desktop experience (macOS-inspired) with a boot sequence, dock, app windows, and full dark/light mode support.
 
-## Aperçu
+## Tech Stack
 
-Au chargement, une séquence de boot terminal défile, suivie d'un lock screen (horloge, date, branding équipe). Un clic ou la touche `Entrée` accède au bureau.
+| Layer | Choice |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build tool | Vite 6 |
+| Deployment | GitHub Pages (GitHub Actions) |
 
-**Applications incluses :**
-
-| App | Contenu |
-|-----|---------|
-| Terminal | Shell simulé — `help`, `neofetch`, `whoami`, `cat about.txt`, `cat stack.txt`, `open [app]`… |
-| Équipe | Liste des 3 membres — clic pour ouvrir une fenêtre de profil complet |
-| Lionel / Itokiana / Sitraka | Profil individuel : formation, bio, compétences, expériences, contact |
-| Projets | SIF & SIGFU, Data Engineering GSK & Cartier, BICI, Stellar-IX et autres réalisations |
-| Stack | Barres de compétences animées + liste technologies |
-| Contact | Formulaire simulé + coordonnées |
-| README | Guide de navigation intégré |
-
-## Stack technique
-
-- **HTML5** — `<template>` par app, pas de framework
-- **CSS** — variables de thème, animations, Tailwind CSS v4
-- **JavaScript Vanilla** — window manager, terminal, canvas mesh animé
-- **Polices** — DM Sans (UI) + DM Mono (terminal/code), via Google Fonts
-
-## Installation
+## Getting Started
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
+npm run dev
 ```
 
-## Développement
-
-Les fichiers source sont à éditer ; les fichiers de production sont générés :
-
-| Source (à éditer) | Production (généré) |
-|-------------------|---------------------|
-| `source.html` | `index.html` |
-| `assets/css/style.css` | `assets/css/style.min.css` |
-| `assets/js/main.js` | `assets/js/main.min.js` |
+## Build & Deploy
 
 ```bash
-npm run watch:css     # recompile style.css → style.min.css en continu
-npm run minify:css    # compile CSS une fois
-npm run minify:js     # minifie main.js → main.min.js
-npm run minify:html   # minifie source.html → index.html
+npm run build   # outputs to dist/
+npm run preview # preview the production build locally
 ```
 
-## Utilisation
+Deployment is automated via `.github/workflows/deploy.yml`. Every push to `main` builds and deploys to GitHub Pages.
 
-- **Boot log** — défile automatiquement au chargement (~1,3s)
-- **Lock screen** — clic ou `Entrée` pour entrer dans le bureau
-- **Double-clic** sur une icône pour ouvrir une app
-- **Drag** sur la barre de titre pour déplacer une fenêtre
-- **Coin inférieur droit** pour redimensionner
-- **Clic droit** sur le bureau pour le menu contextuel
+**Before first deploy:**
+1. Create the GitHub repo and push
+2. In repo Settings → Pages → set Source to **GitHub Actions**
+3. If deploying to a project repo (not a root `username.github.io` site), update `base` in `vite.config.ts` from `'./'` to `'/<repo-name>/'`
 
-## Thème
+## Project Structure
 
-Variables définies dans `assets/css/style.css` (`:root`) :
-
-```css
---accent: #7B6EFF;      /* violet principal */
---bg: #08080D;          /* fond général */
---surface: #11111A;     /* fond des fenêtres */
---green: #3DD68C;
---coral: #FF7A5C;
---yellow: #F5C842;
+```
+├── src/
+│   ├── main.tsx        # entry point
+│   ├── App.tsx         # root component
+│   └── index.css       # global styles
+├── docs/
+│   ├── propostion_portfolio.md   # design proposal (screens, palette, responsive)
+│   └── about-nextri/
+│       ├── README.md             # company profile & team
+│       └── resumes/              # individual CVs
+├── .github/workflows/
+│   └── deploy.yml      # GitHub Pages deployment
+└── vite.config.ts
 ```
 
-## Équipe
+## Design Reference
 
-| Membre | Rôle | Technologies clés |
-|--------|------|-------------------|
-| **Lionel Ratovo** | Technical Project Lead · Backend & Data Engineer | Java · Node.js · PostgreSQL · Oracle · Docker |
-| **Itokiana Rajohnson** | Full Stack Senior · Assistant Chef de Projet | Java · Spring Boot · Angular · Ionic · Scrum |
-| **Sitraka Rasatarivony** | Full Stack · DevOps · DevSecOps | Spring Boot · NestJS · FastAPI · React · Docker · CI/CD |
+See [`docs/propostion_portfolio.md`](docs/propostion_portfolio.md) for the full design spec: color palette (dark/light), responsive strategy, animation sequence, and screen-by-screen breakdown.
 
----
+## Team
 
-© 2025 Nextri · Antananarivo, Madagascar · contact@nextri.dev
+| Name | Role |
+|---|---|
+| Lionel Ratovo | Technical Project Lead · Backend & Data Engineer |
+| Itokiana Rajohnson | Full Stack Developer · Assistant Project Manager |
+| Sitraka Rasatarivony | Full Stack Developer · DevOps / DevSecOps |
