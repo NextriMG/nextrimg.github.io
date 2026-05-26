@@ -9,19 +9,21 @@ interface Frame {
   type: FrameType
 }
 
+const b = import.meta.env.BASE_URL
+
 const FRAMES: Frame[] = [
-  { src: '/1.svg', bg: 'linear-gradient(145deg, #E8621A 0%, #F5C842 100%)', type: 'logo' },
-  { src: '/2.svg', bg: 'linear-gradient(145deg, #2BBFB3 0%, #9B8FD9 100%)', type: 'logo' },
-  { src: '/3.svg', bg: 'linear-gradient(145deg, #9B8FD9 0%, #E8621A 100%)', type: 'logo' },
-  { src: '/4.svg', bg: 'linear-gradient(145deg, #E8621A 0%, #F5C842 100%)', type: 'logo' },
-  { src: '/5.svg', bg: 'linear-gradient(145deg, #2BBFB3 0%, #9B8FD9 100%)', type: 'logo' },
-  { src: '/6.svg', bg: 'linear-gradient(145deg, #9B8FD9 0%, #E8621A 100%)', type: 'logo' },
-  { src: '/7.svg', bg: 'linear-gradient(145deg, #E8621A 0%, #F5C842 100%)', type: 'logo' },
-  { src: '/8.svg', bg: 'linear-gradient(145deg, #2BBFB3 0%, #9B8FD9 100%)', type: 'logo' },
-  { src: '/9.svg', bg: 'linear-gradient(145deg, #9B8FD9 0%, #E8621A 100%)', type: 'logo' },
-  { src: '/avatars/sitraka.png',  bg: 'var(--tx)', type: 'avatar' },
-  { src: '/avatars/lionel.png',   bg: 'var(--tx)', type: 'avatar' },
-  { src: '/avatars/itokiana.png', bg: 'var(--tx)', type: 'avatar' },
+  { src: `${b}1.svg`, bg: 'linear-gradient(145deg, #E8621A 0%, #F5C842 100%)', type: 'logo' },
+  { src: `${b}2.svg`, bg: 'linear-gradient(145deg, #2BBFB3 0%, #9B8FD9 100%)', type: 'logo' },
+  { src: `${b}3.svg`, bg: 'linear-gradient(145deg, #9B8FD9 0%, #E8621A 100%)', type: 'logo' },
+  { src: `${b}4.svg`, bg: 'linear-gradient(145deg, #E8621A 0%, #F5C842 100%)', type: 'logo' },
+  { src: `${b}5.svg`, bg: 'linear-gradient(145deg, #2BBFB3 0%, #9B8FD9 100%)', type: 'logo' },
+  { src: `${b}6.svg`, bg: 'linear-gradient(145deg, #9B8FD9 0%, #E8621A 100%)', type: 'logo' },
+  { src: `${b}7.svg`, bg: 'linear-gradient(145deg, #E8621A 0%, #F5C842 100%)', type: 'logo' },
+  { src: `${b}8.svg`, bg: 'linear-gradient(145deg, #2BBFB3 0%, #9B8FD9 100%)', type: 'logo' },
+  { src: `${b}9.svg`, bg: 'linear-gradient(145deg, #9B8FD9 0%, #E8621A 100%)', type: 'logo' },
+  { src: `${b}avatars/sitraka.png`,  bg: 'var(--tx)', type: 'avatar' },
+  { src: `${b}avatars/lionel.png`,   bg: 'var(--tx)', type: 'avatar' },
+  { src: `${b}avatars/itokiana.png`, bg: 'var(--tx)', type: 'avatar' },
 ]
 
 export interface BootStripHandle {
