@@ -55,8 +55,7 @@ export default function Dock() {
   useEffect(() => {
     if (phase !== 'desktop') return
     if (!localStorage.getItem('nxt-g')) {
-      const id = setTimeout(start, 300)
-      return () => clearTimeout(id)
+      start()
     }
   }, [start, phase])
 
