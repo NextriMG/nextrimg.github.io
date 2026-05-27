@@ -52,6 +52,25 @@ describe('useDesktopStore', () => {
     expect(useDesktopStore.getState().focusedWindow).toBe('t')
   })
 
+  it('closeWindow transfers focus to the next open window by z-index', () => {
+    useDesktopStore.getState().openWindow('a')
+    useDesktopStore.getState().openWindow('t')
+    useDesktopStore.getState().openWindow('s')
+    useDesktopStore.getState().focusWindow('t')
+    useDesktopStore.getState().closeWindow('t')
+    const s = useDesktopStore.getState()
+    expect(s.focusedWindow).not.toBeNull()
+    expect(s.focusedWindow).not.toBe('t')
+  })
+
+  it('closeWindow does not transfer focus to a reduced window', () => {
+    useDesktopStore.getState().openWindow('a')
+    useDesktopStore.getState().openWindow('t')
+    useDesktopStore.getState().reduceWindow('a')
+    useDesktopStore.getState().closeWindow('t')
+    expect(useDesktopStore.getState().focusedWindow).toBeNull()
+  })
+
   it('focusWindow makes it the highest z-index', () => {
     useDesktopStore.getState().openWindow('a')
     useDesktopStore.getState().openWindow('t')

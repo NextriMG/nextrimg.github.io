@@ -44,11 +44,22 @@ export const useDesktopStore = create<DesktopState>((set) => ({
     }
   }),
 
-  closeWindow: (id) => set((s) => ({
-    openWindows: s.openWindows.filter((w) => w !== id),
-    reducedWindows: s.reducedWindows.filter((w) => w !== id),
-    focusedWindow: s.focusedWindow === id ? null : s.focusedWindow,
-  })),
+  closeWindow: (id) => set((s) => {
+    const openWindows = s.openWindows.filter((w) => w !== id)
+    const reducedWindows = s.reducedWindows.filter((w) => w !== id)
+
+    let focusedWindow = s.focusedWindow === id ? null : s.focusedWindow
+    if (focusedWindow === null) {
+      const candidates = openWindows.filter((w) => !reducedWindows.includes(w))
+      if (candidates.length > 0) {
+        focusedWindow = candidates.reduce((best, w) =>
+          (s.zMap[w] ?? 0) > (s.zMap[best] ?? 0) ? w : best
+        )
+      }
+    }
+
+    return { openWindows, reducedWindows, focusedWindow }
+  }),
 
   focusWindow: (id) => set((s) => {
     const newZ = s.zCounter + 1
