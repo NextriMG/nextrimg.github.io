@@ -76,8 +76,9 @@ function ContactForm() {
   const [sent, setSent]                 = useState(false)
   const [cooldown, setCooldown]         = useState(0)
 
-  const mountTime   = useRef(Date.now())
-  const widgetId    = useRef<string | null>(null)
+  const mountTime      = useRef(Date.now())
+  const widgetId       = useRef<string | null>(null)
+  const turnstileFailed = useRef(false)
   // Holds the FormData built at submit time while we wait for Turnstile's callback
   const pendingData = useRef<FormData | null>(null)
 
@@ -143,9 +144,16 @@ function ContactForm() {
           void doSubmitRef.current!(fd)
         },
         'error-callback': () => {
+          turnstileFailed.current = true
+          const fd = pendingData.current
           pendingData.current = null
-          setIsSubmitting(false)
-          setFormError("Vérification de sécurité échouée. Veuillez réessayer.")
+          if (fd) {
+            // Turnstile failed mid-submit — send directly without token
+            void doSubmitRef.current!(fd)
+          } else {
+            // Turnstile failed at init — flag is set; next submit will bypass it silently
+            setIsSubmitting(false)
+          }
         },
         'expired-callback': () => {
           pendingData.current = null
@@ -190,12 +198,12 @@ function ContactForm() {
     fd.append('message', message)
     if (type) fd.append('type_intervention', type)
 
-    if (TURNSTILE_KEY && window.turnstile && widgetId.current) {
+    if (TURNSTILE_KEY && window.turnstile && widgetId.current && !turnstileFailed.current) {
       // Store form data and trigger challenge — actual submission happens in callback
       pendingData.current = fd
       window.turnstile.execute(widgetId.current)
     } else {
-      // Turnstile not configured or script not yet loaded — submit directly
+      // Turnstile not configured, not loaded, or previously failed — submit directly
       await doSubmit(fd)
     }
   }
