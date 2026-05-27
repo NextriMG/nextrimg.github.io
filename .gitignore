@@ -32,5 +32,7 @@ graphify-out/graph.html
 graphify-out/cache/
 
 .claude
+*.exe.stackdump
+*.stackdump
 
 docs/
