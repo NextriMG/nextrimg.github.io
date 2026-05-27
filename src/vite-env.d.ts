@@ -16,8 +16,6 @@ interface TurnstileInstance {
   remove: (widgetId: string) => void
 }
 
-declare global {
-  interface Window {
-    turnstile?: TurnstileInstance
-  }
+interface Window {
+  turnstile?: TurnstileInstance
 }

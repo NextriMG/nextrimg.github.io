@@ -1,50 +1,66 @@
-# HANDOFF — 2026-05-26 19:45
+# HANDOFF — 2026-05-27
 
 ## Active goal
-GitHub Pages deployment wired up end-to-end: workflow renamed, Vite base configured, and all public asset paths fixed.
+All three requested features fully implemented and tested; session closing cleanly.
 
 ## State
-Working tree is clean. `main` and `v2.0` are both at `938413c`. The static.yml workflow triggers on push to `main` — the force-push earlier in this session may have already queued a run. GitHub Pages source must be set to **GitHub Actions** in repo settings for the deploy to land.
+All features complete on `main` @ `a712b3b`. 23 tests pass. Working tree clean (stray `ss-03-error.png` screenshot is noise — can be deleted).
 
 ## Decisions made
-- **`base: '/nextri_portfolio/'`** in `vite.config.ts` — required for project-repo GitHub Pages; `'./'` (relative) was the previous value and causes broken asset paths under a subpath
-- **`import.meta.env.BASE_URL` prefix for all public assets** — `BootStrip.tsx` and the three avatar components used hardcoded `/` absolute paths which resolve to the domain root, not the subpath; `BASE_URL` is injected correctly at build time
-- **`homepage` field in `package.json`** — documents the live URL; not functionally required by Vite but useful convention
-- **Hard-reset `main` to `v2.0` + force-push** — branches had diverged (main had `26a556a Create .graphifyignore`); `.graphifyignore` content was already present in `v2.0` so no file content was lost
+- **Window reduce state**: added `reducedWindows: WindowId[]` alongside `openWindows` in Zustand store — windows stay mounted and animate to `{scale:0.5, opacity:0, y:60}` rather than unmounting, enabling restore-from-dock
+- **Feature flag pattern**: `VITE_CONTACT_ENABLED` read inside component function body (not module-level const) so `vi.stubEnv` works in Vitest
+- **Turnstile + Web3Forms**: invisible Turnstile widget polled until `window.turnstile` ready; form also works without token (when `VITE_TURNSTILE_KEY` is empty), which is how E2E tests run
+- **Anti-abuse stack**: 3-second mount guard (silent, no error message) + in-flight lock + 60-second localStorage cooldown (`nxt-c-cd`)
+- **Menubar dot design**: glassy blurry box for focused, ice blue dot for open/not-focused, yellow+italic for reduced, nothing for closed — stable layout via always-present `border: 1px solid transparent` + padding on base `.mb-lnk`
+- **ServicesWindow colors**: `data-c` attribute (tl/or/lv/yw) per card, matching TeamWindow pattern
+- **Focus transfer**: `closeWindow` now picks the highest-z non-reduced sibling to become `focusedWindow`
+- **Dock hover**: sink effect (`scale(0.88) translateY(3px)`) — was magnify
 
 ## Files touched
-- `.github/workflows/static.yml` — renamed from `deploy.yml` (content unchanged — already correct)
-- `vite.config.ts` — `base: './'` → `base: '/nextri_portfolio/'`
-- `package.json` — added `"homepage": "https://nextrimng.github.io/nextri_portfolio"`
-- `src/components/boot/BootStrip.tsx` — all 12 `src` paths prefixed with `${import.meta.env.BASE_URL}`
-- `src/components/avatars/ItoAvatar.tsx` — `/avatars/itokiana.png` → `${import.meta.env.BASE_URL}avatars/itokiana.png`
-- `src/components/avatars/LionelAvatar.tsx` — same fix for lionel.png
-- `src/components/avatars/SitrakaAvatar.tsx` — same fix for sitraka.png
+- `src/store/desktop.ts` — `reducedWindows`, `reduceWindow`, `restoreWindow`, focus-transfer in `closeWindow`
+- `src/store/desktop.test.ts` — two focus-transfer tests
+- `src/components/desktop/Dock.tsx` — smart click handler (open/reduce/restore/focus), `reduced` CSS class
+- `src/components/desktop/Menubar.tsx` — `getLinkClass`, `handleLinkClick`, dynamic dot states
+- `src/components/windows/WindowShell.tsx` — Framer Motion animate prop, yellow button → reduceWindow
+- `src/components/windows/ServicesWindow.tsx` — `data-c` per card
+- `src/components/windows/ContactWindow.tsx` — full rewrite: `ContactFallback` + `ContactForm` + `SuccessScreen`
+- `src/components/windows/ContactWindow.test.tsx` — `vi.stubEnv` to force fallback mode
+- `src/vite-env.d.ts` — Turnstile global type declarations
+- `src/index.css` — dock sink, menubar dot styles, contact form styles, service card hover colors
+- `index.html` — Turnstile script tag
+- `.github/workflows/static.yml` — `env:` block on build step for three secrets
+- `.env` — placeholder file (gitignored) — DO NOT COMMIT
+- `CLAUDE.md` — updated: dock description, workflow filename, base URL, Window State Model section
+- `README.md` — full rewrite
 
 ## Open questions
-- **GitHub Pages source** — must be set to "GitHub Actions" in repo Settings → Pages; if still on "Deploy from branch" the workflow will silently fail
-- **Force-push workflow trigger** — GitHub Actions does fire on force-push to main; check the Actions tab to confirm the run started and passed
-- **`npm run dev` asset paths** — `BASE_URL` is `/` in dev mode, so local dev still works correctly; worth a quick sanity check after any further public-folder changes
+- Verify email arrived at `alt.r2-9ozn26ju@yopmail.com` on yopmail.com (E2E test dispatched a submission)
+- GitHub Secrets (`VITE_CONTACT_ENABLED`, `VITE_WEB3FORMS_KEY`, `VITE_TURNSTILE_KEY`) — user said already set; confirm before next deploy
 
-## Next actions
-1. In GitHub repo Settings → Pages → Source: set to **GitHub Actions** (if not already)
-2. Check Actions tab — confirm the `static.yml` workflow run triggered and passed
-3. Visit `https://nextrimng.github.io/nextri_portfolio/` and verify the boot animation, SVG logos, and avatar images all load
-4. If the force-push didn't trigger a run: make a trivial commit on `main` or trigger via `workflow_dispatch` in the Actions UI
+## Next actions (ordered)
+1. Delete stray `ss-03-error.png` from project root
+2. Continue building remaining screens: Réalisations (screen 05) or L'équipe Expert view toggle
+3. Consider adding a guide/onboarding tour dismissal mechanism (guide popup appeared during E2E test)
 
-## Suggested skills / patterns
-- `/verify` — real-browser check of the live Pages URL once deployed
-- `superpowers:systematic-debugging` — if assets 404 on Pages, check Network tab for the resolved URLs vs expected `/nextri_portfolio/...` paths
+## Suggested skills / patterns for next session
+- `/run` skill if testing UI changes interactively
+- TDD skill if adding new components with tests
+- Zustand store pattern already established — follow same actions/selectors structure
 
-## Discarded as noise
-- **`base: './'` (relative paths)** — works for local `vite preview` but breaks on GitHub Pages subpaths because relative resolution from `index.html` doesn't propagate into JS-generated `<img src>` values
-- **`homepage` field driving Vite behavior** — that's a Create React App convention; in Vite only `vite.config.ts base` matters
+## Discarded as noise ⚠️
+- **Playwright Turnstile timeout**: Turnstile's invisible widget never fires in Playwright/Chromium (bot fingerprint); workaround is to set `VITE_TURNSTILE_KEY=""` in dev server env for E2E runs — do not attempt to work around Turnstile by mocking `window.turnstile`
+- **Module-level const for feature flag**: `const CONTACT_ENABLED = import.meta.env.VITE_CONTACT_ENABLED === 'true'` evaluated at import time — breaks `vi.stubEnv`; always read `import.meta.env.*` inside the component body
+- **`/tmp/pw-runner` on Windows**: path resolves wrong; use `<temp>/pw-runner/` — but Playwright is not a project dependency, temp install only
+- **3-second guard as silent block**: during initial E2E test the form submitted too fast and nothing happened; fixed by adding a 3500ms wait — not a bug, working as intended
 
 ## Git state
-938413c Prefix asset paths with BASE_URL
-8d2d29a Configure homepage and Vite base for GitHub Pages
-4de0183 chore: rename deploy.yml to static.yml
-5904845 Migrate static site to Vite + React + TS
-1345864 Update .gitignore
+a712b3b feat: fully working contact form with Web3Forms + Turnstile
+cc3abfa fix: transfer focus to next window when focused window is closed
+fac2a47 feat: rework menubar state dots + colorise service cards
+3346572 Update .gitignore
+45271ea feat: replace menubar underlines with animated status dots
+ee6d72c docs: update CLAUDE.md and README to reflect current project state
+4277e1e feat: window minimize, dock sink-on-hover, menubar state indicators
+48ddfa3 Configure GitHub Pages base and asset paths
 
- (working tree clean)
+(working tree clean — stray ss-03-error.png untracked)

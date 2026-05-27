@@ -71,14 +71,37 @@ function ContactForm() {
   const [type, setType]       = useState('')
   const [message, setMessage] = useState('')
   const [errors, setErrors]   = useState<Record<string, string>>({})
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting]     = useState(false)
-  const [formError, setFormError]           = useState<string | null>(null)
-  const [sent, setSent]                     = useState(false)
-  const [cooldown, setCooldown]             = useState(0)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formError, setFormError]       = useState<string | null>(null)
+  const [sent, setSent]                 = useState(false)
+  const [cooldown, setCooldown]         = useState(0)
 
-  const mountTime = useRef(Date.now())
-  const widgetId  = useRef<string | null>(null)
+  const mountTime   = useRef(Date.now())
+  const widgetId    = useRef<string | null>(null)
+  // Holds the FormData built at submit time while we wait for Turnstile's callback
+  const pendingData = useRef<FormData | null>(null)
+
+  // Always-fresh ref so the stable Turnstile callback can reach the latest doSubmit
+  const doSubmitRef = useRef<((fd: FormData) => Promise<void>) | null>(null)
+
+  const doSubmit = async (fd: FormData) => {
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+      const data = await res.json() as { success: boolean }
+      if (data.success) {
+        setSent(true)
+        localStorage.setItem(CD_KEY, String(Date.now() + 60_000))
+      } else {
+        setFormError("Une erreur est survenue. Réessayez dans un moment.")
+      }
+    } catch {
+      setFormError("Impossible d'envoyer le message. Vérifiez votre connexion.")
+    } finally {
+      setIsSubmitting(false)
+      if (widgetId.current && window.turnstile) window.turnstile.reset(widgetId.current)
+    }
+  }
+  doSubmitRef.current = doSubmit
 
   // Restore cooldown from localStorage on mount
   useEffect(() => {
@@ -99,7 +122,8 @@ function ContactForm() {
     return () => clearInterval(id)
   }, [cooldown])
 
-  // Turnstile explicit render on mount
+  // Turnstile: render once on mount with explicit execution mode.
+  // The widget stays dormant until execute() is called at submit time.
   useEffect(() => {
     if (!TURNSTILE_KEY) {
       console.warn('[Contact] VITE_TURNSTILE_KEY not set — Turnstile skipped')
@@ -110,9 +134,24 @@ function ContactForm() {
       widgetId.current = window.turnstile.render('#cf-turnstile', {
         sitekey: TURNSTILE_KEY,
         size: 'invisible',
-        callback: (token) => setTurnstileToken(token),
-        'error-callback': () => setTurnstileToken(null),
-        'expired-callback': () => setTurnstileToken(null),
+        execution: 'execute',
+        callback: (token: string) => {
+          const fd = pendingData.current
+          if (!fd) return
+          pendingData.current = null
+          fd.append('cf-turnstile-response', token)
+          void doSubmitRef.current!(fd)
+        },
+        'error-callback': () => {
+          pendingData.current = null
+          setIsSubmitting(false)
+          setFormError("Vérification de sécurité échouée. Veuillez réessayer.")
+        },
+        'expired-callback': () => {
+          pendingData.current = null
+          setIsSubmitting(false)
+          setFormError("Session de vérification expirée. Veuillez réessayer.")
+        },
       })
     }
     tryRender()
@@ -143,41 +182,27 @@ function ContactForm() {
     setFormError(null)
     setIsSubmitting(true)
 
-    try {
-      const fd = new FormData()
-      fd.append('access_key', WEB3FORMS_KEY ?? '')
-      fd.append('subject', 'New portfolio contact')
-      fd.append('name', name.trim())
-      fd.append('email', email.trim())
-      fd.append('message', message)
-      if (type) fd.append('type_intervention', type)
-      if (turnstileToken) fd.append('cf-turnstile-response', turnstileToken)
+    const fd = new FormData()
+    fd.append('access_key', WEB3FORMS_KEY ?? '')
+    fd.append('subject', 'New portfolio contact')
+    fd.append('name', name.trim())
+    fd.append('email', email.trim())
+    fd.append('message', message)
+    if (type) fd.append('type_intervention', type)
 
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
-      const data = await res.json() as { success: boolean }
-
-      if (data.success) {
-        setSent(true)
-        localStorage.setItem(CD_KEY, String(Date.now() + 60_000))
-      } else {
-        setFormError("Une erreur est survenue. Réessayez dans un moment.")
-        setCooldown(0)
-      }
-    } catch {
-      setFormError("Impossible d'envoyer le message. Vérifiez votre connexion.")
-    } finally {
-      setIsSubmitting(false)
-      if (widgetId.current && window.turnstile) {
-        window.turnstile.reset(widgetId.current)
-      }
-      setTurnstileToken(null)
+    if (TURNSTILE_KEY && window.turnstile && widgetId.current) {
+      // Store form data and trigger challenge — actual submission happens in callback
+      pendingData.current = fd
+      window.turnstile.execute(widgetId.current)
+    } else {
+      // Turnstile not configured or script not yet loaded — submit directly
+      await doSubmit(fd)
     }
   }
 
   if (sent) return <SuccessScreen />
 
-  const needsToken   = !!TURNSTILE_KEY
-  const submitLocked = isSubmitting || cooldown > 0 || (needsToken && !turnstileToken)
+  const submitLocked = isSubmitting || cooldown > 0
   const submitLabel  = isSubmitting
     ? 'Envoi…'
     : cooldown > 0
@@ -235,7 +260,7 @@ function ContactForm() {
           />
         </div>
 
-        {/* Invisible Turnstile widget */}
+        {/* Invisible Turnstile widget — challenge triggered programmatically on submit */}
         <div id="cf-turnstile" style={{ height: 0, overflow: 'hidden' }} />
 
         <div className="cf-footer">
