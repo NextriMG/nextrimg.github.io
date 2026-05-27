@@ -11,7 +11,7 @@ export default function ServicesWindow() {
         projet digital.
       </p>
       <div className="sv-g">
-        <div className="sv-c">
+        <div className="sv-c" data-c="tl">
           <div className="sv-ico">
             <LayoutDashboard size={18} strokeWidth={2} />
           </div>
@@ -24,7 +24,7 @@ export default function ServicesWindow() {
           </div>
         </div>
 
-        <div className="sv-c">
+        <div className="sv-c" data-c="or">
           <div className="sv-ico">
             <Database size={18} strokeWidth={2} />
           </div>
@@ -37,7 +37,7 @@ export default function ServicesWindow() {
           </div>
         </div>
 
-        <div className="sv-c">
+        <div className="sv-c" data-c="lv">
           <div className="sv-ico">
             <Monitor size={18} strokeWidth={2} />
           </div>
@@ -50,7 +50,7 @@ export default function ServicesWindow() {
           </div>
         </div>
 
-        <div className="sv-c">
+        <div className="sv-c" data-c="yw">
           <div className="sv-ico">
             <Upload size={18} strokeWidth={2} />
           </div>
