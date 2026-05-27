@@ -252,10 +252,33 @@ select {
   cursor: pointer;
   transition: color .12s;
   font-family: var(--ff);
+  position: relative;
 }
 
 .mb-lnk:hover {
   color: var(--tx)
+}
+
+.mb-lnk--open {
+  color: var(--tx);
+  text-decoration: underline;
+  text-decoration-color: var(--tx3);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.mb-lnk--focused {
+  color: var(--tx);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--or);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+.mb-lnk--reduced {
+  color: var(--tx3);
+  font-style: italic;
 }
 
 .mb-r {
@@ -888,12 +911,12 @@ select {
 }
 
 .di:hover {
-  transform: scale(1.38) translateY(-10px)
+  transform: scale(0.88) translateY(3px)
 }
 
 .di:hover .tip {
   opacity: 1;
-  transform: translateX(-50%) translateY(-6px)
+  transform: translateX(-50%) translateY(6px)
 }
 
 .di-i {
@@ -937,6 +960,11 @@ select {
 
 .di.open .dot {
   opacity: 1
+}
+
+.di.reduced .dot {
+  opacity: 1;
+  background: var(--tx3);
 }
 
 .dk-sep {
@@ -1036,7 +1064,7 @@ select {
   }
 
   .di:hover {
-    transform: scale(1.2) translateY(-6px)
+    transform: scale(0.88) translateY(3px)
   }
 }
 

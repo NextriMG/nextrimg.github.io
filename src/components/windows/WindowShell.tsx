@@ -10,12 +10,13 @@ interface Props {
 }
 
 export default function WindowShell({ id, title, children }: Props) {
-  const { openWindows, zMap, closeWindow, focusWindow, guideActive } = useDesktopStore()
+  const { openWindows, reducedWindows, zMap, closeWindow, focusWindow, reduceWindow, guideActive } = useDesktopStore()
   const isOpen = openWindows.includes(id)
+  const isReduced = reducedWindows.includes(id)
   const winRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
-    if (!isOpen || window.innerWidth < 1024) return
+    if (!isOpen || isReduced || window.innerWidth < 1024) return
     const win = winRef.current
     if (!win) return
     const deskH = window.innerHeight - 28
@@ -25,11 +26,12 @@ export default function WindowShell({ id, title, children }: Props) {
     if (top + h > safeBottom) {
       win.style.top = Math.max(10, safeBottom - h) + 'px'
     }
-  }, [isOpen])
+  }, [isOpen, isReduced])
 
   const handleTitleBarMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (window.innerWidth < 1024) return
     if ((e.target as HTMLElement).closest('.wb')) return
+    if (isReduced) return
 
     const win = winRef.current!
     const startLeft = win.offsetLeft
@@ -66,12 +68,18 @@ export default function WindowShell({ id, title, children }: Props) {
           role="dialog"
           aria-labelledby={`w${id}-t`}
           aria-modal="false"
-          style={{ zIndex: (guideActive ? 10000 : 0) + (zMap[id] ?? 50) }}
-          initial={{ scale: 0.88, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.88, opacity: 0 }}
+          style={{
+            zIndex: (guideActive ? 10000 : 0) + (zMap[id] ?? 50),
+            pointerEvents: isReduced ? 'none' : undefined,
+          }}
+          initial={{ scale: 0.88, opacity: 0, y: 0 }}
+          animate={isReduced
+            ? { scale: 0.5, opacity: 0, y: 60 }
+            : { scale: 1, opacity: 1, y: 0 }
+          }
+          exit={{ scale: 0.88, opacity: 0, y: 0 }}
           transition={{ duration: 0.24, ease: [0.34, 1.56, 0.64, 1] }}
-          onMouseDown={() => focusWindow(id)}
+          onMouseDown={() => !isReduced && focusWindow(id)}
         >
           <div className="wbar" onMouseDown={handleTitleBarMouseDown}>
             <button
@@ -81,7 +89,7 @@ export default function WindowShell({ id, title, children }: Props) {
             />
             <button
               className="wb wb-m"
-              onClick={() => closeWindow(id)}
+              onClick={() => reduceWindow(id)}
               aria-label="Réduire"
             />
             <button className="wb wb-x" aria-label="Agrandir" disabled />

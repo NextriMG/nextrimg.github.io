@@ -12,18 +12,34 @@ interface DockItemProps {
 }
 
 function DockItem({ id, label, icon, colorClass }: DockItemProps) {
-  const { openWindows, openWindow } = useDesktopStore()
+  const { openWindows, reducedWindows, focusedWindow, openWindow, reduceWindow, restoreWindow, focusWindow } = useDesktopStore()
   const isOpen = openWindows.includes(id)
+  const isReduced = reducedWindows.includes(id)
+  const isFocused = focusedWindow === id
+
+  const handleClick = () => {
+    if (!isOpen) {
+      openWindow(id)
+    } else if (isReduced) {
+      restoreWindow(id)
+    } else if (isFocused) {
+      reduceWindow(id)
+    } else {
+      focusWindow(id)
+    }
+  }
+
+  const stateClass = isReduced ? ' reduced' : isOpen ? ' open' : ''
 
   return (
     <div
-      className={`di${isOpen ? ' open' : ''}`}
+      className={`di${stateClass}`}
       id={`di-${id}`}
-      onClick={() => openWindow(id)}
+      onClick={handleClick}
       tabIndex={0}
       role="button"
       aria-label={label}
-      onKeyDown={(e) => e.key === 'Enter' && openWindow(id)}
+      onKeyDown={(e) => e.key === 'Enter' && handleClick()}
     >
       <div className={`di-i ${colorClass}`}>{icon}</div>
       <div className="tip">{label}</div>
