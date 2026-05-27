@@ -7,7 +7,7 @@ Portfolio site for NEXTRI, a 3-engineer software collective (Antananarivo, Madag
 ## Design Concept
 
 ### Interface Metaphor
-The desktop breakpoint renders a full macOS-like shell: boot sequence, wallpaper with character illustrations, a bottom dock with magnification on hover, and a top menubar. Content lives inside draggable app windows. On mobile the OS metaphor is dropped entirely in favor of native mobile UX — same visual language (colors, typography, grain), different layout.
+The desktop breakpoint renders a full macOS-like shell: boot sequence, wallpaper with character illustrations, a bottom dock with sink-on-hover (scale-down), and a top menubar. Content lives inside draggable app windows. On mobile the OS metaphor is dropped entirely in favor of native mobile UX — same visual language (colors, typography, grain), different layout.
 
 ### Screens
 | # | Screen | Notes |
@@ -55,7 +55,7 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 - **Vite 6** + **React 19** + **TypeScript** (strict mode)
 - No CSS framework — custom properties + plain CSS
 - No router installed yet
-- GitHub Pages deploy via `.github/workflows/deploy.yml`
+- GitHub Pages deploy via `.github/workflows/static.yml`
 
 ## Key Conventions
 
@@ -64,6 +64,24 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 - Keep boot sequence animation in plain CSS/JS, not React state
 - Prefer small, focused components — one clear purpose per file
 - No inline styles for layout or color; use CSS classes and custom properties
+
+### Window State Model
+
+All window state lives in `useDesktopStore` (`src/store/desktop.ts`). A window has three orthogonal states tracked in two arrays:
+
+| State | Stored in | Meaning |
+|---|---|---|
+| Closed | not in `openWindows` | not mounted |
+| Open | in `openWindows`, not in `reducedWindows` | visible |
+| Reduced | in `openWindows` AND `reducedWindows` | mounted but animated away |
+
+Key actions: `openWindow`, `closeWindow`, `focusWindow`, `reduceWindow`, `restoreWindow`.
+
+**Dock click logic** (macOS-style): closed → open · reduced → restore · focused → reduce · open-not-focused → focus.
+
+**Menubar links** reflect state via CSS classes: `mb-lnk--focused` (orange underline), `mb-lnk--open` (subtle underline), `mb-lnk--reduced` (italic + dimmed). Clicking restores/focuses as appropriate.
+
+**Dock hover**: icons scale down (`scale(0.88) translateY(3px)`) — the sink effect signals the reduce-on-click behavior. Reduced icons show a dimmed dot (`var(--tx3)`) instead of the accent dot.
 
 ## Docs Reference
 
@@ -75,7 +93,7 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 
 ## GitHub Pages
 
-`vite.config.ts` sets `base: './'` (relative paths). When the repo name is known, update to `'/<repo-name>/'` for project repos. The deploy workflow (`main` → GitHub Actions → Pages) is already configured.
+`vite.config.ts` sets `base: '/nextri_portfolio/'`. All public asset paths use `import.meta.env.BASE_URL` as a prefix (injected correctly at build time). The deploy workflow (`main` → GitHub Actions → Pages) is configured in `.github/workflows/static.yml`. Live URL: `https://nextrimng.github.io/nextri_portfolio/`.
 
 ## Context Strategy
 
