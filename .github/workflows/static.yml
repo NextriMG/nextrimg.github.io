@@ -1,8 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -27,6 +25,10 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_CONTACT_ENABLED: ${{ secrets.VITE_CONTACT_ENABLED }}
+          VITE_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
+          VITE_TURNSTILE_KEY: ${{ secrets.VITE_TURNSTILE_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,8 +1,14 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import ContactWindow from './ContactWindow'
 
-describe('ContactWindow', () => {
+// Tests run against the disabled (fallback) mode so they stay synchronous
+// and require no network mocking. Enabled-mode behaviour is covered by
+// integration/e2e tests once real keys are wired up.
+describe('ContactWindow (disabled mode)', () => {
+  beforeEach(() => vi.stubEnv('VITE_CONTACT_ENABLED', 'false'))
+  afterEach(() => vi.unstubAllEnvs())
+
   it('renders the form by default', () => {
     render(<ContactWindow />)
     expect(screen.getByLabelText('Votre nom')).toBeInTheDocument()

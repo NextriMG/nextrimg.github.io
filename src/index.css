@@ -895,6 +895,49 @@ select {
   min-height: 76px
 }
 
+.fg-err input,
+.fg-err textarea,
+.fg-err select {
+  border-color: var(--or)
+}
+
+.fg-msg {
+  font-size: 11px;
+  color: var(--or);
+  line-height: 1.4
+}
+
+.cf-honey {
+  display: none !important
+}
+
+.cf-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 9px
+}
+
+.cf-error {
+  font-size: 13px;
+  color: var(--or);
+  background: rgba(232, 98, 26, .08);
+  border: 1px solid rgba(232, 98, 26, .2);
+  border-radius: 7px;
+  padding: 9px 12px;
+  line-height: 1.5
+}
+
+.cf-privacy {
+  font-size: 11px;
+  color: var(--tx3);
+  line-height: 1.55
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed
+}
+
 #c-ok {
   display: none;
   text-align: center;
