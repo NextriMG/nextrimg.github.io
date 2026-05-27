@@ -250,9 +250,22 @@ select {
   font-size: 12px;
   color: var(--tx2);
   cursor: pointer;
-  transition: color .12s;
+  transition: color .15s;
   font-family: var(--ff);
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mb-lnk::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity .2s, transform .2s;
 }
 
 .mb-lnk:hover {
@@ -261,24 +274,37 @@ select {
 
 .mb-lnk--open {
   color: var(--tx);
-  text-decoration: underline;
-  text-decoration-color: var(--tx3);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+}
+.mb-lnk--open::before {
+  background: var(--yw);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .mb-lnk--focused {
   color: var(--tx);
   font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--or);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
+}
+.mb-lnk--focused::before {
+  background: var(--tl);
+  opacity: 1;
+  transform: scale(1);
+  animation: mb-dot-pulse 2s ease-in-out infinite;
 }
 
 .mb-lnk--reduced {
   color: var(--tx3);
   font-style: italic;
+}
+.mb-lnk--reduced::before {
+  background: var(--yw);
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+@keyframes mb-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(43, 191, 179, 0.5) }
+  50%       { box-shadow: 0 0 0 3px rgba(43, 191, 179, 0) }
 }
 
 .mb-r {
