@@ -136,11 +136,12 @@ function ContactForm() {
         sitekey: TURNSTILE_KEY,
         size: 'invisible',
         execution: 'execute',
-        callback: (token: string) => {
+        callback: (_token: string) => {
           const fd = pendingData.current
           if (!fd) return
           pendingData.current = null
-          fd.append('cf-turnstile-response', token)
+          // Token not forwarded — Web3Forms Turnstile verification is a Pro feature.
+          // Turnstile still acts as a client-side bot gate; the token itself is discarded.
           void doSubmitRef.current!(fd)
         },
         'error-callback': () => {
