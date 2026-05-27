@@ -164,11 +164,18 @@ function ContactForm() {
       })
     }
     tryRender()
+    let poll: ReturnType<typeof setInterval> | undefined
     if (!window.turnstile) {
-      const poll = setInterval(() => {
+      poll = setInterval(() => {
         if (window.turnstile) { tryRender(); clearInterval(poll) }
       }, 200)
-      return () => clearInterval(poll)
+    }
+    return () => {
+      if (poll !== undefined) clearInterval(poll)
+      if (widgetId.current && window.turnstile) {
+        window.turnstile.remove(widgetId.current)
+        widgetId.current = null
+      }
     }
   }, [])
 
