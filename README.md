@@ -87,4 +87,4 @@ See [`docs/propostion_portfolio.md`](docs/propostion_portfolio.md) for the full 
 |---|---|
 | Lionel Ratovo | Technical Project Lead · Backend & Data Engineer |
 | Itokiana Rajohnson | Full Stack Developer · Assistant Project Manager |
-| Sitraka Rasatarivony | Full Stack Developer · DevOps / DevSecOps |
+| Sitraka Rasatarivony | Full Stack Developer · Backend, CI/CD |

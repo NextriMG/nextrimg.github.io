@@ -59,12 +59,12 @@ export default function TeamWindow() {
             <div className="av"><SitrakaAvatar variant="col" /></div>
             <div className="mc-card-body">
               <div className="mn">Sitraka Rasatarivony</div>
-              <div className="mr">Full Stack · DevOps / DevSecOps</div>
+              <div className="mr">Full Stack · Backend, CI/CD</div>
               <div className="sk-row">
+                <span className="sk">TypeScript</span>
                 <span className="sk">NestJS</span>
                 <span className="sk">React</span>
                 <span className="sk">CI/CD</span>
-                <span className="sk">Python</span>
               </div>
             </div>
           </div>
@@ -103,9 +103,9 @@ export default function TeamWindow() {
             <div className="av"><SitrakaAvatar variant="exp" /></div>
             <div className="mc-card-body">
               <div className="mn">Sitraka Rasatarivony</div>
-              <div className="mr">Full Stack · DevOps / DevSecOps</div>
+              <div className="mr">Full Stack · Backend, CI/CD</div>
               <p className="mc-card-desc">
-                Déploiements CI/CD, NestJS, React, FastAPI, clean code, automatisation, performance.
+                Conception d'API et refonte de backends sous contrainte de performance, modélisation et optimisation des données, livraison continue, sécurité applicative dès la conception.
               </p>
             </div>
           </div>
