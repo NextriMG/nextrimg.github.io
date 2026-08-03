@@ -4,7 +4,7 @@ import { useDesktopStore } from '../../store/desktop'
 import type { WindowId } from '../../types'
 
 export default function Menubar() {
-  const { theme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
   const time = useClock()
   const { openWindows, reducedWindows, focusedWindow, openWindow, focusWindow, restoreWindow } = useDesktopStore()
 
@@ -30,7 +30,11 @@ export default function Menubar() {
   return (
     <nav id="mb" aria-label="Menu principal">
       <div className="mb-l">
-        <div className="mb-logo">NEXTRI</div>
+        <img
+          className="mb-logo"
+          src={`${import.meta.env.BASE_URL}logo/wordmark-${resolvedTheme === 'light' ? 'encre' : 'papier'}.svg`}
+          alt="NEXTRI"
+        />
         <span className={getLinkClass('a')} onClick={() => handleLinkClick('a')} tabIndex={0}>
           À propos
         </span>

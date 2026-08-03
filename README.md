@@ -2,7 +2,7 @@
 
 Portfolio site for NEXTRI, a software collective of three engineers based in Antananarivo, Madagascar. The interface is an **OS desktop experience** (macOS-inspired): boot sequence, draggable app windows, a dock, and a menubar. On mobile the OS metaphor gives way to a native mobile layout — same visual language, different structure.
 
-**Live:** https://nextrimng.github.io/nextri_portfolio/
+**Live:** https://nextrimg.github.io/
 
 ## Tech Stack
 
@@ -36,9 +36,9 @@ Push to `main` — `.github/workflows/static.yml` builds and deploys to GitHub P
 
 **First-time setup:**
 1. In repo Settings → Pages → Source: set to **GitHub Actions**
-2. `vite.config.ts` already has `base: '/nextri_portfolio/'` — update if the repo is renamed
+2. `vite.config.ts` has `base: '/'` — this repo is a user-page site (`NextriMG.github.io`), served at the domain root. If ever moved back to a project-page repo, restore `base: '/<repo-name>/'`
 
-Asset paths use `import.meta.env.BASE_URL` (resolves to `/nextri_portfolio/` in production, `/` in dev).
+Asset paths use `import.meta.env.BASE_URL` (resolves to `/` both in dev and in production).
 
 ## Project Structure
 

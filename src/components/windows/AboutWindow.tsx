@@ -6,18 +6,18 @@ export default function AboutWindow() {
 
   return (
     <>
-      <h2 className="sec-h">Trois experts. Une équipe. Votre livrable.</h2>
+      <h3 className="sec-h">Trois experts. Une équipe. Votre livrable.</h3>
       <p className="sec-p">
         NEXTRI est un collectif de trois ingénieurs logiciels basé à Antananarivo. Nous accompagnons
         entreprises, startups et porteurs de projets dans la conception, le développement et
         l'évolution de produits digitaux fiables.
       </p>
-      <h3 className="sec-h2">Deux façons de travailler ensemble</h3>
+      <h4 className="sec-h2">Deux façons de travailler ensemble</h4>
       <div className="modes-g">
         <div className="mc">
           <div className="mc-ico mc-ico-tl"><Zap size={18} strokeWidth={2} /></div>
           <div>
-            <h4>Mode Collectif</h4>
+            <h5>Mode Collectif</h5>
             <p>
               Projets complets — SaaS, plateformes web, systèmes complexes. Architecture + Backend +
               Frontend + DevOps en équipe unifiée, responsabilité partagée du livrable.
@@ -27,7 +27,7 @@ export default function AboutWindow() {
         <div className="mc">
           <div className="mc-ico mc-ico-or"><Target size={18} strokeWidth={2} /></div>
           <div>
-            <h4>Mode Expert</h4>
+            <h5>Mode Expert</h5>
             <p>
               Chaque membre intervient de façon autonome sur un besoin précis. La souplesse d'un
               freelance, avec la fiabilité d'un collectif derrière le profil engagé.
@@ -35,7 +35,7 @@ export default function AboutWindow() {
           </div>
         </div>
       </div>
-      <h3 className="sec-h2" style={{ marginTop: '18px' }}>Notre engagement</h3>
+      <h4 className="sec-h2" style={{ marginTop: '18px' }}>Notre engagement</h4>
       <p className="sec-p">
         Transparence dans les choix techniques, code maintenable sans dette cachée, réponse garantie
         sous 24h. Des solutions pensées pour durer.

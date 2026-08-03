@@ -93,7 +93,7 @@ export default function WindowShell({ id, title, children }: Props) {
               aria-label="Réduire"
             />
             <button className="wb wb-x" aria-label="Agrandir" disabled />
-            <div className="wtit" id={`w${id}-t`}>{title}</div>
+            <h2 className="wtit" id={`w${id}-t`}>{title}</h2>
           </div>
           <div className="wbody">
             {children}

@@ -236,12 +236,9 @@ select {
 }
 
 .mb-logo {
-  font-family: var(--ffd);
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 1;
-  color: var(--or);
-  letter-spacing: -.03em;
+  height: 11px;
+  width: auto;
+  display: block;
   cursor: default;
   user-select: none;
 }
@@ -491,6 +488,7 @@ select {
 
 .wtit {
   flex: 1;
+  margin: 0;
   text-align: center;
   font-size: 13px;
   font-weight: 500;
@@ -572,7 +570,7 @@ select {
   font-size: 19px;
   font-weight: 700;
   color: var(--tx);
-  margin-bottom: 8px;
+  margin: 0.83em 0 8px;
 }
 
 .sec-p {
@@ -587,7 +585,7 @@ select {
   font-size: 15px;
   font-weight: 600;
   color: var(--tx);
-  margin-bottom: 7px;
+  margin: 1em 0 7px;
 }
 
 .modes-g {
@@ -627,12 +625,12 @@ select {
   color: var(--or);
 }
 
-.mc h4 {
+.mc h5 {
   font-family: var(--ffd);
   font-size: 14px;
   font-weight: 600;
   color: var(--tx);
-  margin-bottom: 5px
+  margin: 1.33em 0 5px
 }
 
 .mc p {
@@ -770,6 +768,27 @@ select {
   font-weight: 600;
   color: var(--tx);
   margin-bottom: 3px
+}
+
+.mn-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 3px;
+}
+
+.mn-row .mn {
+  margin-bottom: 0;
+}
+
+.mn-link {
+  display: inline-flex;
+  color: var(--tx3);
+  transition: color .15s;
+}
+
+.mn-link:hover {
+  color: var(--tx);
 }
 
 .mr {

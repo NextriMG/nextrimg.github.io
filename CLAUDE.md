@@ -93,7 +93,7 @@ Key actions: `openWindow`, `closeWindow`, `focusWindow`, `reduceWindow`, `restor
 
 ## GitHub Pages
 
-`vite.config.ts` sets `base: '/nextri_portfolio/'`. All public asset paths use `import.meta.env.BASE_URL` as a prefix (injected correctly at build time). The deploy workflow (`main` → GitHub Actions → Pages) is configured in `.github/workflows/static.yml`. Live URL: `https://nextrimng.github.io/nextri_portfolio/`.
+Repo is a **user-page site** (`NextriMG.github.io`), served at the domain root — `vite.config.ts` sets `base: '/'`. All public asset paths use `import.meta.env.BASE_URL` as a prefix (injected correctly at build time). The deploy workflow (`main` → GitHub Actions → Pages) is configured in `.github/workflows/static.yml`. Live URL: `https://nextrimg.github.io/`.
 
 ## Context Strategy
 
