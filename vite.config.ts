@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 /**
  * GitHub Pages n'émet aucun en-tête HTTP personnalisé : la seule politique de
  * sécurité que ce site peut poser est un `<meta http-equiv>`. Cela couvre la
- * CSP et rien d'autre — `frame-ancestors`, `X-Frame-Options`,
+ * CSP et rien d'autre : `frame-ancestors`, `X-Frame-Options`,
  * `X-Content-Type-Options` et `Permissions-Policy` n'existent qu'en en-tête et
  * resteront hors de portée tant que l'hébergeur ne change pas. Un scan
  * securityheaders.com ne verra jamais ce meta ; ce qu'il protège, c'est le

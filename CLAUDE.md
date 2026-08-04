@@ -1,27 +1,27 @@
-# NEXTRI Portfolio — Claude Code Context
+# NEXTRI Portfolio · Claude Code Context
 
 ## Project
 
-Portfolio site for NEXTRI, a 3-engineer software collective (Antananarivo, Madagascar). The UI concept is an **OS desktop experience** — macOS-inspired, not a standard marketing page.
+Portfolio site for NEXTRI, a 3-engineer software collective (Antananarivo, Madagascar). The UI concept is an **OS desktop experience**: macOS-inspired, not a standard marketing page.
 
 ## Design Concept
 
 ### Interface Metaphor
-The desktop breakpoint renders a full macOS-like shell: boot sequence, wallpaper with character illustrations, a bottom dock with sink-on-hover (scale-down), and a top menubar. Content lives inside draggable app windows. On mobile the OS metaphor is dropped entirely in favor of native mobile UX — same visual language (colors, typography, grain), different layout.
+The desktop breakpoint renders a full macOS-like shell: boot sequence, wallpaper with character illustrations, a bottom dock with sink-on-hover (scale-down), and a top menubar. Content lives inside draggable app windows. On mobile the OS metaphor is dropped entirely in favor of native mobile UX, same visual language (colors, typography, grain), different layout.
 
 ### Screens
 | # | Screen | Notes |
 |---|---|---|
 | 00 | Boot Spectacle | Full-screen CSS/JS animation sequence before the desktop loads |
 | 01 | Desktop | Dock, menubar, wallpaper with character illustrations |
-| 02 | À propos | App window — accessible text content |
-| 03 | L'équipe | App window — toggle between Collectif / Expert view |
+| 02 | À propos | App window, accessible text content |
+| 03 | L'équipe | App window, toggle between Collectif / Expert view |
 | 04 | Services | Finder-style layout |
 | 05 | Réalisations | Portfolio/projects |
-| 06 | Contact | App window — standard accessible form |
+| 06 | Contact | App window, standard accessible form |
 
 ### Color System
-CSS custom properties on `[data-theme]`. The design uses a risograph aesthetic — grain texture, ink-like accent colors, paper vs. slate base.
+CSS custom properties on `[data-theme]`. The design uses a risograph aesthetic, grain texture, ink-like accent colors, paper vs. slate base.
 
 ```css
 :root {
@@ -35,7 +35,7 @@ CSS custom properties on `[data-theme]`. The design uses a risograph aesthetic �
   --tx:  #F4EEE0;  --tx2: #9E9880;  --tx3: #5a5448;
   --bd:  #3A4736;  --bd2: #4d5f49;
   --sh:  rgba(0,0,0,.5);
-  --or:  #E8621A;  /* orange — primary accent */
+  --or:  #E8621A;  /* orange, primary accent */
   --tl:  #2BBFB3;  /* teal */
   --yw:  #F5C842;  /* yellow */
   --lv:  #9B8FD9;  /* lavender */
@@ -48,21 +48,21 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 
 ### Responsive Strategy
 - **Desktop (≥1024px):** Full OS desktop metaphor
-- **Mobile (<768px):** Native mobile layout — same colors and typography, no dock/windows
+- **Mobile (<768px):** Native mobile layout, same colors and typography, no dock/windows
 
 ## Tech Stack
 
 - **Vite 6** + **React 19** + **TypeScript** (strict mode)
-- No CSS framework — custom properties + plain CSS
+- No CSS framework: custom properties + plain CSS
 - No router installed yet
 - GitHub Pages deploy via `.github/workflows/static.yml`
 
 ## Key Conventions
 
-- Use CSS custom properties (`var(--bg)`, `var(--tx)`, etc.) — never hardcode colors
+- Use CSS custom properties (`var(--bg)`, `var(--tx)`, etc.), never hardcode colors
 - `[data-theme="dark" | "light"]` on the root element controls theming
 - Keep boot sequence animation in plain CSS/JS, not React state
-- Prefer small, focused components — one clear purpose per file
+- Prefer small, focused components: one clear purpose per file
 - No inline styles for layout or color; use CSS classes and custom properties
 
 ### Window State Model
@@ -81,7 +81,7 @@ Key actions: `openWindow`, `closeWindow`, `focusWindow`, `reduceWindow`, `restor
 
 **Menubar links** reflect state via CSS classes: `mb-lnk--focused` (orange underline), `mb-lnk--open` (subtle underline), `mb-lnk--reduced` (italic + dimmed). Clicking restores/focuses as appropriate.
 
-**Dock hover**: icons scale down (`scale(0.88) translateY(3px)`) — the sink effect signals the reduce-on-click behavior. Reduced icons show a dimmed dot (`var(--tx3)`) instead of the accent dot.
+**Dock hover**: icons scale down (`scale(0.88) translateY(3px)`), the sink effect signals the reduce-on-click behavior. Reduced icons show a dimmed dot (`var(--tx3)`) instead of the accent dot.
 
 ## Docs Reference
 
@@ -93,7 +93,7 @@ Key actions: `openWindow`, `closeWindow`, `focusWindow`, `reduceWindow`, `restor
 
 ## GitHub Pages
 
-Repo is a **user-page site** (`NextriMG.github.io`), served at the domain root — `vite.config.ts` sets `base: '/'`. All public asset paths use `import.meta.env.BASE_URL` as a prefix (injected correctly at build time). The deploy workflow (`main` → GitHub Actions → Pages) is configured in `.github/workflows/static.yml`. Live URL: `https://nextrimg.github.io/`.
+Repo is a **user-page site** (`NextriMG.github.io`), served at the domain root, `vite.config.ts` sets `base: '/'`. All public asset paths use `import.meta.env.BASE_URL` as a prefix (injected correctly at build time). The deploy workflow (`main` → GitHub Actions → Pages) is configured in `.github/workflows/static.yml`. Live URL: `https://nextrimg.github.io/`.
 
 ## Context Strategy
 

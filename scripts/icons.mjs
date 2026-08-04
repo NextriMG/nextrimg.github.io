@@ -15,7 +15,7 @@
  * marge d'export du branding (déjà à 2 %) mais l'artboard : le triangle mesure
  * 162 sur un carré de 256, soit 63 %, et le retrait des facettes le réduit
  * encore. VIEWBOX ci-dessous recadre donc sur l'encre seule, et `fill` décide
- * ensuite de la respiration — qui n'a pas de valeur unique : un favicon se
+ * ensuite de la respiration, qui n'a pas de valeur unique : un favicon se
  * remplit bord à bord, une icône maskable doit tenir dans la zone sûre
  * d'Android, une apple-touch-icon est arrondie par iOS.
  */
