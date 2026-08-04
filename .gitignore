@@ -24,7 +24,7 @@ Thumbs.db
 
 # Temp
 .temp
-.sandbox
+.unwanted
 playwright-mcp
 
 graphify-out/graph.json
