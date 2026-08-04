@@ -12,7 +12,7 @@ export default function ContactWindow() {
     : <ContactFallback />
 }
 
-// ── Disabled mode — keeps original behavior ───────────────────────────────────
+// ── Disabled mode, keeps original behavior ───────────────────────────────────
 function ContactFallback() {
   const [sent, setSent] = useState(false)
   const nameRef = useRef<HTMLInputElement>(null)
@@ -127,7 +127,7 @@ function ContactForm() {
   // The widget stays dormant until execute() is called at submit time.
   useEffect(() => {
     if (!TURNSTILE_KEY) {
-      console.warn('[Contact] VITE_TURNSTILE_KEY not set — Turnstile skipped')
+      console.warn('[Contact] VITE_TURNSTILE_KEY not set, Turnstile skipped')
       return
     }
     const tryRender = () => {
@@ -140,7 +140,7 @@ function ContactForm() {
           const fd = pendingData.current
           if (!fd) return
           pendingData.current = null
-          // Token not forwarded — Web3Forms Turnstile verification is a Pro feature.
+          // Token not forwarded: Web3Forms Turnstile verification is a Pro feature.
           // Turnstile still acts as a client-side bot gate; the token itself is discarded.
           void doSubmitRef.current!(fd)
         },
@@ -149,10 +149,10 @@ function ContactForm() {
           const fd = pendingData.current
           pendingData.current = null
           if (fd) {
-            // Turnstile failed mid-submit — send directly without token
+            // Turnstile failed mid-submit, so send directly without token
             void doSubmitRef.current!(fd)
           } else {
-            // Turnstile failed at init — flag is set; next submit will bypass it silently
+            // Turnstile failed at init: flag is set; next submit will bypass it silently
             setIsSubmitting(false)
           }
         },
@@ -207,11 +207,11 @@ function ContactForm() {
     if (type) fd.append('type_intervention', type)
 
     if (TURNSTILE_KEY && window.turnstile && widgetId.current && !turnstileFailed.current) {
-      // Store form data and trigger challenge — actual submission happens in callback
+      // Store form data and trigger challenge; actual submission happens in callback
       pendingData.current = fd
       window.turnstile.execute(widgetId.current)
     } else {
-      // Turnstile not configured, not loaded, or previously failed — submit directly
+      // Turnstile not configured, not loaded, or previously failed, so submit directly
       await doSubmit(fd)
     }
   }
@@ -231,7 +231,7 @@ function ContactForm() {
         Réponse garantie sous 24h. Décrivez-nous votre projet.
       </p>
       <div className="cf">
-        {/* Honeypot — must remain empty */}
+        {/* Honeypot, must remain empty */}
         <input type="text" name="_honey" className="cf-honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
         <div className={`fg${errors.name ? ' fg-err' : ''}`}>
@@ -276,7 +276,7 @@ function ContactForm() {
           />
         </div>
 
-        {/* Invisible Turnstile widget — challenge triggered programmatically on submit */}
+        {/* Invisible Turnstile widget, challenge triggered programmatically on submit */}
         <div id="cf-turnstile" style={{ height: 0, overflow: 'hidden' }} />
 
         <div className="cf-footer">

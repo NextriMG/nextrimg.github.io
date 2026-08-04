@@ -19,7 +19,7 @@ export default function AboutWindow() {
           <div>
             <h5>Mode Collectif</h5>
             <p>
-              Projets complets — SaaS, plateformes web, systèmes complexes. Architecture + Backend +
+              Projets complets : SaaS, plateformes web, systèmes complexes. Architecture + Backend +
               Frontend + DevOps en équipe unifiée, responsabilité partagée du livrable.
             </p>
           </div>

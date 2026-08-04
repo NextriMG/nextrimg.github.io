@@ -1,6 +1,6 @@
-# NEXTRI — Portfolio
+# NEXTRI · Portfolio
 
-Portfolio site for NEXTRI, a software collective of three engineers based in Antananarivo, Madagascar. The interface is an **OS desktop experience** (macOS-inspired): boot sequence, draggable app windows, a dock, and a menubar. On mobile the OS metaphor gives way to a native mobile layout — same visual language, different structure.
+Portfolio site for NEXTRI, a software collective of three engineers based in Antananarivo, Madagascar. The interface is an **OS desktop experience** (macOS-inspired): boot sequence, draggable app windows, a dock, and a menubar. On mobile the OS metaphor gives way to a native mobile layout: same visual language, different structure.
 
 **Live:** https://nextrimg.github.io/
 
@@ -13,7 +13,7 @@ Portfolio site for NEXTRI, a software collective of three engineers based in Ant
 | State | Zustand 5 |
 | Animation | Framer Motion 12 + GSAP 3 |
 | Styling | Plain CSS + custom properties (no framework) |
-| Theme | next-themes — `[data-theme="dark|light"]` on root |
+| Theme | next-themes, `[data-theme="dark|light"]` on root |
 | Icons | Lucide React |
 | Tour | Driver.js |
 | Tests | Vitest + Testing Library |
@@ -32,11 +32,11 @@ npm run test:run  # single test run
 
 ## Deploy
 
-Push to `main` — `.github/workflows/static.yml` builds and deploys to GitHub Pages automatically.
+Push to `main`, and `.github/workflows/static.yml` builds and deploys to GitHub Pages automatically.
 
 **First-time setup:**
 1. In repo Settings → Pages → Source: set to **GitHub Actions**
-2. `vite.config.ts` has `base: '/'` — this repo is a user-page site (`NextriMG.github.io`), served at the domain root. If ever moved back to a project-page repo, restore `base: '/<repo-name>/'`
+2. `vite.config.ts` has `base: '/'` because this repo is a user-page site (`NextriMG.github.io`), served at the domain root. If ever moved back to a project-page repo, restore `base: '/<repo-name>/'`
 
 Asset paths use `import.meta.env.BASE_URL` (resolves to `/` both in dev and in production).
 
@@ -50,14 +50,14 @@ src/
     windows/      # App windows (AboutWindow, TeamWindow, ServicesWindow, ContactWindow)
     avatars/      # SVG avatar components (Lionel, Itokiana, Sitraka)
   store/
-    desktop.ts    # Zustand store — all window + phase state
+    desktop.ts    # Zustand store, all window + phase state
   hooks/
     useClock.ts   # Live clock for menubar
     useGuide.ts   # Driver.js onboarding tour
   types/
     index.ts      # WindowId, Phase, TeamMode
-  index.css       # All styles — custom properties, OS shell, windows, dock
-  App.tsx         # Root — theme provider + phase routing (boot → desktop)
+  index.css       # All styles: custom properties, OS shell, windows, dock
+  App.tsx         # Root: theme provider + phase routing (boot → desktop)
 docs/
   propostion_portfolio.md   # Design proposal: palette, screens, animations
   about-nextri/             # Company profile, team bios, CVs

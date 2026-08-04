@@ -5,7 +5,7 @@ import LionelAvatar from '../avatars/LionelAvatar'
 import ItoAvatar from '../avatars/ItoAvatar'
 import SitrakaAvatar from '../avatars/SitrakaAvatar'
 
-// lucide-react dropped brand marks — GitHub isn't in the icon set, so it's inlined here.
+// lucide-react dropped brand marks: GitHub isn't in the icon set, so it's inlined here.
 function GithubIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

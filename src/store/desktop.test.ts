@@ -20,7 +20,7 @@ describe('useDesktopStore', () => {
     expect(s.focusedWindow).toBe('a')
   })
 
-  it('openWindow is idempotent — no duplicates', () => {
+  it('openWindow is idempotent, no duplicates', () => {
     useDesktopStore.getState().openWindow('a')
     useDesktopStore.getState().openWindow('a')
     expect(useDesktopStore.getState().openWindows.filter(w => w === 'a')).toHaveLength(1)

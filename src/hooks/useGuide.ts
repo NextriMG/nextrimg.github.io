@@ -46,7 +46,7 @@ export function useGuide() {
           element: '#di-s',
           popover: {
             title: 'Nos services',
-            description: 'Développement web, backend, infrastructure, audit — tout ce que nous faisons.',
+            description: 'Développement web, backend, infrastructure, audit : tout ce que nous faisons.',
             side: 'top', align: 'center',
           },
         },

@@ -9,7 +9,7 @@ export default function Hero() {
         Co-construire vos<br />
         <b>ambitions digitales.</b>
       </h1>
-      <p>Un collectif de trois ingénieurs — une équipe ou un expert, selon vos besoins.</p>
+      <p>Un collectif de trois ingénieurs : une équipe ou un expert, selon vos besoins.</p>
       <div className="h-ctas">
         <button className="btn btn-p" onClick={() => openWindow('s')}>
           Voir nos services

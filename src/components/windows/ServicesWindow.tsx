@@ -7,7 +7,7 @@ export default function ServicesWindow() {
   return (
     <>
       <p className="sec-p">
-        De la conception à la production — nous couvrons l'ensemble du cycle de vie de votre
+        De la conception à la production, nous couvrons l'ensemble du cycle de vie de votre
         projet digital.
       </p>
       <div className="sv-g">

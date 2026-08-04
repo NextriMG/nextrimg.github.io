@@ -58,7 +58,7 @@ export default function BootScreen() {
       // auto-reverted when the effect cleans up (React Strict Mode or unmount).
       gsap.set(logoEl, { opacity: 0 })
       // Offset hero/dock below their natural position; opacity stays at CSS
-      // default (1) — the overlay covers them until it fades in Phase E.
+      // default (1); the overlay covers them until it fades in Phase E.
       gsap.set(heroEl, { y: 48 })
       gsap.set(dockEl, { y: 40 })
 
@@ -77,7 +77,7 @@ export default function BootScreen() {
       )
       prog?.tweenTo(18, 0.5)
 
-      // ── Phase B: split apart — strip stays hidden ────────────────────────
+      // ── Phase B: split apart, strip stays hidden ────────────────────────
       await sleep(300)
       if (aborted) return
 
@@ -129,7 +129,7 @@ export default function BootScreen() {
       const splitRect = splitEl.getBoundingClientRect()
       const logoRect  = logoEl.getBoundingClientRect()
 
-      // Scale by font-size ratio — more accurate than element height
+      // Scale by font-size ratio, more accurate than element height
       const splitFontPx = parseFloat(getComputedStyle(nexEl).fontSize)
       const logoFontPx  = parseFloat(getComputedStyle(logoEl).fontSize)
       const scaleRatio  = logoFontPx / splitFontPx
@@ -150,13 +150,13 @@ export default function BootScreen() {
 
       // ── Cascade: bar gone → overlay fades, hero/dock slide up ───────────
       // Fading the overlay (not the whole #boot) lets the NEXTRI split stay
-      // visible on top while the desktop emerges beneath it — no empty viewport.
+      // visible on top while the desktop emerges beneath it, so no empty viewport.
       gsap.to(overlayEl, { opacity: 0, duration: 0.65, ease: 'power2.out' })
       gsap.to(heroEl,    { y: 0, duration: 0.7, ease: 'power2.out', delay: 0.05 })
       gsap.to(dockEl,    {
         y: 0, duration: 0.6, ease: 'power2.out', delay: 0.15,
         // Release GSAP's hold on `transform` so CSS translateX(-50%) governs
-        // centering again — important for correct behaviour on viewport resize.
+        // centering again, important for correct behaviour on viewport resize.
         onComplete: () => gsap.set(dockEl, { clearProps: 'transform' }),
       })
 
@@ -189,7 +189,7 @@ export default function BootScreen() {
     return () => {
       aborted = true
       stripRef.current?.stop()
-      // All three elements live outside the GSAP scope — kill their tweens and
+      // All three elements live outside the GSAP scope, so kill their tweens and
       // clear inline styles so context revert leaves them in a clean CSS state.
       const logoEl = document.querySelector<HTMLElement>('.mb-logo')
       if (logoEl) { gsap.killTweensOf(logoEl); gsap.set(logoEl, { clearProps: 'opacity' }) }
