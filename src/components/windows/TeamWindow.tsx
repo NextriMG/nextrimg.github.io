@@ -72,8 +72,8 @@ export default function TeamWindow() {
               </div>
               <div className="mr">Full Stack Java · Technico-fonctionnel</div>
               <div className="sk-row">
-                <span className="sk">Java</span>
                 <span className="sk">Spring Boot</span>
+                <span className="sk">Drools</span>
                 <span className="sk">Angular</span>
                 <span className="sk">PostgreSQL</span>
               </div>
