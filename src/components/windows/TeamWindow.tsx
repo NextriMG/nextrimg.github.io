@@ -70,12 +70,12 @@ export default function TeamWindow() {
                   <LinkedinIcon />
                 </a>
               </div>
-              <div className="mr">Technical Lead · Backend &amp; Data</div>
+              <div className="mr">Full Stack Java · Technico-fonctionnel</div>
               <div className="sk-row">
                 <span className="sk">Java</span>
-                <span className="sk">Node.js</span>
+                <span className="sk">Spring Boot</span>
+                <span className="sk">Angular</span>
                 <span className="sk">PostgreSQL</span>
-                <span className="sk">Docker</span>
               </div>
             </div>
           </div>
@@ -162,9 +162,9 @@ export default function TeamWindow() {
                   <LinkedinIcon />
                 </a>
               </div>
-              <div className="mr">Backend &amp; Data Engineer</div>
+              <div className="mr">Consultant full-stack Java</div>
               <p className="mc-card-desc">
-                APIs REST, architectures scalables, pipelines de données, optimisation SQL, coordination technique.
+                Applications métier Java Spring Boot, règles et workflows Drools et Camunda, interfaces Angular sur PostgreSQL. Ateliers métier, spécifications et encadrement technique.
               </p>
             </div>
           </div>
