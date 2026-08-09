@@ -71,6 +71,7 @@ export default function TeamWindow() {
                 </a>
               </div>
               <div className="mr">Full Stack Java · Technico-fonctionnel</div>
+              <div className="mr-co">Coordinateur opérationnel · Commercial</div>
               <div className="sk-row">
                 <span className="sk">Spring Boot</span>
                 <span className="sk">Drools</span>
@@ -96,6 +97,7 @@ export default function TeamWindow() {
                 </a>
               </div>
               <div className="mr">Full Stack Senior · Chef de Projet</div>
+              <div className="mr-co">Référent administratif</div>
               <div className="sk-row">
                 <span className="sk">Spring Boot</span>
                 <span className="sk">Angular</span>
@@ -121,6 +123,7 @@ export default function TeamWindow() {
                 </a>
               </div>
               <div className="mr">Full Stack · Backend, CI/CD</div>
+              <div className="mr-co">Responsable technique</div>
               <div className="sk-row">
                 <span className="sk">TypeScript</span>
                 <span className="sk">NestJS</span>

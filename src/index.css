@@ -800,6 +800,16 @@ select {
 .mc-card[data-c=yw] .mr { color: var(--yw) }
 .mc-card[data-c=or] .mr { color: var(--or) }
 
+/* Le metier se resserre quand la fonction dans le collectif le suit, pour que les deux
+   lignes se lisent comme une paire. */
+.mr:has(+ .mr-co) { margin-bottom: 2px }
+
+.mr-co {
+  font-size: 11px;
+  color: var(--tx2);
+  margin-bottom: 8px;
+}
+
 .sk-row {
   display: flex;
   flex-wrap: wrap;
