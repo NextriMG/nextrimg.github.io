@@ -113,6 +113,15 @@ export default function TeamWindow() {
               <div className="mn-row">
                 <span className="mn">Sitraka Rasatarivony</span>
                 <a
+                  href="https://sitrakarasata.pages.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mn-link"
+                  aria-label="Portfolio de Sitraka Rasatarivony"
+                >
+                  <Globe size={13} strokeWidth={2} />
+                </a>
+                <a
                   href="https://github.com/SitrakaRasata"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -120,6 +129,15 @@ export default function TeamWindow() {
                   aria-label="Profil GitHub de Sitraka Rasatarivony"
                 >
                   <GithubIcon />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sitraka-rasata/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mn-link"
+                  aria-label="Profil LinkedIn de Sitraka Rasatarivony"
+                >
+                  <LinkedinIcon />
                 </a>
               </div>
               <div className="mr">Full Stack · Backend, CI/CD</div>
@@ -200,6 +218,15 @@ export default function TeamWindow() {
               <div className="mn-row">
                 <span className="mn">Sitraka Rasatarivony</span>
                 <a
+                  href="https://sitrakarasata.pages.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mn-link"
+                  aria-label="Portfolio de Sitraka Rasatarivony"
+                >
+                  <Globe size={13} strokeWidth={2} />
+                </a>
+                <a
                   href="https://github.com/SitrakaRasata"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -207,6 +234,15 @@ export default function TeamWindow() {
                   aria-label="Profil GitHub de Sitraka Rasatarivony"
                 >
                   <GithubIcon />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sitraka-rasata/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mn-link"
+                  aria-label="Profil LinkedIn de Sitraka Rasatarivony"
+                >
+                  <LinkedinIcon />
                 </a>
               </div>
               <div className="mr">Full Stack · Backend, CI/CD</div>
