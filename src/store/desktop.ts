@@ -20,8 +20,19 @@ interface DesktopState {
   setGuideActive: (v: boolean) => void
 }
 
+// Démarrage joué une fois par session, jamais en mouvement réduit.
+function skipBoot(): boolean {
+  if (typeof window === 'undefined') return false
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return true
+  try {
+    if (sessionStorage.getItem('booted')) return true
+    sessionStorage.setItem('booted', '1')
+  } catch { /* stockage indisponible : on joue le démarrage */ }
+  return false
+}
+
 export const useDesktopStore = create<DesktopState>((set) => ({
-  phase: 'boot',
+  phase: skipBoot() ? 'desktop' : 'boot',
   openWindows: [],
   reducedWindows: [],
   focusedWindow: null,
