@@ -25,8 +25,6 @@ function csp(): Plugin {
   const ORIGINS = {
     turnstile: 'https://challenges.cloudflare.com', // le script et son iframe
     web3forms: 'https://api.web3forms.com', // le POST du formulaire de contact
-    fontsCss: 'https://fonts.googleapis.com',
-    fontsFiles: 'https://fonts.gstatic.com',
   }
 
   return {
@@ -49,8 +47,10 @@ function csp(): Plugin {
           // Framer Motion, GSAP et driver.js posent tous des attributs
           // `style="…"`, qu'aucun hachage ne peut couvrir. Ce que cela ouvre
           // c'est la mise en forme, pas l'exécution.
-          `style-src 'self' 'unsafe-inline' ${ORIGINS.fontsCss}`,
-          `font-src 'self' ${ORIGINS.fontsFiles}`,
+          `style-src 'self' 'unsafe-inline'`,
+          // Polices hébergées par le site (public/fonts, src/index.css).
+          "font-src 'self'",
+
           // `data:` porte le grain, encodé en SVG dans index.css.
           "img-src 'self' data:",
           `connect-src 'self' ${ORIGINS.web3forms}`,
