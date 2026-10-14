@@ -34,11 +34,8 @@
     <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet">
+    <!-- Posée avant le rendu : masque le résumé statique de #root quand React va le remplacer. -->
+    <script>document.documentElement.classList.add('js')</script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -56,7 +53,32 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Contenu lisible sans JavaScript (robots, aperçus de lien, lecteurs sans JS).
+         React le remplace au premier rendu (createRoot). Textes repris des fenêtres :
+         les garder alignés sur src/components/. -->
+    <div id="root">
+      <main class="seo-fallback">
+        <h1>NEXTRI · Co-construire vos ambitions digitales.</h1>
+        <p>Un collectif de trois ingénieurs : une équipe ou un expert, selon vos besoins.</p>
+        <h2>Trois experts. Une équipe. Votre livrable.</h2>
+        <p>NEXTRI est un collectif de trois ingénieurs logiciels basé à Antananarivo. Nous accompagnons entreprises, startups et porteurs de projets dans la conception, le développement et l'évolution de produits digitaux fiables.</p>
+        <h2>Deux façons de travailler ensemble</h2>
+        <ul>
+          <li><strong>Mode Collectif</strong> : projets complets (SaaS, plateformes web, systèmes complexes). Architecture, backend, frontend et DevOps en équipe unifiée, responsabilité partagée du livrable.</li>
+          <li><strong>Mode Expert</strong> : chaque membre intervient de façon autonome sur un besoin précis. La souplesse d'un freelance, avec la fiabilité d'un collectif derrière le profil engagé.</li>
+        </ul>
+        <h2>Services</h2>
+        <p>De la conception à la production, nous couvrons l'ensemble du cycle de vie de votre projet digital : développement web sur mesure (plateformes métiers, SaaS, tableaux de bord, outils internes, portails clients), APIs et architectures conçues pour la croissance.</p>
+        <h2>L'équipe</h2>
+        <ul>
+          <li><a href="https://lionel0505.github.io">Lionel Ratovo</a> : Full Stack Java · Technico-fonctionnel</li>
+          <li><a href="https://itokianara.github.io">Itokiana Rajohnson</a> : Full Stack Senior · Chef de Projet</li>
+          <li><a href="https://sitrakarasata.pages.dev">Sitraka Rasatarivony</a> : Full Stack · Backend, CI/CD</li>
+        </ul>
+        <h2>Contact</h2>
+        <p>Réponse garantie sous 24h. Décrivez-nous votre projet.</p>
+      </main>
+    </div>
     <script type="module" src="./src/main.tsx"></script>
     <script
       src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
