@@ -4,6 +4,19 @@
 
 Portfolio site for NEXTRI, a 3-engineer software collective (Antananarivo, Madagascar). The UI concept is an **OS desktop experience**: macOS-inspired, not a standard marketing page.
 
+## Communication
+
+The person driving the session may not know this stack (React, TypeScript, Vite, Vitest, GitHub Actions). In every message to them:
+- Answer in French, short sentences, one idea per sentence.
+- Say what you did, what it changes, what they must do next. Nothing else.
+- Name a tool or concept once with a few-word definition the first time (e.g. "Vitest, l'outil qui lance les tests"); no jargon after that without need.
+- Give commands ready to copy, one per line, with what each one does.
+- No long reasoning, no list of options you will not use. Ask one question at a time when a decision is theirs.
+
+## Git
+
+Pushing to `main` deploys to production. Work on a feature branch; merge into `main` only after `npm run lint`, `npm run test:run` and `npm run build` pass locally on the branch. Never commit or push directly to `main`.
+
 ## Design Concept
 
 ### Interface Metaphor

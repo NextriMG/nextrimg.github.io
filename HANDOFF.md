@@ -25,5 +25,5 @@ Mission : version anglaise du site. Lire `docs/missions/version-anglaise.md` et 
 - Le résumé sans JS de `index.html` duplique les textes des fenêtres : toute modification de texte doit s'y répercuter.
 
 ## Prochaines actions
-1. Étape 0 de `docs/missions/version-anglaise.md`, y compris `graphify hook install`.
+1. Créer la branche `feat/version-anglaise` (règles : `docs/missions/version-anglaise.md`, section « Branche et mise en production »), puis étape 0, y compris `graphify hook install`.
 2. Étape 1 : proposition, puis attendre la validation du mainteneur.
