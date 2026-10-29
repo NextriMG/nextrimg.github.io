@@ -27,12 +27,20 @@ Thumbs.db
 .unwanted
 playwright-mcp
 
-graphify-out/graph.json
-graphify-out/graph.html
-graphify-out/cache/
+graphify-out/*
+!graphify-out/GRAPH_REPORT.md
+!graphify-out/graph.json
+!graphify-out/graph.html
+src/graphify-out/
 
 .claude
 *.exe.stackdump
 *.stackdump
 
-docs/
+docs/*
+!docs/propostion_portfolio.md
+!docs/assets/
+!docs/missions/
+!docs/about-nextri/
+docs/about-nextri/*
+!docs/about-nextri/README.md

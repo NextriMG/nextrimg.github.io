@@ -53,7 +53,8 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 ## Tech Stack
 
 - **Vite 6** + **React 19** + **TypeScript** (strict mode)
-- No CSS framework: custom properties + plain CSS
+- Styles: plain CSS + custom properties in `src/index.css`. Tailwind 4 is loaded (`@import "tailwindcss"`, `@tailwindcss/vite`) but project styles do not rely on utility classes; do not add new ones
+- Zustand (state), Framer Motion + GSAP (animation), Driver.js (guide), Vitest + Testing Library (tests)
 - No router installed yet
 - GitHub Pages deploy via `.github/workflows/static.yml`
 
@@ -89,7 +90,10 @@ Key actions: `openWindow`, `closeWindow`, `focusWindow`, `reduceWindow`, `restor
 |---|---|
 | `docs/propostion_portfolio.md` | Design proposal: palette, responsive, animation sequence, screen list |
 | `docs/about-nextri/README.md` | Company profile, services, team bios, tech stack |
-| `docs/about-nextri/resumes/` | Individual CVs for Lionel, Itokiana, Sitraka |
+| `docs/about-nextri/resumes/` | Individual CVs, **not in git** (local only) |
+| `docs/missions/version-anglaise.md` | Active mission: English version, implementation → tests → CI → post-deploy audits |
+
+Only `docs/propostion_portfolio.md`, `docs/assets/`, `docs/missions/` and `docs/about-nextri/README.md` are tracked; the rest of `docs/` is gitignored.
 
 ## GitHub Pages
 
@@ -112,5 +116,7 @@ Repo is a **user-page site** (`NextriMG.github.io`), served at the domain root, 
 - Commit HANDOFF.md to git so it survives machine switches
 
 ### Graph maintenance
-- Graph auto-updates via git hooks (post-commit, post-checkout)
-- If hooks not installed: run `graphify . --update` after major refactors
+- Git hooks are not cloned: on a new machine run `graphify hook install` once (check with `graphify hook status`)
+- `graphify update .` rewrites `graph.json` but not `GRAPH_REPORT.md` nor `graph.html` (observed 2026-10-29); run `graphify cluster-only .` after it. Hook behavior not verified: check `GRAPH_REPORT.md` date after a commit
+- Without hooks: `graphify update .` then `graphify cluster-only .`
+- Tracked: `GRAPH_REPORT.md`, `graph.json`, `graph.html`; everything else in `graphify-out/` is local and gitignored

@@ -1,86 +1,103 @@
-# Graph Report - .  (2026-05-26)
+# Graph Report - nextri-portfolio  (2026-10-29)
 
 ## Corpus Check
-- 75 files · ~4,596 words
-- Verdict: corpus is large enough that graph structure adds value.
+- cluster-only mode — file stats not available
 
 ## Summary
-- 75 nodes · 120 edges · 11 communities (8 shown, 3 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
-- Token cost: 0 input · 0 output
+- 101 nodes · 218 edges · 12 communities (8 shown, 4 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.85)
+- Token cost: 32,498 input · 165 output
+
+## Graph Freshness
+- Built from commit: `a0dcbe5d`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Boot Animation|Boot Animation]]
-- [[_COMMUNITY_Team Avatars|Team Avatars]]
-- [[_COMMUNITY_App Windows & Dock|App Windows & Dock]]
-- [[_COMMUNITY_Desktop Layout|Desktop Layout]]
-- [[_COMMUNITY_State & Window Shell|State & Window Shell]]
-- [[_COMMUNITY_App Entry|App Entry]]
-- [[_COMMUNITY_Menubar & Clock|Menubar & Clock]]
-- [[_COMMUNITY_Boot Tests|Boot Tests]]
-- [[_COMMUNITY_Store Tests|Store Tests]]
+- Boot Sequence Animation
+- Desktop Shell & Hero
+- Team Window & Avatars
+- Contact Form & Tests
+- Dock & Onboarding Guide
+- Window State Store
+- App Entry Tests
+- Menubar Clock
+- Turnstile Type Declarations
 
 ## God Nodes (most connected - your core abstractions)
-1. `useDesktopStore` - 25 edges
-2. `useGuide()` - 4 edges
-3. `WindowId` - 4 edges
-4. `Dock()` - 3 edges
-5. `Menubar()` - 3 edges
-6. `useClock()` - 3 edges
-7. `App()` - 2 edges
-8. `BootProgressHandle` - 2 edges
-9. `BootScreen()` - 2 edges
-10. `BootStripHandle` - 2 edges
+1. `useDesktopStore` - 26 edges
+2. `Desktop()` - 12 edges
+3. `BootScreen()` - 9 edges
+4. `TeamWindow()` - 9 edges
+5. `WindowId` - 8 edges
+6. `App()` - 7 edges
+7. `ContactWindow()` - 6 edges
+8. `Dock()` - 6 edges
+9. `Menubar()` - 5 edges
+10. `DesktopState` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `App()` --calls--> `useDesktopStore`  [EXTRACTED]
-  App.tsx → store/desktop.ts
+- `DockItemProps` --references--> `WindowId`  [EXTRACTED]
+  src/components/desktop/Dock.tsx → src/types/index.ts
+- `Props` --references--> `WindowId`  [EXTRACTED]
+  src/components/windows/WindowShell.tsx → src/types/index.ts
+- `App()` --calls--> `BootScreen()`  [EXTRACTED]
+  src/App.tsx → src/components/boot/BootScreen.tsx
 - `BootScreen()` --calls--> `useDesktopStore`  [EXTRACTED]
-  components/boot/BootScreen.tsx → store/desktop.ts
-- `Hero()` --calls--> `useDesktopStore`  [EXTRACTED]
-  components/desktop/Hero.tsx → store/desktop.ts
-- `TeamWindow()` --calls--> `useDesktopStore`  [EXTRACTED]
-  components/windows/TeamWindow.tsx → store/desktop.ts
-- `WindowShell()` --calls--> `useDesktopStore`  [EXTRACTED]
-  components/windows/WindowShell.tsx → store/desktop.ts
+  src/components/boot/BootScreen.tsx → src/store/desktop.ts
+- `Desktop()` --calls--> `Dock()`  [EXTRACTED]
+  src/components/desktop/Desktop.tsx → src/components/desktop/Dock.tsx
 
-## Communities (11 total, 3 thin omitted)
+## Import Cycles
+- None detected.
 
-### Community 0 - "Boot Animation"
-Cohesion: 0.15
-Nodes (10): BootProgress, BootProgressHandle, BootScreen(), NEX_LETTERS, TRI_LETTERS, BootStrip, BootStripHandle, Frame (+2 more)
+## Communities (12 total, 4 thin omitted)
 
-### Community 1 - "Team Avatars"
-Cohesion: 0.18
-Nodes (4): Props, Props, Props, TeamWindow()
+### Community 0 - "Boot Sequence Animation"
+Cohesion: 0.19
+Nodes (12): BootProgress, BootProgressHandle, BootScreen(), LetterSpans(), NEX_LETTERS, sleep(), TRI_LETTERS, BootStrip (+4 more)
 
-### Community 2 - "App Windows & Dock"
-Cohesion: 0.33
-Nodes (7): Dock(), DockItem(), DockItemProps, useGuide(), useDesktopStore, AboutWindow(), ServicesWindow()
+### Community 1 - "Desktop Shell & Hero"
+Cohesion: 0.32
+Nodes (8): App(), Desktop(), Hero(), Wallpaper(), AboutWindow(), ServicesWindow(), WindowShell(), useDesktopStore
 
-### Community 4 - "State & Window Shell"
-Cohesion: 0.36
-Nodes (6): DesktopState, Phase, TeamMode, WindowId, Props, WindowShell()
+### Community 2 - "Team Window & Avatars"
+Cohesion: 0.23
+Nodes (9): ItoAvatar(), Props, LionelAvatar(), Props, Props, SitrakaAvatar(), GithubIcon(), LinkedinIcon() (+1 more)
 
-### Community 5 - "App Entry"
-Cohesion: 0.33
-Nodes (3): App(), { getByTestId }, { queryByTestId }
+### Community 3 - "Contact Form & Tests"
+Cohesion: 0.22
+Nodes (6): ContactFallback(), ContactForm(), ContactWindow(), SuccessScreen(), TURNSTILE_KEY, WEB3FORMS_KEY
 
-### Community 7 - "Boot Tests"
-Cohesion: 0.5
-Nodes (3): { container }, fills, slots
+### Community 4 - "Dock & Onboarding Guide"
+Cohesion: 0.24
+Nodes (4): Dock(), DockItem(), DockItemProps, useGuide()
+
+### Community 5 - "Window State Store"
+Cohesion: 0.35
+Nodes (6): Props, DesktopState, skipBoot(), Phase, TeamMode, WindowId
+
+### Community 7 - "Menubar Clock"
+Cohesion: 0.70
+Nodes (3): Menubar(), fmt(), useClock()
+
+### Community 8 - "Turnstile Type Declarations"
+Cohesion: 0.50
+Nodes (3): TurnstileInstance, TurnstileRenderOptions, Window
 
 ## Knowledge Gaps
-- **19 isolated node(s):** `{ getByTestId }`, `{ queryByTestId }`, `Props`, `Props`, `Props` (+14 more)
-  These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **15 isolated node(s):** `Frame`, `FrameType`, `Props`, `Props`, `Props` (+10 more)
+  These have ≤1 connection - possible missing edges. (Counts symbols only; 27 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useDesktopStore` connect `App Windows & Dock` to `Boot Animation`, `Team Avatars`, `Desktop Layout`, `State & Window Shell`, `App Entry`, `Menubar & Clock`, `Boot Tests`, `Store Tests`?**
-  _High betweenness centrality (0.367) - this node is a cross-community bridge._
-- **Why does `Menubar()` connect `Menubar & Clock` to `App Windows & Dock`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
-- **What connects `{ getByTestId }`, `{ queryByTestId }`, `Props` to the rest of the system?**
-  _19 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `useDesktopStore` connect `Desktop Shell & Hero` to `Boot Sequence Animation`, `Team Window & Avatars`, `Contact Form & Tests`, `Dock & Onboarding Guide`, `Window State Store`, `Menubar Clock`?**
+  _High betweenness centrality (0.235) - this node is a cross-community bridge._
+- **What connects `Frame`, `FrameType`, `Props` to the rest of the system?**
+  _15 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `App()` connect `Desktop Shell & Hero` to `Boot Sequence Animation`, `Contact Form & Tests`, `Dock & Onboarding Guide`, `App Entry Tests`?**
+  _High betweenness centrality (0.099) - this node is a cross-community bridge._
+- **Why does `TeamWindow()` connect `Team Window & Avatars` to `Desktop Shell & Hero`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
