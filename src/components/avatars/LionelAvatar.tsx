@@ -1,6 +1,4 @@
-interface Props { variant: 'col' | 'exp' }
-
-export default function LionelAvatar(_props: Props) {
+export default function LionelAvatar() {
   return (
     <img
       src={`${import.meta.env.BASE_URL}avatars/lionel.webp`}

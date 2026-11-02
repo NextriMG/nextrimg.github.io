@@ -47,7 +47,7 @@ export default function TeamWindow() {
         </p>
         <div className="t-grid">
           <div className="mc-card" data-c="tl">
-            <div className="av"><LionelAvatar variant="col" /></div>
+            <div className="av"><LionelAvatar /></div>
             <div className="mc-card-body">
               <div className="mn-row">
                 <span className="mn">Lionel Ratovo</span>
@@ -82,7 +82,7 @@ export default function TeamWindow() {
           </div>
 
           <div className="mc-card" data-c="yw">
-            <div className="av"><ItoAvatar variant="col" /></div>
+            <div className="av"><ItoAvatar /></div>
             <div className="mc-card-body">
               <div className="mn-row">
                 <span className="mn">Itokiana Rajohnson</span>
@@ -108,7 +108,7 @@ export default function TeamWindow() {
           </div>
 
           <div className="mc-card" data-c="or">
-            <div className="av"><SitrakaAvatar variant="col" /></div>
+            <div className="av"><SitrakaAvatar /></div>
             <div className="mc-card-body">
               <div className="mn-row">
                 <span className="mn">Sitraka Rasatarivony</span>
@@ -160,7 +160,7 @@ export default function TeamWindow() {
         </p>
         <div className="t-grid">
           <div className="mc-card" data-c="tl">
-            <div className="av"><LionelAvatar variant="exp" /></div>
+            <div className="av"><LionelAvatar /></div>
             <div className="mc-card-body">
               <div className="mn-row">
                 <span className="mn">Lionel Ratovo</span>
@@ -191,7 +191,7 @@ export default function TeamWindow() {
           </div>
 
           <div className="mc-card" data-c="yw">
-            <div className="av"><ItoAvatar variant="exp" /></div>
+            <div className="av"><ItoAvatar /></div>
             <div className="mc-card-body">
               <div className="mn-row">
                 <span className="mn">Itokiana Rajohnson</span>
@@ -213,7 +213,7 @@ export default function TeamWindow() {
           </div>
 
           <div className="mc-card" data-c="or">
-            <div className="av"><SitrakaAvatar variant="exp" /></div>
+            <div className="av"><SitrakaAvatar /></div>
             <div className="mc-card-body">
               <div className="mn-row">
                 <span className="mn">Sitraka Rasatarivony</span>

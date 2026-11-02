@@ -136,7 +136,7 @@ function ContactForm() {
         sitekey: TURNSTILE_KEY,
         size: 'invisible',
         execution: 'execute',
-        callback: (_token: string) => {
+        callback: () => {
           const fd = pendingData.current
           if (!fd) return
           pendingData.current = null

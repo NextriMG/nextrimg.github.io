@@ -1,6 +1,4 @@
-interface Props { variant: 'col' | 'exp' }
-
-export default function SitrakaAvatar(_props: Props) {
+export default function SitrakaAvatar() {
   return (
     <img
       src={`${import.meta.env.BASE_URL}avatars/sitraka.webp`}

@@ -1,6 +1,4 @@
-interface Props { variant: 'col' | 'exp' }
-
-export default function ItoAvatar(_props: Props) {
+export default function ItoAvatar() {
   return (
     <img
       src={`${import.meta.env.BASE_URL}avatars/itokiana.webp`}
