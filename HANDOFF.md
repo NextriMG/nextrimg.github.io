@@ -33,8 +33,10 @@ Mission version anglaise (`docs/missions/version-anglaise.md`). Terminée : fusi
 - Non vérifié : issue des déploiements des runs `40833392817` et `40835041783`.
 
 ## État
-- Tout est sur `main`. `feat/version-anglaise` supprimée (locale et distante) après fusion.
-- Non commité : `scripts/icons.mjs` (modif de l'utilisateur, ne pas toucher).
+- Historique réécrit le 2026-11-02 (`git filter-repo`) : chemins locaux, nom d'utilisateur Windows et email privé retirés de toutes les branches ; `main` = `d9c8ca0`. Vérifié : `kairn scan` sur un clone miroir neuf → 0 constat ; workflow `41482892403` vert ; `node scripts/audit-en.mjs` OK.
+- Tout clone antérieur au 2026-11-02 est périmé : le supprimer et re-cloner, ne jamais le pousser.
+- `feat/version-anglaise` existe encore sur GitHub (suppression interdite par la règle `protect-all-branches`), au même commit que `main`.
+- Garde-fou : hook `pre-commit` de kairn (dépôt local `_Workspace`) refuse chemins absolus, nom d'utilisateur Windows, email privé, et un auteur autre que `nextri.mg@outlook.com`. Nouvelle machine : `kairn garde`. Exception légitime : `.kairn-autorise`.
 - `.gitattributes` suivi : merge driver graphify de `graph.json` (`graphify hook install` le déclare sur chaque machine).
 
 ## Ensuite
