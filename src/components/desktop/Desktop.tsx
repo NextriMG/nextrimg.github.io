@@ -7,6 +7,7 @@ import AboutWindow from '../windows/AboutWindow'
 import TeamWindow from '../windows/TeamWindow'
 import ServicesWindow from '../windows/ServicesWindow'
 import ContactWindow from '../windows/ContactWindow'
+import { t } from '../../i18n'
 
 export default function Desktop() {
   return (
@@ -15,10 +16,10 @@ export default function Desktop() {
       <main id="desk-area">
         <Wallpaper />
         <Hero />
-        <WindowShell id="a" title="À propos de NEXTRI"><AboutWindow /></WindowShell>
-        <WindowShell id="t" title="L'équipe NEXTRI"><TeamWindow /></WindowShell>
-        <WindowShell id="s" title="Nos services"><ServicesWindow /></WindowShell>
-        <WindowShell id="c" title="Prendre contact"><ContactWindow /></WindowShell>
+        <WindowShell id="a" title={t().windows.about}><AboutWindow /></WindowShell>
+        <WindowShell id="t" title={t().windows.team}><TeamWindow /></WindowShell>
+        <WindowShell id="s" title={t().windows.services}><ServicesWindow /></WindowShell>
+        <WindowShell id="c" title={t().windows.contact}><ContactWindow /></WindowShell>
         <Dock />
       </main>
     </div>

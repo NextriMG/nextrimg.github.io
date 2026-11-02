@@ -3,6 +3,7 @@ import { Info, Users, Code2, Mail, HelpCircle } from 'lucide-react'
 import { useDesktopStore } from '../../store/desktop'
 import { useGuide } from '../../hooks/useGuide'
 import type { WindowId } from '../../types'
+import { t } from '../../i18n'
 
 interface DockItemProps {
   id: WindowId
@@ -61,11 +62,11 @@ export default function Dock() {
 
   return (
     <div id="dk-wrap">
-      <nav id="dk" aria-label="Navigation principale">
-        <DockItem id="a" label="À propos" icon={<Info     size={24} strokeWidth={1.8} color="white" />} colorClass="ic-a" />
-        <DockItem id="t" label="L'équipe" icon={<Users    size={24} strokeWidth={1.8} color="white" />} colorClass="ic-t" />
-        <DockItem id="s" label="Services" icon={<Code2    size={24} strokeWidth={1.8} color="white" />} colorClass="ic-s" />
-        <DockItem id="c" label="Contact"  icon={<Mail     size={24} strokeWidth={1.8} color="white" />} colorClass="ic-c" />
+      <nav id="dk" aria-label={t().dock.label}>
+        <DockItem id="a" label={t().nav.about} icon={<Info     size={24} strokeWidth={1.8} color="white" />} colorClass="ic-a" />
+        <DockItem id="t" label={t().nav.team} icon={<Users    size={24} strokeWidth={1.8} color="white" />} colorClass="ic-t" />
+        <DockItem id="s" label={t().nav.services} icon={<Code2    size={24} strokeWidth={1.8} color="white" />} colorClass="ic-s" />
+        <DockItem id="c" label={t().nav.contact} icon={<Mail     size={24} strokeWidth={1.8} color="white" />} colorClass="ic-c" />
 
         <div className="dk-sep" />
 
@@ -74,13 +75,13 @@ export default function Dock() {
           onClick={start}
           tabIndex={0}
           role="button"
-          aria-label="Guide d'utilisation"
+          aria-label={t().dock.guideLabel}
           onKeyDown={(e) => e.key === 'Enter' && start()}
         >
           <div className="di-i ic-h">
             <HelpCircle size={24} strokeWidth={1.8} color="white" />
           </div>
-          <div className="tip">Guide</div>
+          <div className="tip">{t().dock.guide}</div>
           <div className="dot" />
         </div>
       </nav>

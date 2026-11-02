@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { t } from '../../i18n'
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
 const TURNSTILE_KEY = import.meta.env.VITE_TURNSTILE_KEY as string | undefined
@@ -31,34 +32,29 @@ function ContactFallback() {
   return (
     <div id="c-form">
       <p className="sec-p" style={{ marginBottom: '16px' }}>
-        Réponse garantie sous 24h. Décrivez-nous votre projet.
+        {t().contact.intro}
       </p>
       <div className="cf">
         <div className="fg">
-          <label htmlFor="cf-n">Votre nom</label>
-          <input ref={nameRef} type="text" id="cf-n" placeholder="Jean Dupont" autoComplete="name" />
+          <label htmlFor="cf-n">{t().contact.name}</label>
+          <input ref={nameRef} type="text" id="cf-n" placeholder={t().contact.namePlaceholder} autoComplete="name" />
         </div>
         <div className="fg">
-          <label htmlFor="cf-e">Adresse email</label>
-          <input ref={emailRef} type="email" id="cf-e" placeholder="jean@startup.com" autoComplete="email" />
+          <label htmlFor="cf-e">{t().contact.email}</label>
+          <input ref={emailRef} type="email" id="cf-e" placeholder={t().contact.emailPlaceholder} autoComplete="email" />
         </div>
         <div className="fg">
-          <label htmlFor="cf-t">{"Type d'intervention"}</label>
+          <label htmlFor="cf-t">{t().contact.type}</label>
           <select id="cf-t">
-            <option value="">Sélectionner...</option>
-            <option>Développement produit complet</option>
-            <option>Mission backend / API</option>
-            <option>Mission frontend</option>
-            <option>Infrastructure / Data</option>
-            <option>Audit technique</option>
-            <option>Autre</option>
+            <option value="">{t().contact.typeSelect}</option>
+            {t().contact.typeOptions.map((o) => <option key={o}>{o}</option>)}
           </select>
         </div>
         <div className="fg">
-          <label htmlFor="cf-m">Décrivez votre besoin</label>
-          <textarea id="cf-m" placeholder="Nous construisons une plateforme SaaS et avons besoin..." />
+          <label htmlFor="cf-m">{t().contact.message}</label>
+          <textarea id="cf-m" placeholder={t().contact.messagePlaceholder} />
         </div>
-        <button className="btn btn-p" onClick={handleSubmit}>Envoyer →</button>
+        <button className="btn btn-p" onClick={handleSubmit}>{t().contact.send}</button>
       </div>
     </div>
   )
@@ -93,10 +89,10 @@ function ContactForm() {
         setSent(true)
         localStorage.setItem(CD_KEY, String(Date.now() + 60_000))
       } else {
-        setFormError("Une erreur est survenue. Réessayez dans un moment.")
+        setFormError(t().contact.errorServer)
       }
     } catch {
-      setFormError("Impossible d'envoyer le message. Vérifiez votre connexion.")
+      setFormError(t().contact.errorNetwork)
     } finally {
       setIsSubmitting(false)
       if (widgetId.current && window.turnstile) window.turnstile.reset(widgetId.current)
@@ -159,7 +155,7 @@ function ContactForm() {
         'expired-callback': () => {
           pendingData.current = null
           setIsSubmitting(false)
-          setFormError("Session de vérification expirée. Veuillez réessayer.")
+          setFormError(t().contact.errorExpired)
         },
       })
     }
@@ -184,9 +180,9 @@ function ContactForm() {
 
   const validate = () => {
     const e: Record<string, string> = {}
-    if (!name.trim()) e.name = 'Requis'
-    if (!email.trim()) e.email = 'Requis'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = 'Email invalide'
+    if (!name.trim()) e.name = t().contact.required
+    if (!email.trim()) e.email = t().contact.required
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = t().contact.invalidEmail
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -220,24 +216,24 @@ function ContactForm() {
 
   const submitLocked = isSubmitting || cooldown > 0
   const submitLabel  = isSubmitting
-    ? 'Envoi…'
+    ? t().contact.sending
     : cooldown > 0
-      ? `Réessayer dans ${cooldown}s`
-      : 'Envoyer →'
+      ? t().contact.retryIn(cooldown)
+      : t().contact.send
 
   return (
     <div id="c-form">
       <p className="sec-p" style={{ marginBottom: '16px' }}>
-        Réponse garantie sous 24h. Décrivez-nous votre projet.
+        {t().contact.intro}
       </p>
       <div className="cf">
         {/* Honeypot, must remain empty */}
         <input type="text" name="_honey" className="cf-honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
         <div className={`fg${errors.name ? ' fg-err' : ''}`}>
-          <label htmlFor="cf-n">Votre nom</label>
+          <label htmlFor="cf-n">{t().contact.name}</label>
           <input
-            type="text" id="cf-n" placeholder="Jean Dupont" autoComplete="name"
+            type="text" id="cf-n" placeholder={t().contact.namePlaceholder} autoComplete="name"
             value={name}
             onChange={(e) => { setName(e.target.value); clearError('name') }}
           />
@@ -245,9 +241,9 @@ function ContactForm() {
         </div>
 
         <div className={`fg${errors.email ? ' fg-err' : ''}`}>
-          <label htmlFor="cf-e">Adresse email</label>
+          <label htmlFor="cf-e">{t().contact.email}</label>
           <input
-            type="email" id="cf-e" placeholder="jean@startup.com" autoComplete="email"
+            type="email" id="cf-e" placeholder={t().contact.emailPlaceholder} autoComplete="email"
             value={email}
             onChange={(e) => { setEmail(e.target.value); clearError('email') }}
           />
@@ -255,22 +251,17 @@ function ContactForm() {
         </div>
 
         <div className="fg">
-          <label htmlFor="cf-t">{"Type d'intervention"}</label>
+          <label htmlFor="cf-t">{t().contact.type}</label>
           <select id="cf-t" value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="">Sélectionner...</option>
-            <option>Développement produit complet</option>
-            <option>Mission backend / API</option>
-            <option>Mission frontend</option>
-            <option>Infrastructure / Data</option>
-            <option>Audit technique</option>
-            <option>Autre</option>
+            <option value="">{t().contact.typeSelect}</option>
+            {t().contact.typeOptions.map((o) => <option key={o}>{o}</option>)}
           </select>
         </div>
 
         <div className="fg">
-          <label htmlFor="cf-m">Décrivez votre besoin</label>
+          <label htmlFor="cf-m">{t().contact.message}</label>
           <textarea
-            id="cf-m" placeholder="Nous construisons une plateforme SaaS et avons besoin..."
+            id="cf-m" placeholder={t().contact.messagePlaceholder}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
@@ -289,7 +280,7 @@ function ContactForm() {
           </button>
           {formError && <p className="cf-error">{formError}</p>}
           <p className="cf-privacy">
-            Vos informations ne sont utilisées que pour répondre à votre message et ne sont jamais partagées.
+            {t().contact.privacy}
           </p>
         </div>
       </div>
@@ -302,10 +293,10 @@ function SuccessScreen() {
   return (
     <div id="c-ok" style={{ display: 'block' }}>
       <div className="ico">✉️</div>
-      <h3>Message bien reçu !</h3>
+      <h3>{t().contact.successTitle}</h3>
       <p>
-        Nous vous répondrons dans les 24 heures.<br />
-        Pour toute urgence :{' '}
+        {t().contact.successText}<br />
+        {t().contact.successUrgent}{' '}
         <a href="mailto:nextri.mg@outlook.com">nextri.mg@outlook.com</a>
       </p>
     </div>

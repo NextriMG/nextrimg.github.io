@@ -1,47 +1,43 @@
 import { Zap, Target } from 'lucide-react'
 import { useDesktopStore } from '../../store/desktop'
+import { t } from '../../i18n'
 
 export default function AboutWindow() {
   const openWindow = useDesktopStore((s) => s.openWindow)
 
   return (
     <>
-      <h3 className="sec-h">Trois experts. Une équipe. Votre livrable.</h3>
+      <h3 className="sec-h">{t().about.title}</h3>
       <p className="sec-p">
-        NEXTRI est un collectif de trois ingénieurs logiciels basé à Antananarivo. Nous accompagnons
-        entreprises, startups et porteurs de projets dans la conception, le développement et
-        l'évolution de produits digitaux fiables.
+        {t().about.intro}
       </p>
-      <h4 className="sec-h2">Deux façons de travailler ensemble</h4>
+      <h4 className="sec-h2">{t().about.modesTitle}</h4>
       <div className="modes-g">
         <div className="mc">
           <div className="mc-ico mc-ico-tl"><Zap size={18} strokeWidth={2} /></div>
           <div>
-            <h5>Mode Collectif</h5>
+            <h5>{t().about.collectiveTitle}</h5>
             <p>
-              Projets complets : SaaS, plateformes web, systèmes complexes. Architecture + Backend +
-              Frontend + DevOps en équipe unifiée, responsabilité partagée du livrable.
+              {t().about.collectiveText}
             </p>
           </div>
         </div>
         <div className="mc">
           <div className="mc-ico mc-ico-or"><Target size={18} strokeWidth={2} /></div>
           <div>
-            <h5>Mode Expert</h5>
+            <h5>{t().about.expertTitle}</h5>
             <p>
-              Chaque membre intervient de façon autonome sur un besoin précis. La souplesse d'un
-              freelance, avec la fiabilité d'un collectif derrière le profil engagé.
+              {t().about.expertText}
             </p>
           </div>
         </div>
       </div>
-      <h4 className="sec-h2" style={{ marginTop: '18px' }}>Notre engagement</h4>
+      <h4 className="sec-h2" style={{ marginTop: '18px' }}>{t().about.commitmentTitle}</h4>
       <p className="sec-p">
-        Transparence dans les choix techniques, code maintenable sans dette cachée, réponse garantie
-        sous 24h. Des solutions pensées pour durer.
+        {t().about.commitmentText}
       </p>
       <button className="btn btn-p" onClick={() => openWindow('t')} style={{ marginTop: '4px' }}>
-        {"Rencontrer l'équipe →"}
+        {t().about.cta}
       </button>
     </>
   )

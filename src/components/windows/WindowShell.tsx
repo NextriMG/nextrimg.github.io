@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect, type ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useDesktopStore } from '../../store/desktop'
 import type { WindowId } from '../../types'
+import { t } from '../../i18n'
 
 interface Props {
   id: WindowId
@@ -85,14 +86,14 @@ export default function WindowShell({ id, title, children }: Props) {
             <button
               className="wb wb-c"
               onClick={() => closeWindow(id)}
-              aria-label="Fermer"
+              aria-label={t().windows.close}
             />
             <button
               className="wb wb-m"
               onClick={() => reduceWindow(id)}
-              aria-label="Réduire"
+              aria-label={t().windows.reduce}
             />
-            <button className="wb wb-x" aria-label="Agrandir" disabled />
+            <button className="wb wb-x" aria-label={t().windows.maximize} disabled />
             <h2 className="wtit" id={`w${id}-t`}>{title}</h2>
           </div>
           <div className="wbody">

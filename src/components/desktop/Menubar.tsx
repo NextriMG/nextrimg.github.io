@@ -2,6 +2,7 @@ import { useTheme } from 'next-themes'
 import { useClock } from '../../hooks/useClock'
 import { useDesktopStore } from '../../store/desktop'
 import type { WindowId } from '../../types'
+import { t } from '../../i18n'
 
 export default function Menubar() {
   const { theme, resolvedTheme, setTheme } = useTheme()
@@ -28,7 +29,7 @@ export default function Menubar() {
   }
 
   return (
-    <nav id="mb" aria-label="Menu principal">
+    <nav id="mb" aria-label={t().menubar.label}>
       <div className="mb-l">
         <img
           className="mb-logo"
@@ -36,16 +37,16 @@ export default function Menubar() {
           alt="NEXTRI"
         />
         <span className={getLinkClass('a')} onClick={() => handleLinkClick('a')} tabIndex={0}>
-          À propos
+          {t().nav.about}
         </span>
         <span className={getLinkClass('t')} onClick={() => handleLinkClick('t')} tabIndex={0}>
-          {"L'équipe"}
+          {t().nav.team}
         </span>
         <span className={getLinkClass('s')} onClick={() => handleLinkClick('s')} tabIndex={0}>
-          Services
+          {t().nav.services}
         </span>
         <span className={getLinkClass('c')} onClick={() => handleLinkClick('c')} tabIndex={0}>
-          Contact
+          {t().nav.contact}
         </span>
       </div>
       <div className="mb-r">
@@ -53,7 +54,7 @@ export default function Menubar() {
         <button
           id="th-btn"
           onClick={toggleTheme}
-          aria-label="Basculer thème sombre/clair"
+          aria-label={t().menubar.themeToggle}
         />
       </div>
     </nav>

@@ -4,6 +4,7 @@ import { useDesktopStore } from '../../store/desktop'
 import LionelAvatar from '../avatars/LionelAvatar'
 import ItoAvatar from '../avatars/ItoAvatar'
 import SitrakaAvatar from '../avatars/SitrakaAvatar'
+import { t } from '../../i18n'
 
 // lucide-react dropped brand marks: neither GitHub nor LinkedIn is in the icon set, so both
 // are inlined here.
@@ -31,19 +32,18 @@ export default function TeamWindow() {
       value={teamMode}
       onValueChange={(v) => setTeamMode(v as 'col' | 'exp')}
     >
-      <Tabs.List className="t-toggle" aria-label="Mode d'intervention">
+      <Tabs.List className="t-toggle" aria-label={t().team.modeLabel}>
         <Tabs.Trigger value="col" className={`tt${teamMode === 'col' ? ' on' : ''}`}>
-          Collectif
+          {t().team.tabCollective}
         </Tabs.Trigger>
         <Tabs.Trigger value="exp" className={`tt${teamMode === 'exp' ? ' on' : ''}`}>
-          Mode Expert
+          {t().team.tabExpert}
         </Tabs.Trigger>
       </Tabs.List>
 
       <Tabs.Content value="col">
         <p className="t-desc">
-          En mode collectif, les trois membres travaillent comme une équipe unifiée avec une
-          coordination interne fluide et une responsabilité partagée du livrable.
+          {t().team.collectiveDesc}
         </p>
         <div className="t-grid">
           <div className="mc-card" data-c="tl">
@@ -56,7 +56,7 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Portfolio de Lionel Ratovo"
+                  aria-label={t().team.portfolio('Lionel Ratovo')}
                 >
                   <Globe size={13} strokeWidth={2} />
                 </a>
@@ -65,13 +65,13 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Profil LinkedIn de Lionel Ratovo"
+                  aria-label={t().team.linkedin('Lionel Ratovo')}
                 >
                   <LinkedinIcon />
                 </a>
               </div>
-              <div className="mr">Full Stack Java · Technico-fonctionnel</div>
-              <div className="mr-co">Coordinateur opérationnel · Commercial</div>
+              <div className="mr">{t().team.lionel.role}</div>
+              <div className="mr-co">{t().team.lionel.duty}</div>
               <div className="sk-row">
                 <span className="sk">Spring Boot</span>
                 <span className="sk">Drools</span>
@@ -91,13 +91,13 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Portfolio d'Itokiana Rajohnson"
+                  aria-label={t().team.portfolio('Itokiana Rajohnson')}
                 >
                   <Globe size={13} strokeWidth={2} />
                 </a>
               </div>
-              <div className="mr">Full Stack Senior · Chef de Projet</div>
-              <div className="mr-co">Référent administratif</div>
+              <div className="mr">{t().team.itokiana.role}</div>
+              <div className="mr-co">{t().team.itokiana.duty}</div>
               <div className="sk-row">
                 <span className="sk">Spring Boot</span>
                 <span className="sk">Angular</span>
@@ -117,7 +117,7 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Portfolio de Sitraka Rasatarivony"
+                  aria-label={t().team.portfolio('Sitraka Rasatarivony')}
                 >
                   <Globe size={13} strokeWidth={2} />
                 </a>
@@ -126,7 +126,7 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Profil GitHub de Sitraka Rasatarivony"
+                  aria-label={t().team.github('Sitraka Rasatarivony')}
                 >
                   <GithubIcon />
                 </a>
@@ -135,13 +135,13 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Profil LinkedIn de Sitraka Rasatarivony"
+                  aria-label={t().team.linkedin('Sitraka Rasatarivony')}
                 >
                   <LinkedinIcon />
                 </a>
               </div>
-              <div className="mr">Full Stack · Backend, CI/CD</div>
-              <div className="mr-co">Responsable technique</div>
+              <div className="mr">{t().team.sitraka.role}</div>
+              <div className="mr-co">{t().team.sitraka.duty}</div>
               <div className="sk-row">
                 <span className="sk">TypeScript</span>
                 <span className="sk">NestJS</span>
@@ -155,8 +155,7 @@ export default function TeamWindow() {
 
       <Tabs.Content value="exp">
         <p className="t-desc">
-          En mode expert, chaque membre intervient de façon autonome sous l'identité NEXTRI. La
-          souplesse d'un freelance avec la fiabilité d'un collectif derrière.
+          {t().team.expertDesc}
         </p>
         <div className="t-grid">
           <div className="mc-card" data-c="tl">
@@ -169,7 +168,7 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Portfolio de Lionel Ratovo"
+                  aria-label={t().team.portfolio('Lionel Ratovo')}
                 >
                   <Globe size={13} strokeWidth={2} />
                 </a>
@@ -178,14 +177,14 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Profil LinkedIn de Lionel Ratovo"
+                  aria-label={t().team.linkedin('Lionel Ratovo')}
                 >
                   <LinkedinIcon />
                 </a>
               </div>
-              <div className="mr">Consultant full-stack Java</div>
+              <div className="mr">{t().team.lionel.expertRole}</div>
               <p className="mc-card-desc">
-                Applications métier Java Spring Boot, règles et workflows Drools et Camunda, interfaces Angular sur PostgreSQL. Ateliers métier, spécifications et encadrement technique.
+                {t().team.lionel.expertDesc}
               </p>
             </div>
           </div>
@@ -200,14 +199,14 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Portfolio d'Itokiana Rajohnson"
+                  aria-label={t().team.portfolio('Itokiana Rajohnson')}
                 >
                   <Globe size={13} strokeWidth={2} />
                 </a>
               </div>
-              <div className="mr">Full Stack Senior · PM</div>
+              <div className="mr">{t().team.itokiana.expertRole}</div>
               <p className="mc-card-desc">
-                Applications en production, spécifications techniques, cycles de tests, interface fonctionnel/technique.
+                {t().team.itokiana.expertDesc}
               </p>
             </div>
           </div>
@@ -222,7 +221,7 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Portfolio de Sitraka Rasatarivony"
+                  aria-label={t().team.portfolio('Sitraka Rasatarivony')}
                 >
                   <Globe size={13} strokeWidth={2} />
                 </a>
@@ -231,7 +230,7 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Profil GitHub de Sitraka Rasatarivony"
+                  aria-label={t().team.github('Sitraka Rasatarivony')}
                 >
                   <GithubIcon />
                 </a>
@@ -240,14 +239,14 @@ export default function TeamWindow() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mn-link"
-                  aria-label="Profil LinkedIn de Sitraka Rasatarivony"
+                  aria-label={t().team.linkedin('Sitraka Rasatarivony')}
                 >
                   <LinkedinIcon />
                 </a>
               </div>
-              <div className="mr">Full Stack · Backend, CI/CD</div>
+              <div className="mr">{t().team.sitraka.expertRole}</div>
               <p className="mc-card-desc">
-                Conception d'API et refonte de backends sous contrainte de performance, modélisation et optimisation des données, livraison continue, sécurité applicative dès la conception.
+                {t().team.sitraka.expertDesc}
               </p>
             </div>
           </div>

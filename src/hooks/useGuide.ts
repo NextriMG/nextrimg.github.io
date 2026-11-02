@@ -1,18 +1,20 @@
 import { useCallback } from 'react'
 import { driver } from 'driver.js'
 import { useDesktopStore } from '../store/desktop'
+import { t } from '../i18n'
 
 export function useGuide() {
   const setGuideActive = useDesktopStore((s) => s.setGuideActive)
 
   const start = useCallback(() => {
     setGuideActive(true)
+    const m = t().guide
     driver({
       showProgress: true,
       progressText: '{{current}} / {{total}}',
-      nextBtnText: 'Suivant →',
-      prevBtnText: '← Retour',
-      doneBtnText: "C'est parti !",
+      nextBtnText: m.next,
+      prevBtnText: m.prev,
+      doneBtnText: m.done,
       onDestroyed: () => {
         localStorage.setItem('nxt-g', '1')
         setGuideActive(false)
@@ -21,48 +23,48 @@ export function useGuide() {
         {
           element: '#dk',
           popover: {
-            title: 'Bienvenue sur NEXTRI OS',
-            description: "Ce dock est votre point d'entrée. Cliquez sur une icône pour ouvrir la section correspondante.",
+            title: m.dockTitle,
+            description: m.dockText,
             side: 'top', align: 'center',
           },
         },
         {
           element: '#di-a',
           popover: {
-            title: 'À propos',
-            description: "Découvrez NEXTRI, notre approche et nos deux modes d'intervention.",
+            title: m.aboutTitle,
+            description: m.aboutText,
             side: 'top', align: 'center',
           },
         },
         {
           element: '#di-t',
           popover: {
-            title: "L'équipe",
-            description: 'Rencontrez les trois membres. Le toggle "Collectif / Expert" vous explique comment nous intervenons selon vos besoins.',
+            title: m.teamTitle,
+            description: m.teamText,
             side: 'top', align: 'center',
           },
         },
         {
           element: '#di-s',
           popover: {
-            title: 'Nos services',
-            description: 'Développement web, backend, infrastructure, audit : tout ce que nous faisons.',
+            title: m.servicesTitle,
+            description: m.servicesText,
             side: 'top', align: 'center',
           },
         },
         {
           element: '#di-c',
           popover: {
-            title: 'Nous contacter',
-            description: 'Décrivez votre projet et recevez une réponse sous 24h.',
+            title: m.contactTitle,
+            description: m.contactText,
             side: 'top', align: 'center',
           },
         },
         {
           element: '#th-btn',
           popover: {
-            title: 'Thème sombre / clair',
-            description: 'Basculez entre les deux modes selon vos préférences.',
+            title: m.themeTitle,
+            description: m.themeText,
             side: 'bottom', align: 'end',
           },
         },

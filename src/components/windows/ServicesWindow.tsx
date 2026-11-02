@@ -1,5 +1,6 @@
 import { LayoutDashboard, Database, Monitor, Upload } from 'lucide-react'
 import { useDesktopStore } from '../../store/desktop'
+import { t } from '../../i18n'
 
 export default function ServicesWindow() {
   const openWindow = useDesktopStore((s) => s.openWindow)
@@ -7,8 +8,7 @@ export default function ServicesWindow() {
   return (
     <>
       <p className="sec-p">
-        De la conception à la production, nous couvrons l'ensemble du cycle de vie de votre
-        projet digital.
+        {t().services.intro}
       </p>
       <div className="sv-g">
         <div className="sv-c" data-c="tl">
@@ -16,10 +16,9 @@ export default function ServicesWindow() {
             <LayoutDashboard size={18} strokeWidth={2} />
           </div>
           <div>
-            <h3>Développement web sur mesure</h3>
+            <h3>{t().services.webTitle}</h3>
             <p>
-              Plateformes métiers, SaaS, tableaux de bord, outils internes et portails clients
-              adaptés à vos besoins réels.
+              {t().services.webText}
             </p>
           </div>
         </div>
@@ -29,10 +28,9 @@ export default function ServicesWindow() {
             <Database size={18} strokeWidth={2} />
           </div>
           <div>
-            <h3>Backend &amp; Architecture</h3>
+            <h3>{t().services.backendTitle}</h3>
             <p>
-              APIs robustes, architectures scalables conçues pour supporter la croissance et
-              l'évolution fonctionnelle.
+              {t().services.backendText}
             </p>
           </div>
         </div>
@@ -42,10 +40,9 @@ export default function ServicesWindow() {
             <Monitor size={18} strokeWidth={2} />
           </div>
           <div>
-            <h3>Infrastructure &amp; Data</h3>
+            <h3>{t().services.infraTitle}</h3>
             <p>
-              Environnements fiables, déploiements automatisés, modélisation de bases de données,
-              traitement des données.
+              {t().services.infraText}
             </p>
           </div>
         </div>
@@ -55,10 +52,9 @@ export default function ServicesWindow() {
             <Upload size={18} strokeWidth={2} />
           </div>
           <div>
-            <h3>Audit &amp; Conseil</h3>
+            <h3>{t().services.auditTitle}</h3>
             <p>
-              Analyse de l'existant, refactoring, optimisation des performances et accompagnement
-              stratégique technique.
+              {t().services.auditText}
             </p>
           </div>
         </div>
@@ -77,10 +73,10 @@ export default function ServicesWindow() {
         flexWrap: 'wrap',
       }}>
         <p style={{ fontSize: '13px', color: 'var(--tx2)' }}>
-          Vous avez un projet en tête ? Parlons-en.
+          {t().services.ctaText}
         </p>
         <button className="btn btn-p" onClick={() => openWindow('c')}>
-          Démarrer un projet →
+          {t().services.cta}
         </button>
       </div>
     </>
