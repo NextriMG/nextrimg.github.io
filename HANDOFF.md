@@ -1,7 +1,7 @@
 # HANDOFF — 2026-11-02
 
 ## But
-Mission version anglaise (`docs/missions/version-anglaise.md`). Étapes 0 à 7 faites sur `feat/version-anglaise`. Reste : fusion dans `main`, push (= déploiement), vérifier le workflow et le job `audit`. Collègue pilote non technique : appliquer `CLAUDE.md`, section « Communication ».
+Mission version anglaise (`docs/missions/version-anglaise.md`). Terminée : fusionnée dans `main` (`eea6581`) et déployée le 2026-11-02. Collègue pilote non technique : appliquer `CLAUDE.md`, section « Communication ».
 
 ## Décidé (ne pas rediscuter)
 - Option A validée le 2026-11-02 : page statique `/en/`, pas de redirection sur la langue du navigateur, choix mémorisé dans `localStorage` `nxt-lang` (`docs/missions/version-anglaise-proposition.md`).
@@ -29,15 +29,13 @@ Mission version anglaise (`docs/missions/version-anglaise.md`). Étapes 0 à 7 f
 - Vérifié : FR identique au pixel près après extraction (26 captures desktop + mobile, `.playwright-mcp/shots/before` vs `after`), seule différence ensuite : le bouton `EN`.
 - Vérifié : parcours anglais complet sans français ni erreur console (`.playwright-mcp/check-en.js`).
 - Vérifié sur GitHub : run `41453436803` (test cassé) échoue, `deploy` sauté ; run `41453616277` vert, `deploy` sauté.
-- Non vérifié : job `audit` en production (n'existe qu'après la fusion).
+- Vérifié : run `41455681444` sur `main` : build, deploy, audit verts ; `node scripts/audit-en.mjs` contre la production : OK.
 - Non vérifié : issue des déploiements des runs `40833392817` et `40835041783`.
 
 ## État
-- Branche `feat/version-anglaise`, poussée jusqu'à `209f140` ; commits locaux en plus : audit, docs.
+- `main` = `origin/main` = `eea6581`. Cette passation est commitée sur `feat/version-anglaise` seulement : elle rejoindra `main` à la prochaine fusion.
 - Non commité : `scripts/icons.mjs` (modif de l'utilisateur, ne pas toucher) ; `.gitattributes` créé par `graphify hook install` (merge driver de `graph.json`), décision de le committer en attente.
-- Serveur `vite preview` lancé en arrière-plan sur le port 4173.
 
 ## Ensuite
-1. Accord du collègue pour la mise en production.
-2. Spec, « Branche et mise en production », points 4 et 5 : `git switch main`, `git pull`, `git merge feat/version-anglaise`, lint/tests/build, `git push`, `gh run watch`.
-3. Vérifier le job `audit` vert, puis mettre à jour ce fichier.
+1. Décider si `.gitattributes` est commité.
+2. Pas d'autre tâche ouverte pour cette mission.
