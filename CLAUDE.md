@@ -15,7 +15,7 @@ The person driving the session may not know this stack (React, TypeScript, Vite,
 
 ## Git
 
-Pushing to `main` deploys to production. Work on a feature branch; merge into `main` only after `npm run lint`, `npm run test:run` and `npm run build` pass locally on the branch. Never commit or push directly to `main`.
+Pushing to `main` deploys to production; every push runs lint, tests and build in CI. Work on a feature branch; merge into `main` only after `npm run lint`, `npm run test:run` and `npm run build` pass locally on the branch. Never commit or push directly to `main`.
 
 ## Design Concept
 
@@ -69,6 +69,7 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 - Styles: plain CSS + custom properties in `src/index.css`. Tailwind 4 is loaded (`@import "tailwindcss"`, `@tailwindcss/vite`) but project styles do not rely on utility classes; do not add new ones
 - Zustand (state), Framer Motion + GSAP (animation), Driver.js (guide), Vitest + Testing Library (tests)
 - No router installed yet
+- i18n: no library, see « i18n » below
 - GitHub Pages deploy via `.github/workflows/static.yml`
 
 ## Key Conventions
@@ -78,6 +79,14 @@ Light mode uses the same ink colors on a paper base (see `docs/propostion_portfo
 - Keep boot sequence animation in plain CSS/JS, not React state
 - Prefer small, focused components: one clear purpose per file
 - No inline styles for layout or color; use CSS classes and custom properties
+
+### i18n
+- Two static pages, same bundle: `index.html` (`/`, French) and `en/index.html` (`/en/`, English); both listed in `build.rollupOptions.input` (`vite.config.ts`).
+- UI text lives in `src/i18n/fr.ts`; `src/i18n/en.ts` is typed `Messages` (derived from `fr`). Components call `t()` (`src/i18n/index.ts`), which picks the catalog from `<html lang>`, in the component body.
+- Add a string: key in `fr.ts`, same key in `en.ts` (else `tsc` fails), use `t().section.key`. Recurring terms: follow `docs/missions/glossaire-en.md`.
+- Text also in the no-JS summary or meta: update `index.html` and `en/index.html` together.
+- Language selector: `.mb-lang` in `Menubar.tsx`, stores `localStorage` `nxt-lang`; inline script of `index.html` redirects `/` → `/en/` when `nxt-lang = en`.
+- Checks: `src/i18n/i18n.test.tsx` (no French in English, glossary, switch, HTML pages); `scripts/audit-en.mjs` (live audit, CI job `audit`).
 
 ### Window State Model
 
@@ -104,7 +113,9 @@ Key actions: `openWindow`, `closeWindow`, `focusWindow`, `reduceWindow`, `restor
 | `docs/propostion_portfolio.md` | Design proposal: palette, responsive, animation sequence, screen list |
 | `docs/about-nextri/README.md` | Company profile, services, team bios, tech stack |
 | `docs/about-nextri/resumes/` | Individual CVs, **not in git** (local only) |
-| `docs/missions/version-anglaise.md` | Active mission: English version, implementation → tests → CI → post-deploy audits |
+| `docs/missions/version-anglaise.md` | Mission: English version (spec, steps 0-7) |
+| `docs/missions/version-anglaise-proposition.md` | Validated serving choice (`/en/` static page) |
+| `docs/missions/glossaire-en.md` | FR → EN glossary, enforced by tests |
 
 Only `docs/propostion_portfolio.md`, `docs/assets/`, `docs/missions/` and `docs/about-nextri/README.md` are tracked; the rest of `docs/` is gitignored.
 

@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1504a6b2`
+- Built from commit: `209f1400`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,8 +36,8 @@
 6. `WindowId` - 8 edges
 7. `Dock()` - 7 edges
 8. `Menubar()` - 7 edges
-9. `ContactWindow()` - 6 edges
-10. `App()` - 6 edges
+9. `App()` - 6 edges
+10. `ContactWindow()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DockItemProps` --references--> `WindowId`  [EXTRACTED]
@@ -46,10 +46,10 @@
   src/components/windows/WindowShell.tsx → src/types/index.ts
 - `App()` --calls--> `BootScreen()`  [EXTRACTED]
   src/App.tsx → src/components/boot/BootScreen.tsx
-- `BootScreen()` --calls--> `useDesktopStore`  [EXTRACTED]
-  src/components/boot/BootScreen.tsx → src/store/desktop.ts
 - `App()` --calls--> `Desktop()`  [EXTRACTED]
   src/App.tsx → src/components/desktop/Desktop.tsx
+- `App()` --calls--> `useDesktopStore`  [EXTRACTED]
+  src/App.tsx → src/store/desktop.ts
 
 ## Import Cycles
 - None detected.
@@ -89,7 +89,7 @@ Cohesion: 0.70
 Nodes (3): Menubar(), fmt(), useClock()
 
 ## Knowledge Gaps
-- **14 isolated node(s):** `ALLOWED`, `Frame`, `FrameType`, `Props`, `Props` (+9 more)
+- **14 isolated node(s):** `Frame`, `FrameType`, `Props`, `Props`, `Props` (+9 more)
   These have ≤1 connection - possible missing edges. (Counts symbols only; 34 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -98,7 +98,7 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useDesktopStore` connect `useDesktopStore` to `src/components/boot/BootScreen.tsx`, `Team Window & Avatars`, `src/App.tsx`, `src/store/desktop.ts`, `i18n.test.tsx`, `Menubar.tsx`?**
   _High betweenness centrality (0.203) - this node is a cross-community bridge._
-- **What connects `ALLOWED`, `Frame`, `FrameType` to the rest of the system?**
+- **What connects `Frame`, `FrameType`, `Props` to the rest of the system?**
   _14 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `i18n.test.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._

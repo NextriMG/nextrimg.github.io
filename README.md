@@ -2,7 +2,7 @@
 
 Portfolio site for NEXTRI, a software collective of three engineers based in Antananarivo, Madagascar. The interface is an **OS desktop experience** (macOS-inspired): boot sequence, draggable app windows, a dock, and a menubar. On mobile the OS metaphor gives way to a native mobile layout: same visual language, different structure.
 
-**Live:** https://nextrimg.github.io/
+**Live:** https://nextrimg.github.io/ (French) · https://nextrimg.github.io/en/ (English)
 
 ## Tech Stack
 
@@ -28,11 +28,12 @@ npm run build     # tsc + vite build → dist/
 npm run preview   # preview the production build locally
 npm test          # vitest watch mode
 npm run test:run  # single test run
+npm run audit:en -- http://localhost:4173/  # audit FR/EN pages of a served site (default: production)
 ```
 
 ## Deploy
 
-Push to `main`, and `.github/workflows/static.yml` builds and deploys to GitHub Pages automatically.
+Every push runs lint, tests and build (`.github/workflows/static.yml`). Only `main` deploys to GitHub Pages, then the `audit` job checks both live pages (`scripts/audit-en.mjs`).
 
 **First-time setup:**
 1. In repo Settings → Pages → Source: set to **GitHub Actions**
@@ -49,6 +50,10 @@ src/
     desktop/      # Desktop shell (Desktop, Menubar, Dock, Hero, Wallpaper)
     windows/      # App windows (AboutWindow, TeamWindow, ServicesWindow, ContactWindow)
     avatars/      # SVG avatar components (Lionel, Itokiana, Sitraka)
+  i18n/
+    fr.ts         # All UI text (source of truth); type `Messages`
+    en.ts         # English translation, typed `Messages` (missing key = tsc error)
+    index.ts      # t(): catalog for <html lang>
   store/
     desktop.ts    # Zustand store, all window + phase state
   hooks/
