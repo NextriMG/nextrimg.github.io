@@ -33,9 +33,9 @@ Mission version anglaise (`docs/missions/version-anglaise.md`). Terminée : fusi
 - Non vérifié : issue des déploiements des runs `40833392817` et `40835041783`.
 
 ## État
-- `main` = `origin/main` = `eea6581`. Cette passation est commitée sur `feat/version-anglaise` seulement : elle rejoindra `main` à la prochaine fusion.
-- Non commité : `scripts/icons.mjs` (modif de l'utilisateur, ne pas toucher) ; `.gitattributes` créé par `graphify hook install` (merge driver de `graph.json`), décision de le committer en attente.
+- Tout est sur `main`. `feat/version-anglaise` supprimée (locale et distante) après fusion.
+- Non commité : `scripts/icons.mjs` (modif de l'utilisateur, ne pas toucher).
+- `.gitattributes` suivi : merge driver graphify de `graph.json` (`graphify hook install` le déclare sur chaque machine).
 
 ## Ensuite
-1. Décider si `.gitattributes` est commité.
-2. Pas d'autre tâche ouverte pour cette mission.
+1. Aucune tâche ouverte. Nouvelle tâche : nouvelle branche depuis `main` (`CLAUDE.md`, section « Git »).
