@@ -13,7 +13,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "bootprogresshandle",
       "source_file": "src/components/boot/BootProgress.tsx",
@@ -26,7 +26,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "bootstriphandle",
       "source_file": "src/components/boot/BootStrip.tsx",
@@ -39,7 +39,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "frame",
       "source_file": "src/components/boot/BootStrip.tsx",
@@ -52,7 +52,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "frametype",
       "source_file": "src/components/boot/BootStrip.tsx",
@@ -103,12 +103,12 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community": 5,
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "dockitemprops",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L7"
+      "source_location": "L8"
     },
     {
       "id": "src_components_windows_windowshell_props",
@@ -117,11 +117,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "props",
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L6"
+      "source_location": "L7"
     },
     {
       "id": "src_store_desktop_desktopstate",
@@ -130,7 +130,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "desktopstate",
       "source_file": "src/store/desktop.ts",
@@ -143,7 +143,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "phase",
       "source_file": "src/types/index.ts",
@@ -156,7 +156,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "teammode",
       "source_file": "src/types/index.ts",
@@ -169,11 +169,24 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "windowid",
       "source_file": "src/types/index.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "src_i18n_fr_messages",
+      "label": "Messages",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "i18n/index.ts",
+      "file_type": "code",
+      "norm_label": "messages",
+      "source_file": "src/i18n/fr.ts",
+      "source_location": "L159"
     },
     {
       "id": "src_vite_env_d_turnstileinstance",
@@ -220,7 +233,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "bootscreen()",
       "source_file": "src/components/boot/BootScreen.tsx",
@@ -232,7 +245,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "letterspans()",
       "source_file": "src/components/boot/BootScreen.tsx",
@@ -244,23 +257,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "sleep()",
       "source_file": "src/components/boot/BootScreen.tsx",
       "source_location": "L10"
-    },
-    {
-      "id": "src_app_app",
-      "label": "App()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Desktop Shell & Hero",
-      "file_type": "code",
-      "norm_label": "app()",
-      "source_file": "src/App.tsx",
-      "source_location": "L5"
     },
     {
       "id": "src_components_desktop_desktop_desktop",
@@ -268,11 +269,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "desktop()",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L11"
+      "source_location": "L12"
+    },
+    {
+      "id": "src_components_desktop_dock_dock",
+      "label": "Dock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "dock()",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L52"
+    },
+    {
+      "id": "src_components_desktop_dock_dockitem",
+      "label": "DockItem()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "dockitem()",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L15"
     },
     {
       "id": "src_components_desktop_hero_hero",
@@ -280,11 +305,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "hero()",
       "source_file": "src/components/desktop/Hero.tsx",
-      "source_location": "L3"
+      "source_location": "L4"
+    },
+    {
+      "id": "src_components_desktop_menubar_menubar",
+      "label": "Menubar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "menubar()",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L7"
     },
     {
       "id": "src_components_desktop_wallpaper_wallpaper",
@@ -292,7 +329,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "wallpaper()",
       "source_file": "src/components/desktop/Wallpaper.tsx",
@@ -304,11 +341,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "aboutwindow()",
       "source_file": "src/components/windows/AboutWindow.tsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_components_windows_serviceswindow_serviceswindow",
@@ -316,11 +353,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "serviceswindow()",
       "source_file": "src/components/windows/ServicesWindow.tsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_components_windows_windowshell_windowshell",
@@ -328,11 +365,35 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "windowshell()",
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L12"
+      "source_location": "L13"
+    },
+    {
+      "id": "src_hooks_useguide_useguide",
+      "label": "useGuide()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "useguide()",
+      "source_file": "src/hooks/useGuide.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_i18n_index_t",
+      "label": "t()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "t()",
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L6"
     },
     {
       "id": "src_components_avatars_itoavatar_itoavatar",
@@ -380,7 +441,7 @@
       "file_type": "code",
       "norm_label": "githubicon()",
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "src_components_windows_teamwindow_linkedinicon",
@@ -392,7 +453,7 @@
       "file_type": "code",
       "norm_label": "linkedinicon()",
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L10"
+      "source_location": "L11"
     },
     {
       "id": "src_components_windows_teamwindow_teamwindow",
@@ -404,7 +465,7 @@
       "file_type": "code",
       "norm_label": "teamwindow()",
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "src_components_windows_contactwindow_contactfallback",
@@ -412,11 +473,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "contactfallback()",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "src_components_windows_contactwindow_contactform",
@@ -424,11 +485,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "contactform()",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L68"
+      "source_location": "L64"
     },
     {
       "id": "src_components_windows_contactwindow_contactwindow",
@@ -436,11 +497,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "contactwindow()",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L8"
+      "source_location": "L9"
     },
     {
       "id": "src_components_windows_contactwindow_successscreen",
@@ -448,11 +509,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "successscreen()",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L301"
+      "source_location": "L292"
     },
     {
       "id": "src_store_desktop_test_reset",
@@ -460,79 +521,31 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "reset()",
       "source_file": "src/store/desktop.test.ts",
       "source_location": "L4"
     },
     {
-      "id": "src_components_desktop_dock_dock",
-      "label": "Dock()",
+      "id": "src_app_app",
+      "label": "App()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "file_type": "code",
-      "norm_label": "dock()",
-      "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L51"
-    },
-    {
-      "id": "src_components_desktop_dock_dockitem",
-      "label": "DockItem()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Dock & Onboarding Guide",
-      "file_type": "code",
-      "norm_label": "dockitem()",
-      "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L14"
-    },
-    {
-      "id": "src_hooks_useguide_useguide",
-      "label": "useGuide()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "Dock & Onboarding Guide",
-      "file_type": "code",
-      "norm_label": "useguide()",
-      "source_file": "src/hooks/useGuide.ts",
+      "norm_label": "app()",
+      "source_file": "src/App.tsx",
       "source_location": "L5"
-    },
-    {
-      "id": "src_store_desktop_skipboot",
-      "label": "skipBoot()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "Window State Store",
-      "file_type": "code",
-      "norm_label": "skipboot()",
-      "source_file": "src/store/desktop.ts",
-      "source_location": "L24"
-    },
-    {
-      "id": "src_components_desktop_menubar_menubar",
-      "label": "Menubar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Menubar Clock",
-      "file_type": "code",
-      "norm_label": "menubar()",
-      "source_file": "src/components/desktop/Menubar.tsx",
-      "source_location": "L6"
     },
     {
       "id": "src_hooks_useclock_fmt",
       "label": "fmt()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "Menubar Clock",
+      "community": 5,
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "fmt()",
       "source_file": "src/hooks/useClock.ts",
@@ -543,19 +556,43 @@
       "label": "useClock()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "community_name": "Menubar Clock",
+      "community": 5,
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "useclock()",
       "source_file": "src/hooks/useClock.ts",
       "source_location": "L6"
     },
     {
+      "id": "src_store_desktop_skipboot",
+      "label": "skipBoot()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "src/store/desktop.ts",
+      "file_type": "code",
+      "norm_label": "skipboot()",
+      "source_file": "src/store/desktop.ts",
+      "source_location": "L24"
+    },
+    {
+      "id": "src_i18n_fr_de",
+      "label": "de()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "i18n/index.ts",
+      "file_type": "code",
+      "norm_label": "de()",
+      "source_file": "src/i18n/fr.ts",
+      "source_location": "L5"
+    },
+    {
       "id": "src_components_boot_bootprogress",
       "label": "src/components/boot/BootProgress.tsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "src/components/boot/bootprogress.tsx",
       "source_file": "src/components/boot/BootProgress.tsx",
@@ -566,7 +603,7 @@
       "label": "BootProgress",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "bootprogress",
       "source_file": "src/components/boot/BootProgress.tsx",
@@ -577,7 +614,7 @@
       "label": "src/components/boot/BootScreen.tsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "src/components/boot/bootscreen.tsx",
       "source_file": "src/components/boot/BootScreen.tsx",
@@ -588,18 +625,29 @@
       "label": "NEX_LETTERS",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "nex_letters",
       "source_file": "src/components/boot/BootScreen.tsx",
       "source_location": "L14"
     },
     {
+      "id": "src_components_boot_bootscreen_test",
+      "label": "src/components/boot/BootScreen.test.tsx",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "src/components/boot/BootScreen.tsx",
+      "file_type": "code",
+      "norm_label": "src/components/boot/bootscreen.test.tsx",
+      "source_file": "src/components/boot/BootScreen.test.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_boot_bootscreen_tri_letters",
       "label": "TRI_LETTERS",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "tri_letters",
       "source_file": "src/components/boot/BootScreen.tsx",
@@ -610,7 +658,7 @@
       "label": "src/components/boot/BootStrip.tsx",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "src/components/boot/bootstrip.tsx",
       "source_file": "src/components/boot/BootStrip.tsx",
@@ -621,7 +669,7 @@
       "label": "BootStrip",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "bootstrip",
       "source_file": "src/components/boot/BootStrip.tsx",
@@ -632,42 +680,42 @@
       "label": "FRAMES",
       "_origin": "ast",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "file_type": "code",
       "norm_label": "frames",
       "source_file": "src/components/boot/BootStrip.tsx",
       "source_location": "L14"
     },
     {
-      "id": "src_app",
-      "label": "src/App.tsx",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Desktop Shell & Hero",
-      "file_type": "code",
-      "norm_label": "src/app.tsx",
-      "source_file": "src/App.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_components_desktop_desktop",
-      "label": "src/components/desktop/Desktop.tsx",
+      "label": "Desktop.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
-      "norm_label": "src/components/desktop/desktop.tsx",
+      "norm_label": "desktop.tsx",
       "source_file": "src/components/desktop/Desktop.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_components_desktop_hero",
-      "label": "src/components/desktop/Hero.tsx",
+      "id": "src_components_desktop_dock",
+      "label": "Dock.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
-      "norm_label": "src/components/desktop/hero.tsx",
+      "norm_label": "dock.tsx",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_desktop_hero",
+      "label": "Hero.tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "hero.tsx",
       "source_file": "src/components/desktop/Hero.tsx",
       "source_location": "L1"
     },
@@ -676,7 +724,7 @@
       "label": "src/components/desktop/Wallpaper.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "src/components/desktop/wallpaper.tsx",
       "source_file": "src/components/desktop/Wallpaper.tsx",
@@ -684,24 +732,35 @@
     },
     {
       "id": "src_components_windows_aboutwindow",
-      "label": "src/components/windows/AboutWindow.tsx",
+      "label": "AboutWindow.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
-      "norm_label": "src/components/windows/aboutwindow.tsx",
+      "norm_label": "aboutwindow.tsx",
       "source_file": "src/components/windows/AboutWindow.tsx",
       "source_location": "L1"
     },
     {
       "id": "src_components_windows_serviceswindow",
-      "label": "src/components/windows/ServicesWindow.tsx",
+      "label": "ServicesWindow.tsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
-      "norm_label": "src/components/windows/serviceswindow.tsx",
+      "norm_label": "serviceswindow.tsx",
       "source_file": "src/components/windows/ServicesWindow.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_hooks_useguide",
+      "label": "useGuide.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "useguide.ts",
+      "source_file": "src/hooks/useGuide.ts",
       "source_location": "L1"
     },
     {
@@ -709,33 +768,11 @@
       "label": "useDesktopStore",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "file_type": "code",
       "norm_label": "usedesktopstore",
       "source_file": "src/store/desktop.ts",
       "source_location": "L34"
-    },
-    {
-      "id": "test_setup_ts",
-      "label": "test-setup.ts",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": "Test Setup File",
-      "file_type": "code",
-      "norm_label": "test-setup.ts",
-      "source_file": "test-setup.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "vite_env_d_ts",
-      "label": "vite-env.d.ts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "Vite Env Types",
-      "file_type": "code",
-      "norm_label": "vite-env.d.ts",
-      "source_file": "vite-env.d.ts",
-      "source_location": "L1"
     },
     {
       "id": "src_components_avatars_itoavatar",
@@ -772,45 +809,23 @@
     },
     {
       "id": "src_components_windows_teamwindow",
-      "label": "src/components/windows/TeamWindow.tsx",
+      "label": "TeamWindow.tsx",
       "_origin": "ast",
       "community": 2,
       "community_name": "Team Window & Avatars",
       "file_type": "code",
-      "norm_label": "src/components/windows/teamwindow.tsx",
+      "norm_label": "teamwindow.tsx",
       "source_file": "src/components/windows/TeamWindow.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_app_test",
-      "label": "src/App.test.tsx",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Contact Form & Tests",
-      "file_type": "code",
-      "norm_label": "src/app.test.tsx",
-      "source_file": "src/App.test.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_boot_bootscreen_test",
-      "label": "src/components/boot/BootScreen.test.tsx",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Contact Form & Tests",
-      "file_type": "code",
-      "norm_label": "src/components/boot/bootscreen.test.tsx",
-      "source_file": "src/components/boot/BootScreen.test.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_components_windows_contactwindow",
-      "label": "src/components/windows/ContactWindow.tsx",
+      "label": "ContactWindow.tsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
-      "norm_label": "src/components/windows/contactwindow.tsx",
+      "norm_label": "contactwindow.tsx",
       "source_file": "src/components/windows/ContactWindow.tsx",
       "source_location": "L1"
     },
@@ -819,7 +834,7 @@
       "label": "src/components/windows/ContactWindow.test.tsx",
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "src/components/windows/contactwindow.test.tsx",
       "source_file": "src/components/windows/ContactWindow.test.tsx",
@@ -830,54 +845,54 @@
       "label": "TURNSTILE_KEY",
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "turnstile_key",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_components_windows_contactwindow_web3forms_key",
       "label": "WEB3FORMS_KEY",
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "web3forms_key",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L3"
+      "source_location": "L4"
     },
     {
       "id": "src_store_desktop_test",
       "label": "src/store/desktop.test.ts",
       "_origin": "ast",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "file_type": "code",
       "norm_label": "src/store/desktop.test.ts",
       "source_file": "src/store/desktop.test.ts",
       "source_location": "L1"
     },
     {
-      "id": "src_components_desktop_dock",
-      "label": "src/components/desktop/Dock.tsx",
+      "id": "src_app",
+      "label": "src/App.tsx",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "file_type": "code",
-      "norm_label": "src/components/desktop/dock.tsx",
-      "source_file": "src/components/desktop/Dock.tsx",
+      "norm_label": "src/app.tsx",
+      "source_file": "src/App.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_hooks_useguide",
-      "label": "src/hooks/useGuide.ts",
+      "id": "src_app_test",
+      "label": "src/App.test.tsx",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "file_type": "code",
-      "norm_label": "src/hooks/useguide.ts",
-      "source_file": "src/hooks/useGuide.ts",
+      "norm_label": "src/app.test.tsx",
+      "source_file": "src/App.test.tsx",
       "source_location": "L1"
     },
     {
@@ -885,21 +900,43 @@
       "label": "src/main.tsx",
       "_origin": "ast",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "file_type": "code",
       "norm_label": "src/main.tsx",
       "source_file": "src/main.tsx",
       "source_location": "L1"
     },
     {
-      "id": "src_components_windows_windowshell",
-      "label": "src/components/windows/WindowShell.tsx",
+      "id": "src_components_desktop_menubar",
+      "label": "Menubar.tsx",
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
-      "norm_label": "src/components/windows/windowshell.tsx",
+      "norm_label": "menubar.tsx",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_windows_windowshell",
+      "label": "WindowShell.tsx",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "src/store/desktop.ts",
+      "file_type": "code",
+      "norm_label": "windowshell.tsx",
       "source_file": "src/components/windows/WindowShell.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_hooks_useclock",
+      "label": "src/hooks/useClock.ts",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "src/store/desktop.ts",
+      "file_type": "code",
+      "norm_label": "src/hooks/useclock.ts",
+      "source_file": "src/hooks/useClock.ts",
       "source_location": "L1"
     },
     {
@@ -907,7 +944,7 @@
       "label": "src/store/desktop.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
       "norm_label": "src/store/desktop.ts",
       "source_file": "src/store/desktop.ts",
@@ -915,90 +952,68 @@
     },
     {
       "id": "src_types_index",
-      "label": "src/types/index.ts",
+      "label": "types/index.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "file_type": "code",
-      "norm_label": "src/types/index.ts",
+      "norm_label": "types/index.ts",
       "source_file": "src/types/index.ts",
       "source_location": "L1"
     },
     {
-      "id": "app_test_tsx",
-      "label": "App.test.tsx",
+      "id": "src_i18n_en",
+      "label": "en.ts",
       "_origin": "ast",
       "community": 6,
-      "community_name": "App Entry Tests",
+      "community_name": "i18n/index.ts",
       "file_type": "code",
-      "norm_label": "app.test.tsx",
-      "source_file": "App.test.tsx",
+      "norm_label": "en.ts",
+      "source_file": "src/i18n/en.ts",
       "source_location": "L1"
     },
     {
-      "id": "app_tsx",
-      "label": "App.tsx",
+      "id": "src_i18n_en_en",
+      "label": "en",
       "_origin": "ast",
       "community": 6,
-      "community_name": "App Entry Tests",
+      "community_name": "i18n/index.ts",
       "file_type": "code",
-      "norm_label": "app.tsx",
-      "source_file": "App.tsx",
+      "norm_label": "en",
+      "source_file": "src/i18n/en.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "src_i18n_fr",
+      "label": "fr.ts",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "i18n/index.ts",
+      "file_type": "code",
+      "norm_label": "fr.ts",
+      "source_file": "src/i18n/fr.ts",
       "source_location": "L1"
     },
     {
-      "id": "main_tsx",
-      "label": "main.tsx",
+      "id": "src_i18n_fr_fr",
+      "label": "fr",
       "_origin": "ast",
       "community": 6,
-      "community_name": "App Entry Tests",
+      "community_name": "i18n/index.ts",
       "file_type": "code",
-      "norm_label": "main.tsx",
-      "source_file": "main.tsx",
-      "source_location": "L1"
+      "norm_label": "fr",
+      "source_file": "src/i18n/fr.ts",
+      "source_location": "L7"
     },
     {
-      "id": "src_app_test_getbytestid",
-      "label": "{ getByTestId }",
+      "id": "src_i18n_index",
+      "label": "i18n/index.ts",
       "_origin": "ast",
       "community": 6,
-      "community_name": "App Entry Tests",
+      "community_name": "i18n/index.ts",
       "file_type": "code",
-      "norm_label": "{ getbytestid }",
-      "source_file": "App.test.tsx",
-      "source_location": "L17"
-    },
-    {
-      "id": "src_app_test_querybytestid",
-      "label": "{ queryByTestId }",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "App Entry Tests",
-      "file_type": "code",
-      "norm_label": "{ querybytestid }",
-      "source_file": "App.test.tsx",
-      "source_location": "L28"
-    },
-    {
-      "id": "src_components_desktop_menubar",
-      "label": "src/components/desktop/Menubar.tsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Menubar Clock",
-      "file_type": "code",
-      "norm_label": "src/components/desktop/menubar.tsx",
-      "source_file": "src/components/desktop/Menubar.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_hooks_useclock",
-      "label": "src/hooks/useClock.ts",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "Menubar Clock",
-      "file_type": "code",
-      "norm_label": "src/hooks/useclock.ts",
-      "source_file": "src/hooks/useClock.ts",
+      "norm_label": "i18n/index.ts",
+      "source_file": "src/i18n/index.ts",
       "source_location": "L1"
     },
     {
@@ -1026,8 +1041,9 @@
     {
       "id": "ref_gsap",
       "label": "ref_gsap",
+      "_origin": "semantic",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_gsap",
@@ -1037,8 +1053,9 @@
     {
       "id": "ref_gsap_react",
       "label": "ref_gsap_react",
+      "_origin": "semantic",
       "community": 0,
-      "community_name": "Boot Sequence Animation",
+      "community_name": "src/components/boot/BootScreen.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_gsap_react",
@@ -1046,10 +1063,23 @@
       "type": "external"
     },
     {
+      "id": "ref_react",
+      "label": "ref_react",
+      "_origin": "semantic",
+      "community": 0,
+      "community_name": "src/components/boot/BootScreen.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_react",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_lucide_react",
       "label": "ref_lucide_react",
+      "_origin": "semantic",
       "community": 1,
-      "community_name": "Desktop Shell & Hero",
+      "community_name": "useDesktopStore",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_lucide_react",
@@ -1059,6 +1089,7 @@
     {
       "id": "ref_radix_ui_react_tabs",
       "label": "ref_radix_ui_react_tabs",
+      "_origin": "semantic",
       "community": 2,
       "community_name": "Team Window & Avatars",
       "external": true,
@@ -1068,21 +1099,11 @@
       "type": "external"
     },
     {
-      "id": "ref_testing_library_react",
-      "label": "ref_testing_library_react",
-      "community": 3,
-      "community_name": "Contact Form & Tests",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_testing_library_react",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_vitest",
       "label": "ref_vitest",
+      "_origin": "semantic",
       "community": 3,
-      "community_name": "Contact Form & Tests",
+      "community_name": "ContactWindow.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_vitest",
@@ -1092,8 +1113,9 @@
     {
       "id": "ref_driver_js",
       "label": "ref_driver_js",
+      "_origin": "semantic",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_driver_js",
@@ -1103,8 +1125,9 @@
     {
       "id": "ref_next_themes",
       "label": "ref_next_themes",
+      "_origin": "semantic",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_next_themes",
@@ -1112,21 +1135,11 @@
       "type": "external"
     },
     {
-      "id": "ref_react",
-      "label": "ref_react",
-      "community": 4,
-      "community_name": "Dock & Onboarding Guide",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_react",
-      "source_file": "",
-      "type": "external"
-    },
-    {
       "id": "ref_react_dom",
       "label": "ref_react_dom",
+      "_origin": "semantic",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_react_dom",
@@ -1134,10 +1147,23 @@
       "type": "external"
     },
     {
+      "id": "ref_testing_library_react",
+      "label": "ref_testing_library_react",
+      "_origin": "semantic",
+      "community": 4,
+      "community_name": "src/App.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_testing_library_react",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "src_index",
       "label": "src_index",
+      "_origin": "semantic",
       "community": 4,
-      "community_name": "Dock & Onboarding Guide",
+      "community_name": "src/App.tsx",
       "external": true,
       "file_type": "concept",
       "norm_label": "src_index",
@@ -1147,8 +1173,9 @@
     {
       "id": "ref_framer_motion",
       "label": "ref_framer_motion",
+      "_origin": "semantic",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_framer_motion",
@@ -1158,8 +1185,9 @@
     {
       "id": "ref_zustand",
       "label": "ref_zustand",
+      "_origin": "semantic",
       "community": 5,
-      "community_name": "Window State Store",
+      "community_name": "src/store/desktop.ts",
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_zustand",
@@ -1169,6 +1197,7 @@
     {
       "id": "ref_testing_library_jest_dom",
       "label": "ref_testing_library_jest_dom",
+      "_origin": "semantic",
       "community": 9,
       "community_name": "Test Setup Config",
       "external": true,
@@ -1284,7 +1313,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -1296,7 +1325,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -1308,7 +1337,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -1320,7 +1349,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -1332,12 +1361,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
       "source": "src_components_desktop_desktop_desktop",
-      "target": "src_components_windows_teamwindow_teamwindow",
+      "target": "src_i18n_index_t",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1349,7 +1378,7 @@
     },
     {
       "source": "src_components_desktop_desktop_desktop",
-      "target": "src_components_windows_serviceswindow_serviceswindow",
+      "target": "src_components_windows_teamwindow_teamwindow",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1361,7 +1390,7 @@
     },
     {
       "source": "src_components_desktop_desktop_desktop",
-      "target": "src_components_windows_contactwindow_contactwindow",
+      "target": "src_components_windows_serviceswindow_serviceswindow",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1373,7 +1402,7 @@
     },
     {
       "source": "src_components_desktop_desktop_desktop",
-      "target": "src_components_desktop_dock_dock",
+      "target": "src_components_windows_contactwindow_contactwindow",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1381,6 +1410,18 @@
       "context": "call",
       "source_file": "src/components/desktop/Desktop.tsx",
       "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_desktop_desktop",
+      "target": "src_components_desktop_dock_dock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/desktop/Desktop.tsx",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -1392,7 +1433,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L52",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -1404,7 +1445,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L53",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_dock_dock",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -1416,7 +1469,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -1428,7 +1481,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -1440,18 +1493,18 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Hero.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
-      "source": "src_components_desktop_menubar_menubar",
-      "target": "src_hooks_useclock_useclock",
+      "source": "src_components_desktop_hero_hero",
+      "target": "src_i18n_index_t",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
-      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_file": "src/components/desktop/Hero.tsx",
       "source_location": "L8",
       "weight": 1.0
     },
@@ -1464,7 +1517,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_menubar_menubar",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_menubar_menubar",
+      "target": "src_hooks_useclock_useclock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/desktop/Menubar.tsx",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_aboutwindow_aboutwindow",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/AboutWindow.tsx",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -1476,7 +1565,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/AboutWindow.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -1488,7 +1577,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L29",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_contactwindow_contactfallback",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/ContactWindow.tsx",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -1500,7 +1601,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L219",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_contactwindow_contactform",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/ContactWindow.tsx",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -1512,7 +1625,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -1524,7 +1637,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_contactwindow_successscreen",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/ContactWindow.tsx",
+      "source_location": "L296",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_serviceswindow_serviceswindow",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/ServicesWindow.tsx",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -1536,7 +1673,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/ServicesWindow.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -1572,7 +1709,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L27",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_teamwindow_teamwindow",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/TeamWindow.tsx",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -1620,7 +1769,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_windowshell_windowshell",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/windows/WindowShell.tsx",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -1637,6 +1798,18 @@
     },
     {
       "source": "src_hooks_useguide_useguide",
+      "target": "src_i18n_index_t",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/hooks/useGuide.ts",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_useguide_useguide",
       "target": "src_store_desktop_usedesktopstore",
       "relation": "calls",
       "_origin": "ast",
@@ -1644,7 +1817,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/hooks/useGuide.ts",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -1668,7 +1841,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -1680,7 +1853,7 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -1877,14 +2050,14 @@
     },
     {
       "source": "src_components_desktop_desktop",
-      "target": "src_components_desktop_wallpaper_wallpaper",
+      "target": "src_i18n_index_t",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L2",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -2008,6 +2181,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_desktop_dock",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_desktop_hero",
       "target": "src_store_desktop_usedesktopstore",
       "relation": "imports",
@@ -2017,6 +2202,18 @@
       "context": "import",
       "source_file": "src/components/desktop/Hero.tsx",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_hero",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Hero.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -2056,6 +2253,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_desktop_menubar",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_windows_aboutwindow",
       "target": "src_store_desktop_usedesktopstore",
       "relation": "imports",
@@ -2064,6 +2273,30 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/windows/AboutWindow.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_aboutwindow",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/AboutWindow.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_contactwindow",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/ContactWindow.tsx",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -2092,6 +2325,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_windows_serviceswindow",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/ServicesWindow.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_windows_teamwindow",
       "target": "src_store_desktop_usedesktopstore",
       "relation": "imports",
@@ -2105,38 +2350,14 @@
     },
     {
       "source": "src_components_windows_teamwindow",
-      "target": "src_components_avatars_lionelavatar_lionelavatar",
+      "target": "src_i18n_index_t",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_windows_teamwindow",
-      "target": "src_components_avatars_itoavatar_itoavatar",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_windows_teamwindow",
-      "target": "src_components_avatars_sitrakaavatar_sitrakaavatar",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -2164,6 +2385,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_windows_windowshell",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/WindowShell.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "src_hooks_useguide",
       "target": "src_store_desktop_usedesktopstore",
       "relation": "imports",
@@ -2173,6 +2406,66 @@
       "context": "import",
       "source_file": "src/hooks/useGuide.ts",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_useguide",
+      "target": "src_i18n_index_t",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/hooks/useGuide.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_en",
+      "target": "src_i18n_fr_messages",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/en.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_index",
+      "target": "src_i18n_fr_fr",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_index",
+      "target": "src_i18n_fr_messages",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_index",
+      "target": "src_i18n_en_en",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -2233,30 +2526,6 @@
       "context": "import",
       "source_file": "src/store/desktop.test.ts",
       "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "app_test_tsx",
-      "target": "app_tsx",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "App.test.tsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "app_tsx",
-      "target": "main_tsx",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "main.tsx",
-      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -2525,6 +2794,18 @@
     },
     {
       "source": "src_components_desktop_desktop",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Desktop.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_desktop",
       "target": "src_components_desktop_wallpaper",
       "relation": "imports_from",
       "_origin": "ast",
@@ -2681,6 +2962,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_desktop_dock",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_desktop_hero",
       "target": "src_store_desktop",
       "relation": "imports_from",
@@ -2690,6 +2983,18 @@
       "context": "import",
       "source_file": "src/components/desktop/Hero.tsx",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_desktop_hero",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Hero.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -2742,6 +3047,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_desktop_menubar",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_windows_aboutwindow",
       "target": "ref_lucide_react",
       "relation": "imports_from",
@@ -2766,6 +3083,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_windows_aboutwindow",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/AboutWindow.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_windows_contactwindow",
       "target": "ref_react",
       "relation": "imports_from",
@@ -2775,6 +3104,18 @@
       "context": "import",
       "source_file": "src/components/windows/ContactWindow.tsx",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_contactwindow",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/ContactWindow.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -2835,6 +3176,18 @@
       "context": "import",
       "source_file": "src/components/windows/ServicesWindow.tsx",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_serviceswindow",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/ServicesWindow.tsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -2910,6 +3263,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_windows_teamwindow",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/TeamWindow.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_windows_windowshell",
       "target": "ref_react",
       "relation": "imports_from",
@@ -2959,6 +3324,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_windows_windowshell",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/windows/WindowShell.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "src_hooks_useclock",
       "target": "ref_react",
       "relation": "imports_from",
@@ -3004,6 +3381,55 @@
       "context": "import",
       "source_file": "src/hooks/useGuide.ts",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_hooks_useguide",
+      "target": "src_i18n_index",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/hooks/useGuide.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_en",
+      "target": "src_i18n_fr",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/en.ts",
+      "source_location": "L2",
+      "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_index",
+      "target": "src_i18n_fr",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_index",
+      "target": "src_i18n_en",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -3137,39 +3563,6 @@
       "context": "import",
       "source_file": "src/test-setup.ts",
       "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "app_test_tsx",
-      "target": "src_app_test_querybytestid",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "App.test.tsx",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
-      "source": "app_test_tsx",
-      "target": "src_app_test_getbytestid",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "App.test.tsx",
-      "source_location": "L34",
-      "weight": 1.0
-    },
-    {
-      "source": "app_tsx",
-      "target": "src_app_app",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "App.tsx",
-      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3389,7 +3782,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Desktop.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -3400,7 +3793,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3411,7 +3804,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -3422,7 +3815,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -3433,7 +3826,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Hero.tsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -3444,7 +3837,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/desktop/Menubar.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -3466,7 +3859,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/AboutWindow.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3477,18 +3870,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_windows_contactwindow",
-      "target": "src_components_windows_contactwindow_web3forms_key",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L3",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3499,7 +3881,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L301",
+      "source_location": "L292",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_windows_contactwindow",
+      "target": "src_components_windows_contactwindow_web3forms_key",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/windows/ContactWindow.tsx",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -3510,7 +3903,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3521,7 +3914,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L68",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -3532,7 +3925,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/ContactWindow.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -3543,7 +3936,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/ServicesWindow.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -3554,7 +3947,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -3565,7 +3958,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3576,7 +3969,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/TeamWindow.tsx",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -3587,7 +3980,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -3598,7 +3991,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -3631,7 +4024,62 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/useGuide.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_en",
+      "target": "src_i18n_en_en",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/i18n/en.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_fr",
+      "target": "src_i18n_fr_messages",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/i18n/fr.ts",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_fr",
+      "target": "src_i18n_fr_de",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/i18n/fr.ts",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_fr",
+      "target": "src_i18n_fr_fr",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/i18n/fr.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_index",
+      "target": "src_i18n_index_t",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/i18n/index.ts",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -3747,5 +4195,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a0dcbe5d1f197b12fe148566be8eebfa0e24d684"
+  "built_at_commit": "a26287b40ba142175bc5b9a95b81f76e9fac5696"
 }
