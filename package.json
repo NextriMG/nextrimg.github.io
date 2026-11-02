@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "icons": "node scripts/icons.mjs"
+    "icons": "node scripts/icons.mjs",
+    "audit:en": "node scripts/audit-en.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
