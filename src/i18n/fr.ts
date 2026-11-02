@@ -5,6 +5,13 @@
 const de = (name: string) => (/^[AEIOUY]/i.test(name) ? `d'${name}` : `de ${name}`)
 
 export const fr = {
+  // Sélecteur de langue du menubar : pointe vers l'autre langue.
+  lang: {
+    switchTo: 'EN',
+    switchLabel: 'English version',
+    switchHref: 'en/', // relatif à BASE_URL
+    switchLang: 'en',
+  },
   menubar: {
     label: 'Menu principal',
     themeToggle: 'Basculer thème sombre/clair',

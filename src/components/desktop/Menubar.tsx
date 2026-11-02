@@ -50,6 +50,16 @@ export default function Menubar() {
         </span>
       </div>
       <div className="mb-r">
+        <a
+          className="mb-lang"
+          href={`${import.meta.env.BASE_URL}${t().lang.switchHref}`}
+          hrefLang={t().lang.switchLang}
+          lang={t().lang.switchLang}
+          aria-label={t().lang.switchLabel}
+          onClick={() => localStorage.setItem('nxt-lang', t().lang.switchLang)}
+        >
+          {t().lang.switchTo}
+        </a>
         <div id="mb-clk">{time}</div>
         <button
           id="th-btn"

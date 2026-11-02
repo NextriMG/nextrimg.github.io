@@ -79,6 +79,12 @@ export default defineConfig({
     csp(),
   ],
   base: '/',
+  // Deux pages : / (français) et /en/ (anglais), même bundle.
+  build: {
+    rollupOptions: {
+      input: { fr: 'index.html', en: 'en/index.html' },
+    },
+  },
   test: {
     environment: 'jsdom',
     globals: true,

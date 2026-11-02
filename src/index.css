@@ -1238,3 +1238,21 @@ select {
 .js .seo-fallback { display: none; }
 .seo-fallback { max-width: 44rem; margin: 4rem auto; padding: 0 1.25rem; line-height: 1.55; }
 
+
+/* Sélecteur de langue (menubar, visible aussi en mobile) */
+.mb-lang {
+  font-size: 12px;
+  font-family: var(--ffm);
+  color: var(--tx2);
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 5px;
+  border: 1px solid var(--bd);
+  transition: color .15s, border-color .2s;
+}
+
+.mb-lang:hover,
+.mb-lang:focus-visible {
+  color: var(--tx);
+  border-color: var(--bd2);
+}

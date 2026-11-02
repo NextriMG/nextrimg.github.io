@@ -1,0 +1,153 @@
+// Traduction de fr.ts. Termes imposés : docs/missions/glossaire-en.md.
+import type { Messages } from './fr'
+
+export const en: Messages = {
+  lang: {
+    switchTo: 'FR',
+    switchLabel: 'Version française',
+    switchHref: '',
+    switchLang: 'fr',
+  },
+  menubar: {
+    label: 'Main menu',
+    themeToggle: 'Toggle dark/light theme',
+  },
+  nav: {
+    about: 'About',
+    team: 'Team',
+    services: 'Services',
+    contact: 'Contact',
+  },
+  dock: {
+    label: 'Main navigation',
+    guideLabel: 'User guide',
+    guide: 'Guide',
+  },
+  windows: {
+    about: 'About NEXTRI',
+    team: 'The NEXTRI team',
+    services: 'Our services',
+    contact: 'Get in touch',
+    close: 'Close',
+    reduce: 'Minimize',
+    maximize: 'Maximize',
+  },
+  hero: {
+    label: 'Main message',
+    title1: 'Co-building your',
+    title2: 'digital ambitions.',
+    lead: 'A collective of three engineers: a team or an expert, depending on your needs.',
+    services: 'See our services',
+    team: 'Meet the team',
+  },
+  about: {
+    title: 'Three experts. One team. Your deliverable.',
+    intro:
+      'NEXTRI is a collective of three software engineers based in Antananarivo. We support companies, startups and project owners in designing, building and evolving reliable digital products.',
+    modesTitle: 'Two ways to work together',
+    collectiveTitle: 'Collective Mode',
+    collectiveText:
+      'End-to-end projects: SaaS, web platforms, complex systems. Architecture + Backend + Frontend + DevOps as a unified team, with shared ownership of the deliverable.',
+    expertTitle: 'Expert Mode',
+    expertText:
+      'Each member works independently on a specific need. The flexibility of a freelancer, with the reliability of a collective behind the engaged profile.',
+    commitmentTitle: 'Our commitment',
+    commitmentText:
+      'Transparent technical choices, maintainable code with no hidden debt, guaranteed reply within 24h. Solutions built to last.',
+    cta: 'Meet the team →',
+  },
+  services: {
+    intro: 'From design to production, we cover the full lifecycle of your digital project.',
+    webTitle: 'Custom web development',
+    webText: 'Business platforms, SaaS, dashboards, internal tools and client portals tailored to your real needs.',
+    backendTitle: 'Backend & Architecture',
+    backendText: 'Robust APIs and scalable architectures designed to support growth and functional change.',
+    infraTitle: 'Infrastructure & Data',
+    infraText: 'Reliable environments, automated deployments, database modeling, data processing.',
+    auditTitle: 'Audit & Consulting',
+    auditText: 'Review of existing systems, refactoring, performance optimization and strategic technical guidance.',
+    ctaText: "Have a project in mind? Let's talk.",
+    cta: 'Start a project →',
+  },
+  team: {
+    modeLabel: 'Engagement model',
+    tabCollective: 'Collective',
+    tabExpert: 'Expert Mode',
+    collectiveDesc:
+      'In Collective Mode, the three members work as a unified team, with smooth internal coordination and shared ownership of the deliverable.',
+    expertDesc:
+      'In Expert Mode, each member works independently under the NEXTRI name. The flexibility of a freelancer, with the reliability of a collective behind.',
+    portfolio: (name: string) => `${name}'s portfolio`,
+    linkedin: (name: string) => `${name}'s LinkedIn profile`,
+    github: (name: string) => `${name}'s GitHub profile`,
+    lionel: {
+      role: 'Full Stack Java · Techno-functional',
+      duty: 'Operations Coordinator · Sales',
+      expertRole: 'Full-stack Java Consultant',
+      expertDesc:
+        'Java Spring Boot business applications, Drools and Camunda rules and workflows, Angular interfaces on PostgreSQL. Business workshops, specifications and technical leadership.',
+    },
+    itokiana: {
+      role: 'Senior Full Stack · Project Manager',
+      duty: 'Administrative Lead',
+      expertRole: 'Senior Full Stack · PM',
+      expertDesc:
+        'Applications in production, technical specifications, test cycles, bridge between business and technical teams.',
+    },
+    sitraka: {
+      role: 'Full Stack · Backend, CI/CD',
+      duty: 'Technical Lead',
+      expertRole: 'Full Stack · Backend, CI/CD',
+      expertDesc:
+        'API design and backend rewrites under performance constraints, data modeling and optimization, continuous delivery, security by design.',
+    },
+  },
+  contact: {
+    intro: 'Guaranteed reply within 24h. Tell us about your project.',
+    name: 'Your name',
+    namePlaceholder: 'Jane Smith',
+    email: 'Email address',
+    emailPlaceholder: 'jane@startup.com',
+    type: 'Engagement type',
+    typeSelect: 'Select...',
+    typeOptions: [
+      'Full product development',
+      'Backend / API assignment',
+      'Frontend assignment',
+      'Infrastructure / Data',
+      'Technical audit',
+      'Other',
+    ],
+    message: 'Describe your need',
+    messagePlaceholder: 'We are building a SaaS platform and need...',
+    send: 'Send →',
+    sending: 'Sending…',
+    retryIn: (s: number) => `Retry in ${s}s`,
+    required: 'Required',
+    invalidEmail: 'Invalid email',
+    errorServer: 'Something went wrong. Please try again shortly.',
+    errorNetwork: 'Could not send the message. Check your connection.',
+    errorExpired: 'Verification session expired. Please try again.',
+    privacy: 'Your information is only used to reply to your message and is never shared.',
+    successTitle: 'Message received!',
+    successText: 'We will reply within 24 hours.',
+    successUrgent: 'For anything urgent:',
+  },
+  guide: {
+    next: 'Next →',
+    prev: '← Back',
+    done: "Let's go!",
+    dockTitle: 'Welcome to NEXTRI OS',
+    dockText: 'This dock is your entry point. Click an icon to open the matching section.',
+    aboutTitle: 'About',
+    aboutText: 'Discover NEXTRI, our approach and our two engagement models.',
+    teamTitle: 'Team',
+    teamText: 'Meet the three members. The "Collective / Expert" toggle explains how we work depending on your needs.',
+    servicesTitle: 'Our services',
+    servicesText: 'Web development, backend, infrastructure, audit: everything we do.',
+    contactTitle: 'Contact us',
+    contactText: 'Tell us about your project and get a reply within 24h.',
+    themeTitle: 'Dark / light theme',
+    themeText: 'Switch between the two modes to suit your preferences.',
+  },
+}
