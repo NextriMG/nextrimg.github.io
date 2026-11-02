@@ -1,6 +1,6 @@
 # Proposition : servir la version anglaise
 
-Statut : **en attente de validation du mainteneur** (étape 1 de `docs/missions/version-anglaise.md`).
+Statut : **option A validée par le mainteneur le 2026-11-02** (étape 1 de `docs/missions/version-anglaise.md`).
 
 ## Contraintes GitHub Pages
 - Hébergement statique : un fichier par URL, aucune réécriture serveur, aucun en-tête HTTP personnalisé.
