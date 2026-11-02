@@ -59,6 +59,19 @@
       "source_location": "L4"
     },
     {
+      "id": "src_components_desktop_dock_dockitemprops",
+      "label": "DockItemProps",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "useDesktopStore",
+      "file_type": "code",
+      "norm_label": "dockitemprops",
+      "source_file": "src/components/desktop/Dock.tsx",
+      "source_location": "L8"
+    },
+    {
       "id": "src_components_avatars_itoavatar_props",
       "label": "Props",
       "_callable": true,
@@ -96,19 +109,6 @@
       "norm_label": "props",
       "source_file": "src/components/avatars/SitrakaAvatar.tsx",
       "source_location": "L1"
-    },
-    {
-      "id": "src_components_desktop_dock_dockitemprops",
-      "label": "DockItemProps",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "src/store/desktop.ts",
-      "file_type": "code",
-      "norm_label": "dockitemprops",
-      "source_file": "src/components/desktop/Dock.tsx",
-      "source_location": "L8"
     },
     {
       "id": "src_components_windows_windowshell_props",
@@ -312,18 +312,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_components_desktop_menubar_menubar",
-      "label": "Menubar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "useDesktopStore",
-      "file_type": "code",
-      "norm_label": "menubar()",
-      "source_file": "src/components/desktop/Menubar.tsx",
-      "source_location": "L7"
-    },
-    {
       "id": "src_components_desktop_wallpaper_wallpaper",
       "label": "Wallpaper()",
       "_callable": true,
@@ -393,6 +381,42 @@
       "file_type": "code",
       "norm_label": "t()",
       "source_file": "src/i18n/index.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "src_components_desktop_menubar_menubar",
+      "label": "Menubar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Menubar.tsx",
+      "file_type": "code",
+      "norm_label": "menubar()",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_hooks_useclock_fmt",
+      "label": "fmt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Menubar.tsx",
+      "file_type": "code",
+      "norm_label": "fmt()",
+      "source_file": "src/hooks/useClock.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_hooks_useclock_useclock",
+      "label": "useClock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Menubar.tsx",
+      "file_type": "code",
+      "norm_label": "useclock()",
+      "source_file": "src/hooks/useClock.ts",
       "source_location": "L6"
     },
     {
@@ -516,18 +540,6 @@
       "source_location": "L292"
     },
     {
-      "id": "src_store_desktop_test_reset",
-      "label": "reset()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "ContactWindow.tsx",
-      "file_type": "code",
-      "norm_label": "reset()",
-      "source_file": "src/store/desktop.test.ts",
-      "source_location": "L4"
-    },
-    {
       "id": "src_app_app",
       "label": "App()",
       "_callable": true,
@@ -538,30 +550,6 @@
       "norm_label": "app()",
       "source_file": "src/App.tsx",
       "source_location": "L5"
-    },
-    {
-      "id": "src_hooks_useclock_fmt",
-      "label": "fmt()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "src/store/desktop.ts",
-      "file_type": "code",
-      "norm_label": "fmt()",
-      "source_file": "src/hooks/useClock.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_hooks_useclock_useclock",
-      "label": "useClock()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "src/store/desktop.ts",
-      "file_type": "code",
-      "norm_label": "useclock()",
-      "source_file": "src/hooks/useClock.ts",
-      "source_location": "L6"
     },
     {
       "id": "src_store_desktop_skipboot",
@@ -586,6 +574,90 @@
       "norm_label": "de()",
       "source_file": "src/i18n/fr.ts",
       "source_location": "L5"
+    },
+    {
+      "id": "src_i18n_i18n_test_domtexts",
+      "label": "domTexts()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "domtexts()",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_i18n_i18n_test_frenchlines",
+      "label": "frenchLines()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "frenchlines()",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "src_i18n_i18n_test_meta",
+      "label": "meta()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "meta()",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L38"
+    },
+    {
+      "id": "src_i18n_i18n_test_parse",
+      "label": "parse()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "parse()",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L37"
+    },
+    {
+      "id": "src_i18n_i18n_test_resetstore",
+      "label": "resetStore()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "resetstore()",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_i18n_i18n_test_strings",
+      "label": "strings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "strings()",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L20"
+    },
+    {
+      "id": "src_store_desktop_test_reset",
+      "label": "reset()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "reset()",
+      "source_file": "src/store/desktop.test.ts",
+      "source_location": "L4"
     },
     {
       "id": "src_components_boot_bootprogress",
@@ -775,6 +847,28 @@
       "source_location": "L34"
     },
     {
+      "id": "src_components_desktop_menubar",
+      "label": "Menubar.tsx",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Menubar.tsx",
+      "file_type": "code",
+      "norm_label": "menubar.tsx",
+      "source_file": "src/components/desktop/Menubar.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_hooks_useclock",
+      "label": "src/hooks/useClock.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "Menubar.tsx",
+      "file_type": "code",
+      "norm_label": "src/hooks/useclock.ts",
+      "source_file": "src/hooks/useClock.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_avatars_itoavatar",
       "label": "src/components/avatars/ItoAvatar.tsx",
       "_origin": "ast",
@@ -863,17 +957,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_store_desktop_test",
-      "label": "src/store/desktop.test.ts",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "ContactWindow.tsx",
-      "file_type": "code",
-      "norm_label": "src/store/desktop.test.ts",
-      "source_file": "src/store/desktop.test.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "src_app",
       "label": "src/App.tsx",
       "_origin": "ast",
@@ -907,17 +990,6 @@
       "source_location": "L1"
     },
     {
-      "id": "src_components_desktop_menubar",
-      "label": "Menubar.tsx",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "src/store/desktop.ts",
-      "file_type": "code",
-      "norm_label": "menubar.tsx",
-      "source_file": "src/components/desktop/Menubar.tsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_components_windows_windowshell",
       "label": "WindowShell.tsx",
       "_origin": "ast",
@@ -926,17 +998,6 @@
       "file_type": "code",
       "norm_label": "windowshell.tsx",
       "source_file": "src/components/windows/WindowShell.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_hooks_useclock",
-      "label": "src/hooks/useClock.ts",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "src/store/desktop.ts",
-      "file_type": "code",
-      "norm_label": "src/hooks/useclock.ts",
-      "source_file": "src/hooks/useClock.ts",
       "source_location": "L1"
     },
     {
@@ -1014,6 +1075,39 @@
       "file_type": "code",
       "norm_label": "i18n/index.ts",
       "source_file": "src/i18n/index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_i18n_i18n_test",
+      "label": "i18n.test.tsx",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "i18n.test.tsx",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_i18n_i18n_test_allowed",
+      "label": "ALLOWED",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "allowed",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "src_store_desktop_test",
+      "label": "src/store/desktop.test.ts",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "file_type": "code",
+      "norm_label": "src/store/desktop.test.ts",
+      "source_file": "src/store/desktop.test.ts",
       "source_location": "L1"
     },
     {
@@ -1095,18 +1189,6 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_radix_ui_react_tabs",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "ref_vitest",
-      "label": "ref_vitest",
-      "_origin": "semantic",
-      "community": 3,
-      "community_name": "ContactWindow.tsx",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "ref_vitest",
       "source_file": "",
       "type": "external"
     },
@@ -1195,6 +1277,18 @@
       "type": "external"
     },
     {
+      "id": "ref_vitest",
+      "label": "ref_vitest",
+      "_origin": "semantic",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_vitest",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_testing_library_jest_dom",
       "label": "ref_testing_library_jest_dom",
       "_origin": "semantic",
@@ -1203,6 +1297,50 @@
       "external": true,
       "file_type": "concept",
       "norm_label": "ref_testing_library_jest_dom",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_docs_missions_glossaire_en_md_raw",
+      "label": "ref_docs_missions_glossaire_en_md_raw",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_docs_missions_glossaire_en_md_raw",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_en_index_html_raw",
+      "label": "ref_en_index_html_raw",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_en_index_html_raw",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_index_html_raw",
+      "label": "ref_index_html_raw",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_index_html_raw",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_public_sitemap_xml_raw",
+      "label": "ref_public_sitemap_xml_raw",
+      "community": 7,
+      "community_name": "i18n.test.tsx",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_public_sitemap_xml_raw",
       "source_file": "",
       "type": "external"
     }
@@ -1821,6 +1959,30 @@
       "weight": 1.0
     },
     {
+      "source": "src_i18n_i18n_test",
+      "target": "src_components_desktop_menubar_menubar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_components_desktop_desktop_desktop",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
       "source": "src_store_desktop_usedesktopstore",
       "target": "src_store_desktop_skipboot",
       "relation": "calls",
@@ -1830,6 +1992,78 @@
       "context": "call",
       "source_file": "src/store/desktop.ts",
       "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_frenchlines",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_strings",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_domtexts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_parse",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_meta",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_resetstore",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -2430,6 +2664,30 @@
       "context": "import",
       "source_file": "src/i18n/en.ts",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_store_desktop_usedesktopstore",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_en_en",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -3409,6 +3667,126 @@
       "weight": 1.0
     },
     {
+      "source": "src_i18n_i18n_test",
+      "target": "ref_vitest",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "ref_public_sitemap_xml_raw",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "ref_testing_library_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_store_desktop",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_components_desktop_desktop",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_components_desktop_menubar",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_en",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "ref_docs_missions_glossaire_en_md_raw",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "ref_index_html_raw",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_i18n_i18n_test",
+      "target": "ref_en_index_html_raw",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "src_i18n_index",
       "target": "src_i18n_fr",
       "relation": "imports_from",
@@ -4072,6 +4450,17 @@
       "weight": 1.0
     },
     {
+      "source": "src_i18n_i18n_test",
+      "target": "src_i18n_i18n_test_allowed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/i18n/i18n.test.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
       "source": "src_i18n_index",
       "target": "src_i18n_index_t",
       "relation": "contains",
@@ -4195,5 +4584,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a26287b40ba142175bc5b9a95b81f76e9fac5696"
+  "built_at_commit": "1504a6b2a59e6e6b378cdbd477fb4796b6f6d55b"
 }
